@@ -7,6 +7,11 @@ const Search = () => {
         placeholder="Search for questions"
         className={styles.searchField}
       ></input>
+      <img
+        src="magnifier.png"
+        alt="search-icon"
+        className={styles.searchIcon}
+      ></img>
     </div>
   );
 };

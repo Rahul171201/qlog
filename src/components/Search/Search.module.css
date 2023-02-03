@@ -5,6 +5,7 @@
   display: flex;
   justify-content: right;
   align-items: center;
+  position: relative;
 }
 
 .searchField {
@@ -13,4 +14,17 @@
   padding: 20px;
   border: 1px solid rgb(61, 1, 182);
   border-radius: 9px;
+}
+.searchIcon {
+  width: 30px;
+  height: auto;
+  position: absolute;
+  right: 60px;
+}
+
+@media (max-width: 550px) {
+  .searchIcon {
+    width: 20px;
+    height: auto;
+  }
 }
