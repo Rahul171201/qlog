@@ -12,6 +12,51 @@
   min-height: 300px;
   border: 1px solid rgb(144, 122, 233);
   border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.question {
+  width: 80%;
+  border: 1px solid black;
+  font-size: 2rem;
+  display: flex;
+}
+
+.answer {
+  width: 90%;
+  border: 1px solid black;
+  font-size: 1rem;
+}
+
+.starIcon {
+  width: 30px;
+}
+
+.rating {
+  background-image: url("/star.png");
+  background-repeat: no-repeat;
+  display: flex;
+  border: 1px solid black;
+  width: 200px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+.ratingValue {
+  font-size: 1rem;
+  margin-left: 10px;
+}
+
+.horizontalRule {
+  width: 92%;
+  height: 5px;
+  background-color: rgb(222, 216, 216);
+  border: none;
+  border-radius: 5px;
+  opacity: 0.5;
 }
 
 .circle {

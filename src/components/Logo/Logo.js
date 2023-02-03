@@ -1,14 +1,14 @@
 import styles from "./Logo.module.css";
 import { Itim } from "@next/font/google";
 
-const roboto = Itim({
+const itim = Itim({
   weight: "400",
   subsets: ["latin"],
 });
 
 const Logo = () => {
   return (
-    <div className={`${styles.logoWrapper} ${roboto.className}`}>
+    <div className={`${styles.logoWrapper} ${itim.className}`}>
       <span className={styles.firstHalf}>Q</span>
       <p className={styles.secondHalf}>Log</p>
     </div>
