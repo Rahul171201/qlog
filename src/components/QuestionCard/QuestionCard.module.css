@@ -1,0 +1,43 @@
+.cardWrapper {
+  width: 80%;
+  min-height: 300px;
+  background-color: white;
+  position: relative;
+  border-radius: 15px;
+  margin: 50px 0px;
+}
+
+.card {
+  width: 100%;
+  min-height: 300px;
+  border: 1px solid rgb(144, 122, 233);
+  border-radius: 15px;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 4px solid rgb(123, 3, 79);
+  background-color: rgb(213, 19, 234);
+}
+
+.bigCircle {
+  width: 100px;
+  height: 100px;
+  top: -50px;
+  left: -50px;
+}
+
+.mediumCircle {
+  width: 80px;
+  height: 80px;
+  top: 60px;
+  left: -40px;
+}
+
+.smallCircle {
+  width: 50px;
+  height: 50px;
+  top: -25px;
+  left: 60px;
+}
