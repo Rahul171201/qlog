@@ -3,6 +3,7 @@
   min-height: 800px;
   background-color: white;
   display: flex;
+  border-radius: 9px 0px 0px 9px;
 }
 .heading {
   font-size: 3rem;
@@ -36,7 +37,7 @@
   cursor: pointer;
 }
 .listItem:hover {
-  background-color: rgb(174, 230, 230);
+  background-color: rgb(186, 155, 208);
 }
 
 @media (max-width: 1000px) {

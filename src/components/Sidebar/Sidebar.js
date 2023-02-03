@@ -10,7 +10,6 @@ const Sidebar = () => {
   return (
     <div className={`${styles.sideBarWrapper} ${lato.className}`}>
       <div className={styles.sideBar}>
-        <div className={styles.heading}>Question Tags</div>
         <ul className={styles.list}>
           <li className={styles.listItem}>Music</li>
           <li className={styles.listItem}>Sports</li>
