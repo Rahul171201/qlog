@@ -1,4 +1,5 @@
 import styles from "./Search.module.css";
+import Image from "next/image";
 
 const Search = () => {
   return (
@@ -7,11 +8,16 @@ const Search = () => {
         placeholder="Search for questions"
         className={styles.searchField}
       ></input>
-      <img
-        src="magnifier.png"
+      <Image
+        src="/magnifier.png"
         alt="search-icon"
+        width={30}
+        height={30}
         className={styles.searchIcon}
-      ></img>
+      ></Image>
+      {/* <img
+        
+      ></img> */}
     </div>
   );
 };

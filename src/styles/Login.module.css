@@ -1,0 +1,51 @@
+.loginMain {
+  width: 100vw;
+  min-height: 100vh;
+  background-image: url("/bg-desktop.svg");
+  background-color: blueviolet;
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+}
+
+.loginWrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.descriptionBox {
+  width: 40%;
+  min-height: 70vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.questionMark {
+  font-size: 20rem;
+}
+
+.description {
+  font-size: 2rem;
+  width: 80%;
+}
+
+@media (max-width: 550px) {
+  .navbar {
+    height: 100px;
+  }
+  .loginWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .descriptionBox {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}

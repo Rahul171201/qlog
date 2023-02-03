@@ -16,8 +16,8 @@
   border-radius: 9px;
 }
 .searchIcon {
-  width: 30px;
-  height: auto;
+  /* width: 30px;
+  height: auto; */
   position: absolute;
   right: 60px;
 }
