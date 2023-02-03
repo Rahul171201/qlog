@@ -1,0 +1,27 @@
+.main {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/bg-desktop.svg");
+  background-color: blueviolet;
+}
+.navbar {
+  width: 100%;
+  display: flex;
+}
+
+.feedWrapper {
+  border: 1px solid black;
+  width: 100%;
+  min-height: 800px;
+  display: flex;
+}
+.feedBox {
+  border: 1px solid black;
+  width: 70%;
+  min-height: 800px;
+}
+.detailBox {
+  border: 1px solid black;
+  width: 30%;
+  min-height: 800px;
+}

@@ -1,0 +1,14 @@
+.logoWrapper {
+  border: 1px solid black;
+  width: 30%;
+  min-height: 100px;
+  padding: 50px;
+  display: flex;
+  color: white;
+}
+.firstHalf {
+  font-size: 4rem;
+}
+.secondHalf {
+  font-size: 2rem;
+}
