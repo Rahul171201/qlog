@@ -6,21 +6,14 @@
 }
 
 .feedWrapper {
-  border: 1px solid black;
   width: 100%;
   min-height: 800px;
   display: flex;
 }
 .feedBox {
-  border: 1px solid black;
   width: 70%;
   min-height: 800px;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.detailBox {
-  border: 1px solid black;
-  width: 30%;
-  min-height: 800px;
 }

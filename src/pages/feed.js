@@ -1,6 +1,7 @@
 import styles from "../styles/Feed.module.css";
 import Navbar from "@/components/Navbar/Navbar";
 import QuestionCard from "@/components/QuestionCard/QuestionCard";
+import Sidebar from "@/components/Sidebar/Sidebar";
 
 const Feed = () => {
   return (
@@ -12,7 +13,7 @@ const Feed = () => {
           <QuestionCard></QuestionCard>
           <QuestionCard></QuestionCard>
         </div>
-        <div className={styles.detailBox}></div>
+        <Sidebar></Sidebar>
       </div>
     </main>
   );

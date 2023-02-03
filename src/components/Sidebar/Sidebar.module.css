@@ -1,0 +1,37 @@
+.sideBarWrapper {
+  width: 30%;
+  min-height: 800px;
+}
+.heading {
+  font-size: 3rem;
+}
+
+.sideBar {
+  color: white;
+  width: 30vw;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  position: fixed;
+  top: 250px;
+  right: 0;
+}
+
+.list {
+  line-height: 2;
+}
+
+.listItem {
+  width: 20vw;
+  font-size: 1.5rem;
+  list-style: none;
+  background-color: rgb(138, 169, 236);
+  margin: 20px 0px;
+  cursor: pointer;
+}
+.listItem:hover {
+  background-color: rgb(174, 230, 230);
+}
