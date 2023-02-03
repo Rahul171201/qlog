@@ -20,14 +20,12 @@
 
 .question {
   width: 80%;
-  border: 1px solid black;
   font-size: 2rem;
   display: flex;
 }
 
 .answer {
   width: 90%;
-  border: 1px solid black;
   font-size: 1rem;
 }
 
@@ -39,7 +37,6 @@
   background-image: url("/star.png");
   background-repeat: no-repeat;
   display: flex;
-  border: 1px solid black;
   width: 200px;
   align-items: center;
   text-align: center;

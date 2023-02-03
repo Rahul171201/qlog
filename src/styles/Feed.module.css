@@ -4,10 +4,6 @@
   background-image: url("/bg-desktop.svg");
   background-color: blueviolet;
 }
-.navbar {
-  width: 100%;
-  display: flex;
-}
 
 .feedWrapper {
   border: 1px solid black;
