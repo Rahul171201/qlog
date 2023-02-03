@@ -18,13 +18,13 @@
   justify-content: space-evenly;
 }
 
-.question {
+.questionTitle {
   width: 80%;
   font-size: 2rem;
   display: flex;
 }
 
-.answer {
+.questionDescription {
   width: 90%;
   font-size: 1rem;
 }
@@ -82,4 +82,38 @@
   height: 50px;
   top: -25px;
   left: 60px;
+}
+
+@media (max-width: 550px) {
+  .cardWrapper {
+    margin-left: 10px;
+  }
+  .bigCircle {
+    width: 80px;
+    height: 80px;
+    top: -40px;
+    left: -40px;
+  }
+
+  .mediumCircle {
+    width: 60px;
+    height: 60px;
+    top: 60px;
+    left: -30px;
+  }
+
+  .smallCircle {
+    width: 30px;
+    height: 30px;
+    top: -15px;
+    left: 60px;
+  }
+
+  .questionTitle {
+    padding: 15px;
+    font-size: 1.5rem;
+  }
+  .questionDescription {
+    padding: 30px;
+  }
 }

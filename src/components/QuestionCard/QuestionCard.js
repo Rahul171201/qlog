@@ -10,7 +10,7 @@ const QuestionCard = () => {
   return (
     <div className={styles.cardWrapper}>
       <div className={`${styles.card} ${lato.className}`}>
-        <div className={styles.question}>
+        <div className={styles.questionTitle}>
           <span>Why are most of the men becoming lazy day by day?</span>
           <div className={styles.rating}>
             <img
@@ -22,7 +22,7 @@ const QuestionCard = () => {
           </div>
         </div>
         <hr className={styles.horizontalRule}></hr>
-        <div className={styles.answer}>
+        <div className={styles.questionDescription}>
           The reason might be because of so and so.....so and so...loem ipsum
           backchodi. The reason might be because of so and so.....so and
           so...loem ipsum backchodi The reason might be because of so and
