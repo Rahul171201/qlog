@@ -19,6 +19,7 @@ const Form = (props) => {
               type={item.type}
               placeholder={item.placeholder}
               key={idx}
+              image={item.image}
             ></Input>
           );
         })}
@@ -29,12 +30,12 @@ const Form = (props) => {
         </div>
         <div className={styles.buttonWrapper}>
           <button type="submit" className={styles.submitButton}>
-            Login
+            {props.mainButton}
           </button>
         </div>
         <div className={styles.alternateLinkWrapper}>
           <a href="#" className={styles.alternateLink}>
-            Sign Up
+            {props.alternateButton}
           </a>
         </div>
       </form>

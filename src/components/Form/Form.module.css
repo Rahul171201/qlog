@@ -26,6 +26,7 @@
   margin-bottom: 30px;
   justify-content: center;
   align-items: left;
+  position: relative;
 }
 
 .label {
@@ -40,7 +41,7 @@
   border-top: none;
   border-left: none;
   border-right: none;
-  padding: 20px;
+  padding: 30px;
 }
 
 .forgotPasswordWrapper {
@@ -93,6 +94,12 @@
   align-items: center;
   text-decoration: none;
   color: black;
+}
+
+.imageIcon {
+  position: absolute;
+  left: 5px;
+  top: 48px;
 }
 
 @media (max-width: 550px) {

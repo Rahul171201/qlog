@@ -1,5 +1,6 @@
 import styles from "../Form.module.css";
 import { Lato } from "@next/font/google";
+import Image from "next/image";
 
 const lato = Lato({
   weight: "400",
@@ -14,7 +15,15 @@ const Input = (props) => {
         type={props.type}
         placeholder={props.placeholder}
         className={styles.inputField}
+        required
       ></input>
+      <Image
+        src={props.image}
+        alt="user-icon"
+        width={20}
+        height={20}
+        className={styles.imageIcon}
+      ></Image>
     </div>
   );
 };

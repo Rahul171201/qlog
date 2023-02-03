@@ -10,10 +10,16 @@ const itim = Itim({
 
 const inputFieldData = [
   {
+    type: "email",
+    placeholder: "Type your email address",
+    label: "Email",
+    image: "/email.png",
+  },
+  {
     type: "text",
-    placeholder: "Type your user id",
-    label: "User Id",
-    image: "/user.png",
+    placeholder: "Type your user name",
+    label: "Username",
+    image: "/id-card.png",
   },
   {
     type: "text",
@@ -21,9 +27,15 @@ const inputFieldData = [
     label: "Password",
     image: "/padlock.png",
   },
+  {
+    type: "text",
+    placeholder: "Confirm your password",
+    label: "Confirm Password",
+    image: "/padlock.png",
+  },
 ];
 
-const Login = () => {
+const Register = () => {
   return (
     <main className={styles.loginMain}>
       <div className={styles.navbar}>
@@ -40,14 +52,14 @@ const Login = () => {
           </div>
         </div>
         <Form
-          name="Login"
+          name="Register"
           data={inputFieldData}
-          mainButton="Login"
-          alternateButton="Sign Up"
+          mainButton="Sign Up"
+          alternateButton="Login"
         ></Form>
       </div>
     </main>
   );
 };
 
-export default Login;
+export default Register;
