@@ -1,0 +1,108 @@
+.main {
+  width: 100vw;
+  min-height: 100vh;
+  background-image: url("/bg-desktop.svg");
+  background-color: blueviolet;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.contentWrapper {
+  width: 95%;
+  min-height: 80vh;
+  margin: 30px 0px;
+}
+.questionBox {
+  width: 100%;
+  background-color: white;
+  height: min-content;
+  display: flex;
+  padding: 50px;
+  justify-content: space-between;
+  border-radius: 9px;
+}
+.questionWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 150px;
+  flex: 3;
+  gap: 12px;
+}
+.questionTitle {
+  font-size: 2.3rem;
+}
+.questionDescription {
+  font-size: 1.2rem;
+}
+.ratingWrapper {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  position: relative;
+}
+.rating {
+  color: black;
+  z-index: 1;
+  position: absolute;
+  top: 18px;
+  right: 20px;
+}
+.infoWrapper {
+  width: max-content;
+  min-height: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+  justify-content: right;
+  margin-left: auto;
+  font-size: 0.9rem;
+  justify-content: center;
+  align-items: center;
+  color: grey;
+}
+.questionSideBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+.answersBox {
+  width: 100%;
+  height: min-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0px;
+}
+.icon {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  cursor: pointer;
+}
+.tagBox {
+  display: flex;
+  gap: 10px;
+}
+.tag {
+  text-decoration: none;
+  color: rgb(103, 161, 255);
+}
+
+@media (max-width: 550px) {
+  .questionTitle {
+    font-size: 2rem;
+  }
+  .questionDescription {
+    font-size: 1rem;
+  }
+  .tagBox {
+    font-size: 0.8rem;
+  }
+  .infoWrapper {
+    margin-right: -29px;
+  }
+}
