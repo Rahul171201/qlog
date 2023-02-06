@@ -11,3 +11,9 @@
 .secondHalf {
   font-size: 2rem;
 }
+
+@media (max-width: 550px) {
+  .logoWrapper {
+    justify-content: center;
+  }
+}

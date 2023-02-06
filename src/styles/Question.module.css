@@ -43,11 +43,12 @@
   position: relative;
 }
 .rating {
-  color: black;
+  color: white;
   z-index: 1;
   position: absolute;
   top: 18px;
   right: 20px;
+  cursor: pointer;
 }
 .infoWrapper {
   width: max-content;

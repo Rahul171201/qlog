@@ -23,6 +23,11 @@
 }
 
 @media (max-width: 550px) {
+  .searchWrapper {
+    width: 100%;
+    margin-top: 0;
+    padding-top: 0;
+  }
   .searchIcon {
     width: 20px;
     height: auto;

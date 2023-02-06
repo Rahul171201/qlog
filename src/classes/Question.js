@@ -3,7 +3,7 @@ class Question {
   #ratedBy;
 
   // constructor function
-  constructor(id, title, description, ownerName, ownerId, tags) {
+  constructor(id, title, description, ownerName, ownerId, tags, date) {
     this.id = id;
     this.title = title;
     this.description = description;
@@ -11,7 +11,7 @@ class Question {
     this.answers = [];
     this.rating = 0;
     this.tags = tags;
-
+    this.date = date;
     // initilizing private fields
     this.#ratedBy = new Map();
   }
@@ -47,14 +47,18 @@ class Question {
 
   /**
    * Checks if the current user has already rated,
-   * if not then increases the rating by one
+   * if not then increases the rating by one,
+   * else decreases by one
    * @param {number} userId
    * @param {string} userName
    */
-  increaseRating(userId, userName) {
+  toggleRating(userId, userName) {
     if (!this.#ratedBy.has(userId)) {
       this.#ratedBy.set(userId, userName);
       this.rating += 1;
+    } else {
+      this.#ratedBy.delete(userId);
+      this.rating -= 1;
     }
   }
 

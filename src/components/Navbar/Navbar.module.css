@@ -2,3 +2,12 @@
   width: 100%;
   display: flex;
 }
+
+@media (max-width: 550px) {
+  .navbar {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+  }
+}
