@@ -6,28 +6,25 @@ const lato = Lato({
   subsets: ["latin"],
 });
 
-const QuestionCard = () => {
+const QuestionCard = (props) => {
+  console.log("hmm");
+  console.log(props);
   return (
     <div className={styles.cardWrapper}>
       <div className={`${styles.card} ${lato.className}`}>
         <div className={styles.questionTitle}>
-          <span>Why are most of the men becoming lazy day by day?</span>
+          <span>{props.q.title}</span>
           <div className={styles.rating}>
             <img
               src="star.png"
               alt="star-icon"
               className={styles.starIcon}
             ></img>
-            <span className={styles.ratingValue}>243</span>
+            <span className={styles.ratingValue}>{props.q.rating}</span>
           </div>
         </div>
         <hr className={styles.horizontalRule}></hr>
-        <div className={styles.questionDescription}>
-          The reason might be because of so and so.....so and so...loem ipsum
-          backchodi. The reason might be because of so and so.....so and
-          so...loem ipsum backchodi The reason might be because of so and
-          so.....so and so...loem ipsum backchodi
-        </div>
+        <div className={styles.questionDescription}>{props.q.description}</div>
       </div>
       <div className={`${styles.circle} ${styles.bigCircle}`}></div>
       <div className={`${styles.circle} ${styles.mediumCircle}`}></div>

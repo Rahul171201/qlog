@@ -3,12 +3,12 @@ class Question {
   #ratedBy;
 
   // constructor function
-  constructor(id, title, description, ownerName, ownerId, answers, tags) {
+  constructor(id, title, description, ownerName, ownerId, tags) {
     this.id = id;
     this.title = title;
     this.description = description;
     this.ownerName = ownerName;
-    this.answers = answers;
+    this.answers = [];
     this.rating = 0;
     this.tags = tags;
 

@@ -1,6 +1,7 @@
 class User {
   // fields
   answered;
+  asked;
   #upvoted;
   #downvoted;
   #rated;
@@ -11,6 +12,7 @@ class User {
     this.userName = userName;
     this.email = email;
     this.answered = [];
+    this.asked = [];
     this.#upvoted = new Map();
     this.#downvoted = new Map();
     this.#rated = new Map();
