@@ -19,6 +19,7 @@ const Sidebar = () => {
           <li className={styles.listItem}>Dance</li>
           <li className={styles.listItem}>Technology</li>
           <li className={styles.listItem}>Finance</li>
+          <li className={styles.listItem}>Health</li>
         </ul>
       </div>
     </div>
