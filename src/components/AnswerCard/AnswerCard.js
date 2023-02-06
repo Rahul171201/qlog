@@ -26,6 +26,7 @@ const AnswerCard = () => {
           cham pum pum pum rol ol rol
         </div>
       </div>
+      <div className={styles.bookmarkDesign}></div>
     </div>
   );
 };

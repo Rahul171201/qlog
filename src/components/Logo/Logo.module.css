@@ -4,6 +4,7 @@
   padding: 50px;
   display: flex;
   color: white;
+  cursor: pointer;
 }
 .firstHalf {
   font-size: 4rem;

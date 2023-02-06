@@ -8,7 +8,8 @@ let q0 = new Question(
   I wanted to know the reasons behind this.`,
   "Sainath Reddy",
   16,
-  ["research", "health"]
+  ["research", "health"],
+  new Date()
 );
 
 let q1 = new Question(
@@ -20,7 +21,8 @@ let q1 = new Question(
    I dont understand! Someone please explain`,
   "Rahul Roy",
   1,
-  ["climate", "health", "weather"]
+  ["climate", "health", "weather"],
+  new Date()
 );
 
 let q2 = new Question(
@@ -32,7 +34,8 @@ let q2 = new Question(
   Please share your views`,
   "Jinesh Kanjiya",
   25,
-  ["politics", "modi", "india"]
+  ["politics", "modi", "india"],
+  new Date()
 );
 
 let q3 = new Question(
@@ -43,7 +46,8 @@ let q3 = new Question(
   progress. Great help if anybody could share!`,
   "Sushant Bhatia",
   49,
-  ["technology", "industry"]
+  ["technology", "industry"],
+  new Date()
 );
 
 let q4 = new Question(
@@ -52,7 +56,8 @@ let q4 = new Question(
   `Everybody debates on this question. But I wanted to know the views of you folks!`,
   "Rahul Roy",
   1,
-  ["sports", "football"]
+  ["sports", "football"],
+  new Date()
 );
 
 let res = [q0, q1, q2, q3, q4];

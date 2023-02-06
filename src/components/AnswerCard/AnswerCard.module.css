@@ -5,8 +5,9 @@
   background-color: rgb(235, 229, 246);
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 30px;
   border-radius: 0px 20px 20px 0px;
+  position: relative;
 }
 .leftBox {
   display: flex;
@@ -73,6 +74,17 @@
   position: absolute;
   top: -42px;
   right: -9px;
+}
+.bookmarkDesign {
+  width: 0;
+  height: 0;
+  border-top: 20px solid rgb(250, 156, 62);
+  border-left: 20px solid rgb(250, 156, 62);
+  border-right: 20px solid rgb(250, 156, 62);
+  border-bottom: 20px solid transparent;
+  position: absolute;
+  top: -15px;
+  left: -20px;
 }
 
 @media (max-width: 550px) {

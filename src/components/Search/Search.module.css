@@ -20,6 +20,7 @@
   height: auto; */
   position: absolute;
   right: 60px;
+  cursor: pointer;
 }
 
 @media (max-width: 550px) {
