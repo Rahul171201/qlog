@@ -3,43 +3,68 @@ import styles from "./Question.module.css";
 import Image from "next/image";
 import AnswerCard from "@/components/AnswerCard/AnswerCard";
 import { Lato } from "@next/font/google";
+import questions from "../../data/questions";
 
 const lato = Lato({
   weight: "400",
   subsets: ["latin"],
 });
 
-const Question = () => {
+export const getStaticPaths = () => {
+  const paths = questions.map((q) => {
+    return {
+      params: { id: q.id.toString() },
+    };
+  });
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export const getStaticProps = (context) => {
+  const id = context.params.id;
+  let myQuestion;
+  questions.forEach((q) => {
+    if (q.id.toString() === id) {
+      myQuestion = q;
+    }
+  });
+  myQuestion = JSON.stringify(myQuestion);
+  return {
+    props: {
+      question: myQuestion,
+    },
+  };
+};
+
+const Question = ({ question }) => {
+  question = JSON.parse(question);
+
   return (
     <main className={styles.main}>
       <Navbar></Navbar>
       <div className={`${styles.contentWrapper} ${lato.className}`}>
         <div className={styles.questionBox}>
           <div className={styles.questionWrapper}>
-            <div className={styles.questionTitle}>
-              Why are men getting lazy day by day?
-            </div>
+            <div className={styles.questionTitle}>{question.title}</div>
             <div className={styles.questionDescription}>
-              According to recent studies, men have become lazy over the past
-              decade. Laziness not only reduces productivity but also impacts
-              health. I wanted to know the reasons behind this.
+              {question.description}
             </div>
             <div className={styles.tagBox}>
-              <a href="#" className={styles.tag}>
-                #health
-              </a>
-              <a href="#" className={styles.tag}>
-                #home
-              </a>
-              <a href="#" className={styles.tag}>
-                #philosophy
-              </a>
+              {question.tags.map((tag, idx) => {
+                return (
+                  <a href="#" className={styles.tag} key={idx}>
+                    #{tag}
+                  </a>
+                );
+              })}{" "}
             </div>
           </div>
 
           <div className={styles.questionSideBox}>
             <div className={styles.ratingWrapper}>
-              <span className={styles.rating}>3</span>
+              <span className={styles.rating}>{question.rating}</span>
               <Image
                 src="/star.png"
                 alt="rating-icon"
@@ -49,8 +74,8 @@ const Question = () => {
               ></Image>
             </div>
             <div className={styles.infoWrapper}>
-              <span>Sainath Reddy</span>
-              <span>2 days ago</span>
+              <span>{question.ownerName}</span>
+              <span>{question.date}</span>
             </div>
           </div>
         </div>
