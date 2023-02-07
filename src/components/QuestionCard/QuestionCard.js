@@ -1,5 +1,6 @@
 import styles from "./QuestionCard.module.css";
 import { Lato } from "@next/font/google";
+import Link from "next/link";
 
 const lato = Lato({
   weight: "400",
@@ -7,10 +8,8 @@ const lato = Lato({
 });
 
 const QuestionCard = (props) => {
-  console.log("hmm");
-  console.log(props);
   return (
-    <div className={styles.cardWrapper}>
+    <Link href={"/q/" + props.q.id} className={styles.cardWrapper}>
       <div className={`${styles.card} ${lato.className}`}>
         <div className={styles.questionTitle}>
           <span>{props.q.title}</span>
@@ -29,7 +28,7 @@ const QuestionCard = (props) => {
       <div className={`${styles.circle} ${styles.bigCircle}`}></div>
       <div className={`${styles.circle} ${styles.mediumCircle}`}></div>
       <div className={`${styles.circle} ${styles.smallCircle}`}></div>
-    </div>
+    </Link>
   );
 };
 
