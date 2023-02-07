@@ -3,11 +3,56 @@
   display: flex;
 }
 
-@media (max-width: 550px) {
+.navListWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 3;
+  color: white;
+}
+
+.navList {
+  width: 100%;
+  display: flex;
+  list-style: none;
+  justify-content: right;
+  align-items: right;
+  gap: 18px;
+}
+
+.hamburgerWrapper {
+  display: none;
+}
+
+.navListItem {
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .navListWrapper {
+    display: none;
+  }
+  .hamburgerWrapper {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    flex: 2;
+  }
+  .hamburgerIcon {
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 750px) {
   .navbar {
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     border: 1px solid black;
+  }
+  .hamburgerIcon {
+    margin-right: 20px;
   }
 }

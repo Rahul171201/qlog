@@ -1,10 +1,12 @@
 .searchWrapper {
-  width: 70%;
+  flex: 2;
   min-height: 100px;
   padding: 50px;
   display: flex;
   justify-content: right;
   align-items: center;
+}
+.inputWrapper {
   position: relative;
 }
 
@@ -16,21 +18,27 @@
   border-radius: 9px;
 }
 .searchIcon {
-  /* width: 30px;
-  height: auto; */
   position: absolute;
-  right: 60px;
+  right: 5px;
+  top: 10px;
   cursor: pointer;
 }
 
-@media (max-width: 550px) {
+@media (max-width: 750px) {
   .searchWrapper {
     width: 100%;
     margin-top: 0;
     padding-top: 0;
+    justify-content: center;
+    align-items: center;
+  }
+  .searchField {
+    width: 300px;
   }
   .searchIcon {
     width: 20px;
     height: auto;
+    right: 10px;
+    top: 15px;
   }
 }
