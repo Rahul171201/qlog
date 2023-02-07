@@ -24,15 +24,12 @@
   width: 80%;
   font-size: 2rem;
   display: flex;
+  justify-content: space-between;
 }
 
 .questionDescription {
   width: 90%;
   font-size: 1rem;
-}
-
-.starIcon {
-  width: 30px;
 }
 
 .rating {

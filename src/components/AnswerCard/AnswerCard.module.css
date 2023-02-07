@@ -30,6 +30,8 @@
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
+  color: rgb(130, 110, 231);
 }
 .horizontalRule {
   width: 100%;
@@ -38,7 +40,7 @@
   opacity: 0.3;
 }
 .content {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   padding: 10px;
 }
 .upVote {
@@ -66,14 +68,16 @@
   border-top: 50px solid rgb(246, 28, 28);
 }
 .upvoteCount {
-  position: absolute;
-  bottom: -40px;
-  right: -15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 }
 .downvoteCount {
-  position: absolute;
-  top: -42px;
-  right: -9px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -40px;
 }
 .bookmarkDesign {
   width: 0;
@@ -120,6 +124,6 @@
     font-size: 0.9rem;
   }
   .content {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
 }

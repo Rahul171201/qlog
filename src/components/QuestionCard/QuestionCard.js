@@ -1,6 +1,7 @@
 import styles from "./QuestionCard.module.css";
 import { Lato } from "@next/font/google";
 import Link from "next/link";
+import Image from "next/image";
 
 const lato = Lato({
   weight: "400",
@@ -14,11 +15,12 @@ const QuestionCard = (props) => {
         <div className={styles.questionTitle}>
           <span>{props.q.title}</span>
           <div className={styles.rating}>
-            <img
-              src="star.png"
+            <Image
+              src="/star.png"
               alt="star-icon"
-              className={styles.starIcon}
-            ></img>
+              width={30}
+              height={30}
+            ></Image>
             <span className={styles.ratingValue}>{props.q.rating}</span>
           </div>
         </div>

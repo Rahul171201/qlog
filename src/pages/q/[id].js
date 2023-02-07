@@ -4,6 +4,7 @@ import Image from "next/image";
 import AnswerCard from "@/components/AnswerCard/AnswerCard";
 import { Lato } from "@next/font/google";
 import questions from "../../data/questions";
+import answers from "../../data/answers";
 
 const lato = Lato({
   weight: "400",
@@ -40,6 +41,8 @@ export const getStaticProps = (context) => {
 
 const Question = ({ question }) => {
   question = JSON.parse(question);
+
+  let ans = answers.filter((answer) => answer.qid === question.id);
 
   return (
     <main className={styles.main}>
@@ -80,13 +83,9 @@ const Question = ({ question }) => {
           </div>
         </div>
         <div className={styles.answersBox}>
-          <AnswerCard></AnswerCard>
-          <AnswerCard></AnswerCard>
-          <AnswerCard></AnswerCard>
-          <AnswerCard></AnswerCard>
-          <AnswerCard></AnswerCard>
-          <AnswerCard></AnswerCard>
-          <AnswerCard></AnswerCard>
+          {ans.map((a, idx) => {
+            return <AnswerCard key={idx} answer={a}></AnswerCard>;
+          })}
         </div>
       </div>
     </main>
