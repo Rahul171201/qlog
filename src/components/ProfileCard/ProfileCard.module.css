@@ -1,0 +1,65 @@
+.profileCard {
+  width: 60%;
+  min-height: 200px;
+  background-color: white;
+  border-radius: 9px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.profileImageContainer {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  letter-spacing: 2px;
+}
+
+.profileImage {
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+.name {
+  font-size: 2rem;
+}
+
+.email {
+  color: grey;
+}
+
+@media (max-width: 900px) {
+  .profileImage {
+    width: 120px;
+    height: 120px;
+  }
+  .profileCard {
+    width: 90%;
+  }
+  .name {
+    font-size: 1.5rem;
+  }
+  .email {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .profileImage {
+    width: 100px;
+    height: 100px;
+  }
+  .name {
+    font-size: 1.2rem;
+  }
+  .email {
+    font-size: 0.7rem;
+  }
+}

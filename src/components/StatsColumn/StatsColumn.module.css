@@ -1,0 +1,10 @@
+.columnWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 150px;
+  background-color: rgb(209, 239, 248);
+  flex: 1;
+  margin: 30px 20px;
+  border-radius: 0px 0px 10px 10px;
+  gap: 15px;
+}

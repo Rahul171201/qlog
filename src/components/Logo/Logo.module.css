@@ -5,6 +5,7 @@
   color: white;
   cursor: pointer;
   flex: 1;
+  text-decoration: none;
 }
 .firstHalf {
   font-size: 4rem;
