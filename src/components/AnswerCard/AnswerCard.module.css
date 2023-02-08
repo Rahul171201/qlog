@@ -111,19 +111,16 @@
   .downVote:hover {
     border-top: 40px solid rgb(246, 28, 28);
   }
-  .upvoteCount {
-    bottom: -35px;
-    right: -13px;
-  }
-  .downvoteCount {
-    position: absolute;
-    top: -35px;
-    right: -8px;
-  }
   .header {
     font-size: 0.9rem;
   }
   .content {
     font-size: 1.1rem;
+  }
+  .upvoteCount {
+    margin-top: 17px;
+  }
+  .downvoteCount {
+    margin-top: -35px;
   }
 }

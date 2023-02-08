@@ -78,7 +78,7 @@ const Question = ({ question }) => {
             </div>
             <div className={styles.infoWrapper}>
               <span>{question.ownerName}</span>
-              <span>{question.date}</span>
+              <span>1 day ago</span>
             </div>
           </div>
         </div>
