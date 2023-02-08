@@ -48,4 +48,10 @@
     justify-content: center;
     text-align: center;
   }
+  .questionMark {
+    font-size: 15rem;
+  }
+  .description {
+    font-size: 2rem;
+  }
 }
