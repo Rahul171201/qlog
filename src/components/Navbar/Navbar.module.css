@@ -1,6 +1,23 @@
+.overlay {
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+  background-color: rgb(71, 65, 65);
+  z-index: 1;
+  top: 0;
+  opacity: 0.5;
+}
+
+.navbarWrapper {
+  width: 100vw;
+  height: min-content;
+}
+
 .navbar {
   width: 100%;
   display: flex;
+  z-index: 1;
+  position: relative;
 }
 
 .navListWrapper {
@@ -22,10 +39,40 @@
 
 .hamburgerWrapper {
   display: none;
+  position: relative;
 }
 
 .navListItem {
   text-decoration: none;
+  cursor: pointer;
+  letter-spacing: 2px;
+}
+
+.hamburgerMenu {
+  display: flex;
+  width: 130px;
+  height: min-content;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: rgb(22, 110, 224);
+  flex-direction: column;
+  background-color: white;
+  padding: 20px;
+  border: 1px solid black;
+  z-index: 2;
+  border-radius: 10px 0px 10px 10px;
+}
+.menuList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hamburgerItem {
+  cursor: pointer;
+  letter-spacing: 2px;
 }
 
 @media (max-width: 900px) {
@@ -50,9 +97,15 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
   }
   .hamburgerIcon {
     margin-right: 20px;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 550px) {
+  .hamburgerMenu {
+    width: 200px;
   }
 }

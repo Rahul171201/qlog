@@ -1,9 +1,11 @@
 .searchWrapper {
   flex: 2;
   min-height: 100px;
-  padding: 50px;
+  padding: 0 50px;
   display: flex;
   justify-content: right;
+  align-items: center;
+  justify-content: center;
   align-items: center;
 }
 .inputWrapper {
