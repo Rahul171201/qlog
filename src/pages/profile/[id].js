@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import ProfileCard from "@/components/ProfileCard/ProfileCard";
 import StatsColumn from "@/components/StatsColumn/StatsColumn";
 import { Lato } from "@next/font/google";
+import { UserContext } from "@/contexts/UserContext";
 
 const lato = Lato({
   weight: "400",
@@ -11,22 +12,30 @@ const lato = Lato({
 
 const Profile = () => {
   return (
-    <div className={`${styles.profileWrapper} ${lato.className}`}>
-      <Navbar></Navbar>
-      <div className={styles.mainbodyWrapper}>
-        <ProfileCard></ProfileCard>
-        <div className={styles.statsPanel}>
-          <div className={styles.questionPanel}>
-            <span className={styles.panelHeader}>Recently Asked</span>
-            <StatsColumn></StatsColumn>
+    <UserContext.Consumer>
+      {(context) => {
+        const currentUser = context;
+        console.log(currentUser);
+        return (
+          <div className={`${styles.profileWrapper} ${lato.className}`}>
+            <Navbar></Navbar>
+            <div className={styles.mainbodyWrapper}>
+              <ProfileCard></ProfileCard>
+              <div className={styles.statsPanel}>
+                <div className={styles.questionPanel}>
+                  <span className={styles.panelHeader}>Recently Asked</span>
+                  <StatsColumn></StatsColumn>
+                </div>
+                <div className={styles.answerPanel}>
+                  <span className={styles.panelHeader}>Recently Answered</span>
+                  <StatsColumn></StatsColumn>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className={styles.answerPanel}>
-            <span className={styles.panelHeader}>Recently Answered</span>
-            <StatsColumn></StatsColumn>
-          </div>
-        </div>
-      </div>
-    </div>
+        );
+      }}
+    </UserContext.Consumer>
   );
 };
 
