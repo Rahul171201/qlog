@@ -7,7 +7,7 @@ class User {
   #rated;
 
   // constructor function
-  constructor(userId, userName, email) {
+  constructor(userId, userName, email, password) {
     this.userId = userId;
     this.userName = userName;
     this.email = email;
@@ -16,6 +16,7 @@ class User {
     this.#upvoted = new Map();
     this.#downvoted = new Map();
     this.#rated = new Map();
+    this.password = password;
   }
 
   /**

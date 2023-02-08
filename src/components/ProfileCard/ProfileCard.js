@@ -13,7 +13,7 @@ const ProfileCard = () => {
   return (
     <UserContext.Consumer>
       {(context) => {
-        const currentUser = context;
+        let { user, setUser } = context;
         return (
           <div className={`${styles.profileCard} ${lato.className}`}>
             <div className={styles.profileImageContainer}>
@@ -26,8 +26,8 @@ const ProfileCard = () => {
               ></Image>
             </div>
             <div className={styles.infoContainer}>
-              <span className={styles.name}>{currentUser.userName}</span>
-              <span className={styles.email}>{currentUser.email}</span>
+              <span className={styles.name}>{user.userName}</span>
+              <span className={styles.email}>{user.email}</span>
             </div>
           </div>
         );

@@ -14,8 +14,7 @@ const Profile = () => {
   return (
     <UserContext.Consumer>
       {(context) => {
-        const currentUser = context;
-        console.log(currentUser);
+        let { user, setUser } = context;
         return (
           <div className={`${styles.profileWrapper} ${lato.className}`}>
             <Navbar></Navbar>
