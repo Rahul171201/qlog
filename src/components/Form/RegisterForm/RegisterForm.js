@@ -1,12 +1,11 @@
 import styles from "./Form.module.css";
 import Input from "../Input/Input";
 import { Lato } from "@next/font/google";
-import { UserContext } from "@/contexts/UserContext";
 import User from "@/classes/User";
-import users from "../../../data/users";
 import { useContext, useEffect, useState } from "react";
 import Router from "next/router";
 import Link from "next/link";
+import { RegisteredUsersContext } from "@/contexts/RegisteredUsersContext";
 
 const lato = Lato({
   weight: "400",
@@ -17,14 +16,13 @@ const RegisterForm = (props) => {
   const [flag, setFlag] = useState(false);
 
   useEffect(() => {
-    console.log("post", flag);
     if (flag) {
       Router.push("/login");
     }
   }, [flag]);
 
-  let context = useContext(UserContext);
-  let { user, setUser } = context;
+  let context = useContext(RegisteredUsersContext);
+  let { registeredUsers, setRegisteredUsers } = context;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,10 +31,11 @@ const RegisterForm = (props) => {
     const userName = e.target[1].value;
     const password = e.target[2].value;
     const confirmPassword = e.target[3].value;
-    let total_users = users.length;
+    let total_users = registeredUsers.length;
 
     if (password === confirmPassword) {
-      setUser(
+      let temp_users = registeredUsers;
+      temp_users.push(
         new User(
           (total_users + 1) * (total_users + 1),
           userName,
@@ -44,6 +43,7 @@ const RegisterForm = (props) => {
           password
         )
       );
+      setRegisteredUsers(temp_users);
       setFlag(true);
     }
   };
@@ -73,7 +73,7 @@ const RegisterForm = (props) => {
             {props.mainButton}
           </button>
         </div>
-        <Link href={"/register"} className={styles.alternateLinkWrapper}>
+        <Link href={"/login"} className={styles.alternateLinkWrapper}>
           <span className={styles.alternateLink}>{props.alternateButton}</span>
         </Link>
       </form>

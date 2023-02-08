@@ -22,13 +22,13 @@ const inputFieldData = [
     image: "/id-card.png",
   },
   {
-    type: "text",
+    type: "password",
     placeholder: "Type your password",
     label: "Password",
     image: "/padlock.png",
   },
   {
-    type: "text",
+    type: "password",
     placeholder: "Confirm your password",
     label: "Confirm Password",
     image: "/padlock.png",

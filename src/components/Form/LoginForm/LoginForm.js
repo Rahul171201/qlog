@@ -16,7 +16,6 @@ const LoginForm = (props) => {
   const [flag, setFlag] = useState(false);
 
   useEffect(() => {
-    console.log("post", flag);
     if (flag) {
       Router.push("/");
     }

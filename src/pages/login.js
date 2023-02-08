@@ -16,7 +16,7 @@ const inputFieldData = [
     image: "/user.png",
   },
   {
-    type: "text",
+    type: "password",
     placeholder: "Type your password",
     label: "Password",
     image: "/padlock.png",

@@ -5,7 +5,6 @@ export const RegisteredUsersContext = createContext();
 
 const RegisteredUsersContextProvider = ({ children }) => {
   const [registeredUsers, setRegisteredUsers] = useState(users);
-
   return (
     <RegisteredUsersContext.Provider
       value={{ registeredUsers, setRegisteredUsers }}
