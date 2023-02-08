@@ -1,18 +1,18 @@
 import styles from "./Form.module.css";
-import Input from "./Input/Input";
+import Input from "../Input/Input";
 import { Lato } from "@next/font/google";
 import { UserContext } from "@/contexts/UserContext";
-import User from "@/classes/User";
-import users from "../../data/users";
+import users from "../../../data/users";
 import { useContext, useEffect, useState } from "react";
 import Router from "next/router";
+import Link from "next/link";
 
 const lato = Lato({
   weight: "400",
   subsets: ["latin"],
 });
 
-const Form = (props) => {
+const LoginForm = (props) => {
   const [flag, setFlag] = useState(false);
 
   useEffect(() => {
@@ -72,14 +72,12 @@ const Form = (props) => {
             {props.mainButton}
           </button>
         </div>
-        <div className={styles.alternateLinkWrapper}>
-          <a href="#" className={styles.alternateLink}>
-            {props.alternateButton}
-          </a>
-        </div>
+        <Link href={"/register"} className={styles.alternateLinkWrapper}>
+          <span className={styles.alternateLink}>{props.alternateButton}</span>
+        </Link>
       </form>
     </div>
   );
 };
 
-export default Form;
+export default LoginForm;

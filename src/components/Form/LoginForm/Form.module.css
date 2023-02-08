@@ -8,6 +8,7 @@
   justify-content: space-evenly;
   position: relative;
   border-radius: 9px;
+  padding: 20px 0px;
 }
 .header {
   font-size: 3rem;
@@ -17,31 +18,6 @@
 
 .form {
   width: 80%;
-}
-
-.inputWrapper {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 30px;
-  justify-content: center;
-  align-items: left;
-  position: relative;
-}
-
-.label {
-  font-size: 1.2rem;
-  margin-bottom: 5px;
-}
-
-.inputField {
-  width: 100%;
-  height: 50px;
-  border: 1px solid rgb(175, 96, 255);
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  padding: 30px;
 }
 
 .forgotPasswordWrapper {
@@ -85,6 +61,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+  text-decoration: none;
 }
 
 .alternateLink {
@@ -92,14 +69,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  text-decoration: none;
   color: black;
 }
 
-.imageIcon {
-  position: absolute;
-  left: 5px;
-  top: 48px;
+@media (max-width: 1000px) {
+  .header {
+    font-size: 2.4rem;
+  }
 }
 
 @media (max-width: 550px) {

@@ -1,7 +1,7 @@
 import styles from "../styles/Login.module.css";
 import Logo from "@/components/Logo/Logo";
 import { Itim } from "@next/font/google";
-import Form from "@/components/Form/Form";
+import LoginForm from "@/components/Form/LoginForm/LoginForm";
 
 const itim = Itim({
   weight: "400",
@@ -39,12 +39,12 @@ const Login = () => {
             </em>
           </div>
         </div>
-        <Form
+        <LoginForm
           name="Login"
           data={inputFieldData}
           mainButton="Login"
           alternateButton="Sign Up"
-        ></Form>
+        ></LoginForm>
       </div>
     </main>
   );
