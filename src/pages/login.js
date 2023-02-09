@@ -2,6 +2,8 @@ import styles from "../styles/Login.module.css";
 import Logo from "@/components/Logo/Logo";
 import { Itim } from "@next/font/google";
 import LoginForm from "@/components/Form/LoginForm/LoginForm";
+import { useContext, useEffect } from "react";
+import { UserContext } from "@/contexts/UserContext";
 
 const itim = Itim({
   weight: "400",
@@ -24,6 +26,13 @@ const inputFieldData = [
 ];
 
 const Login = () => {
+  let context = useContext(UserContext);
+  let { user, setUser } = context;
+
+  useEffect(() => {
+    setUser(undefined);
+  }, []);
+
   return (
     <main className={styles.loginMain}>
       <div className={styles.navbar}>

@@ -74,6 +74,12 @@
 .hamburgerItem {
   cursor: pointer;
   letter-spacing: 2px;
+  text-decoration: none;
+  color: black;
+}
+
+.hamburgerItem:hover {
+  color: rgb(71, 100, 228);
 }
 
 @media (max-width: 900px) {

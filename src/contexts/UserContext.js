@@ -4,9 +4,7 @@ import User from "@/classes/User";
 export const UserContext = createContext();
 
 const UserContextProvider = ({ children }) => {
-  let currentUser = new User(1, "Rahul Roy", "rahulroydps@gmail.com");
-
-  const [user, setUser] = useState(currentUser);
+  const [user, setUser] = useState(undefined);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>

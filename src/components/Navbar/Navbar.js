@@ -41,14 +41,14 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
-                  href={"/profile/" + user.userId}
+                  href={user ? "/profile/" + user.userId : "/feed"}
                   className={styles.navListItem}
                 >
                   PROFILE
                 </Link>
               </li>
               <li>
-                <Link href={"/feed"} className={styles.navListItem}>
+                <Link href={"/login"} className={styles.navListItem}>
                   LOGOUT
                 </Link>
               </li>
@@ -67,9 +67,24 @@ const Navbar = () => {
           {hamburger ? (
             <div className={styles.hamburgerMenu}>
               <ul className={styles.menuList}>
-                <li className={styles.hamburgerItem}>FEED</li>
-                <li className={styles.hamburgerItem}>PROFILE</li>
-                <li className={styles.hamburgerItem}>LOGOUT</li>
+                <li>
+                  <Link href={"/feed"} className={styles.hamburgerItem}>
+                    FEED
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href={user ? "/profile/" + user.userId : "/feed"}
+                    className={styles.hamburgerItem}
+                  >
+                    PROFILE
+                  </Link>
+                </li>
+                <li>
+                  <Link href={"/login"} className={styles.hamburgerItem}>
+                    LOGOUT
+                  </Link>
+                </li>
               </ul>
             </div>
           ) : (
