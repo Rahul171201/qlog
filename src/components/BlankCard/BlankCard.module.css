@@ -1,0 +1,56 @@
+.blankCardWrapper {
+  width: 100%;
+  height: min-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 18px;
+  background-color: white;
+  text-decoration: none;
+}
+
+.title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.horizontalRule {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 1000px) {
+  .title {
+    font-size: 1.5rem;
+  }
+  .content {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .title {
+    font-size: 1.2rem;
+  }
+  .content {
+    font-size: 0.9rem;
+  }
+}

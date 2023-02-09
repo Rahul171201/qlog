@@ -23,11 +23,11 @@ const Profile = () => {
               <div className={styles.statsPanel}>
                 <div className={styles.questionPanel}>
                   <span className={styles.panelHeader}>Recently Asked</span>
-                  <StatsColumn></StatsColumn>
+                  <StatsColumn type="questionColumn"></StatsColumn>
                 </div>
                 <div className={styles.answerPanel}>
                   <span className={styles.panelHeader}>Recently Answered</span>
-                  <StatsColumn></StatsColumn>
+                  <StatsColumn type="answerColumn"></StatsColumn>
                 </div>
               </div>
             </div>

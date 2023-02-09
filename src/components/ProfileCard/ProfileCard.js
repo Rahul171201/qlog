@@ -14,6 +14,7 @@ const ProfileCard = () => {
     <UserContext.Consumer>
       {(context) => {
         let { user, setUser } = context;
+
         return (
           <div className={`${styles.profileCard} ${lato.className}`}>
             <div className={styles.profileImageContainer}>

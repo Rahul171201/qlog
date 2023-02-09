@@ -3,7 +3,9 @@ import Search from "@/components/Search/Search";
 import styles from "./Navbar.module.css";
 import { Lato } from "@next/font/google";
 import Image from "next/image";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import Link from "next/link";
+import { UserContext } from "@/contexts/UserContext";
 
 const lato = Lato({
   weight: "400",
@@ -17,6 +19,9 @@ const Navbar = () => {
     setHamburger(!hamburger);
   };
 
+  let context = useContext(UserContext);
+  let { user, setUser } = context;
+
   return (
     <div className={styles.navbarWrapper}>
       {hamburger ? (
@@ -29,9 +34,24 @@ const Navbar = () => {
         <div className={`${styles.navListWrapper} ${lato.className}`}>
           <div className={styles.navList}>
             <ul className={styles.navList}>
-              <li className={styles.navListItem}>FEED</li>
-              <li className={styles.navListItem}>PROFILE</li>
-              <li className={styles.navListItem}>LOGOUT</li>
+              <li>
+                <Link href={"/feed"} className={styles.navListItem}>
+                  FEED
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={"/profile/" + user.userId}
+                  className={styles.navListItem}
+                >
+                  PROFILE
+                </Link>
+              </li>
+              <li>
+                <Link href={"/feed"} className={styles.navListItem}>
+                  LOGOUT
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
