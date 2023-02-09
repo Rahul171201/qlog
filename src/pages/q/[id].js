@@ -3,46 +3,47 @@ import styles from "./Question.module.css";
 import Image from "next/image";
 import AnswerCard from "@/components/AnswerCard/AnswerCard";
 import { Lato } from "@next/font/google";
-import questions from "../../data/questions";
-import answers from "../../data/answers";
+import { useContext, useEffect, useState } from "react";
+import { AnswersContext } from "@/contexts/AnswersContext";
+import { UserContext } from "@/contexts/UserContext";
+import { QuestionsContext } from "@/contexts/QuestionsContext";
 
 const lato = Lato({
   weight: "400",
   subsets: ["latin"],
 });
 
-export const getStaticPaths = () => {
-  const paths = questions.map((q) => {
-    return {
-      params: { id: q.id.toString() },
-    };
-  });
-  return {
-    paths,
-    fallback: false,
-  };
-};
+const Question = ({ qId }) => {
+  let context = useContext(QuestionsContext);
+  let { questions, setQuestions } = context;
 
-export const getStaticProps = (context) => {
-  const id = context.params.id;
-  let myQuestion;
+  let question;
   questions.forEach((q) => {
-    if (q.id.toString() === id) {
-      myQuestion = q;
-    }
+    if (q.id === +qId) question = q;
   });
-  myQuestion = JSON.stringify(myQuestion);
-  return {
-    props: {
-      question: myQuestion,
-    },
-  };
-};
 
-const Question = ({ question }) => {
-  question = JSON.parse(question);
+  const [flag, setFlag] = useState(0);
+
+  useEffect(() => {
+    console.log("hojaa");
+  }, [flag]);
+
+  context = useContext(AnswersContext);
+
+  let { answers, setAnswers } = context;
+
+  context = useContext(UserContext);
+
+  let { user, setUser } = context;
 
   let ans = answers.filter((answer) => answer.qid === question.id);
+
+  const handleRating = () => {
+    console.log(user);
+    user.rate(question);
+    console.log(question.rating);
+    setFlag(!flag);
+  };
 
   return (
     <main className={styles.main}>
@@ -66,7 +67,7 @@ const Question = ({ question }) => {
           </div>
 
           <div className={styles.questionSideBox}>
-            <div className={styles.ratingWrapper}>
+            <div className={styles.ratingWrapper} onClick={handleRating}>
               <span className={styles.rating}>{question.rating}</span>
               <Image
                 src="/star.png"
@@ -91,5 +92,13 @@ const Question = ({ question }) => {
     </main>
   );
 };
+
+export async function getServerSideProps({ params }) {
+  return {
+    props: {
+      qId: params.id,
+    },
+  };
+}
 
 export default Question;

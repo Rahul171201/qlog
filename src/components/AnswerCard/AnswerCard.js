@@ -1,16 +1,32 @@
+import { UserContext } from "@/contexts/UserContext";
+import { useContext, useEffect, useState } from "react";
 import styles from "./AnswerCard.module.css";
-import Image from "next/image";
 
 const AnswerCard = ({ answer }) => {
-  console.log(answer);
+  const [flag, setFlag] = useState(false);
+
+  let context = useContext(UserContext);
+  let { user, setUser } = context;
+
+  useEffect(() => {}, [flag]);
+
+  const handleUpvote = () => {
+    user.upvote(answer);
+    setFlag(!flag);
+  };
+
+  const handleDownvote = () => {
+    user.downvote(answer);
+    setFlag(!flag);
+  };
 
   return (
     <div className={styles.answerWrapper}>
       <div className={styles.leftBox}>
-        <div className={styles.upVote}>
+        <div className={styles.upVote} onClick={handleUpvote}>
           <span className={styles.upvoteCount}>{answer.upvotes}</span>
         </div>
-        <div className={styles.downVote}>
+        <div className={styles.downVote} onClick={handleDownvote}>
           <span className={styles.downvoteCount}>{answer.downvotes}</span>
         </div>
       </div>

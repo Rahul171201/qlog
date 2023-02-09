@@ -17,7 +17,7 @@ const LoginForm = (props) => {
 
   useEffect(() => {
     if (flag) {
-      Router.push("/");
+      Router.push("/feed");
     }
   }, [flag]);
 

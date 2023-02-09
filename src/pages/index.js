@@ -1,11 +1,10 @@
-import Head from "next/head";
-import Image from "next/image";
-import styles from "@/styles/Home.module.css";
-import { useContext } from "react";
-import { UserContext } from "@/contexts/UserContext";
+import { useEffect } from "react";
+import Router from "next/router";
 
 export default function Home() {
-  let { user, setUser } = useContext(UserContext);
+  useEffect(() => {
+    Router.push("/login");
+  }, []);
 
-  return <main>{user.userName}</main>;
+  return <main>404 page not found</main>;
 }

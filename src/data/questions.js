@@ -60,6 +60,16 @@ let q4 = new Question(
   new Date()
 );
 
-let res = [q0, q1, q2, q3, q4];
+let q5 = new Question(
+  5,
+  "Are there more coffee persons in this world than tea?",
+  `Which type of people are more in this world? Those who like coffee or those who like tea? Just a curious question!`,
+  "Arushi Wadhwa",
+  100,
+  ["social", "culture", "food", "drinks"],
+  new Date()
+);
+
+let res = [q0, q1, q2, q3, q4, q5];
 
 export default res;

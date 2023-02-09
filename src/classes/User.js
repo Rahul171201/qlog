@@ -36,6 +36,7 @@ class User {
       this.#downvoted.delete(answer.id);
       this.#upvoted.set(answer.id, answer);
       answer.upvotes += 1;
+      answer.downvotes -= 1;
     } else if (!this.#upvoted.has(answer.id)) {
       this.#upvoted.set(answer.id, answer);
       answer.upvotes += 1;
@@ -51,6 +52,7 @@ class User {
       this.#upvoted.delete(answer.id);
       this.#downvoted.set(answer.id, answer);
       answer.downvotes += 1;
+      answer.upvotes -= 1;
     } else if (!this.#downvoted.has(answer.id)) {
       this.#downvoted.set(answer.id, answer);
       answer.downvotes += 1;
@@ -65,6 +67,9 @@ class User {
     if (!this.#rated.has(question.id)) {
       this.#rated.set(question.id, question);
       question.rating += 1;
+    } else {
+      this.#rated.delete(question.id);
+      question.rating -= 1;
     }
   }
 }

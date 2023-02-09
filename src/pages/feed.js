@@ -2,10 +2,13 @@ import styles from "../styles/Feed.module.css";
 import Navbar from "@/components/Navbar/Navbar";
 import QuestionCard from "@/components/QuestionCard/QuestionCard";
 import Sidebar from "@/components/Sidebar/Sidebar";
-import questions from "../data/questions";
+import { useContext } from "react";
+import { QuestionsContext } from "@/contexts/QuestionsContext";
 
 const Feed = () => {
-  console.log(questions);
+  let context = useContext(QuestionsContext);
+  let { questions, setQuestions } = context;
+
   return (
     <main className={styles.main}>
       <Navbar></Navbar>
