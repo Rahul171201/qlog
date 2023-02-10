@@ -17,7 +17,7 @@ const StatsColumn = (props) => {
       {props.type === "questionColumn" ? (
         user.asked.length === 0 ? (
           <BlankCard
-            title="No questions aked yet!"
+            title="No questions asked yet!"
             content="Start with a question ?"
           ></BlankCard>
         ) : (
