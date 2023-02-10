@@ -1,4 +1,5 @@
 import Question from "@/classes/Question";
+import users from "./users";
 
 let q0 = new Question(
   0,
@@ -11,6 +12,11 @@ let q0 = new Question(
   ["research", "health"],
   new Date()
 );
+users.forEach((u) => {
+  if (q0.ownerId === u.userId) {
+    u.asked.push(q0);
+  }
+});
 
 let q1 = new Question(
   1,
@@ -24,6 +30,11 @@ let q1 = new Question(
   ["climate", "health", "weather"],
   new Date()
 );
+users.forEach((u) => {
+  if (q1.ownerId === u.userId) {
+    u.asked.push(q1);
+  }
+});
 
 let q2 = new Question(
   2,
@@ -37,6 +48,11 @@ let q2 = new Question(
   ["politics", "modi", "india"],
   new Date()
 );
+users.forEach((u) => {
+  if (q2.ownerId === u.userId) {
+    u.asked.push(q2);
+  }
+});
 
 let q3 = new Question(
   3,
@@ -49,6 +65,11 @@ let q3 = new Question(
   ["technology", "industry"],
   new Date()
 );
+users.forEach((u) => {
+  if (q3.ownerId === u.userId) {
+    u.asked.push(q3);
+  }
+});
 
 let q4 = new Question(
   4,
@@ -59,6 +80,11 @@ let q4 = new Question(
   ["sports", "football"],
   new Date()
 );
+users.forEach((u) => {
+  if (q4.ownerId === u.userId) {
+    u.asked.push(q4);
+  }
+});
 
 let q5 = new Question(
   5,
@@ -69,6 +95,11 @@ let q5 = new Question(
   ["social", "culture", "food", "drinks"],
   new Date()
 );
+users.forEach((u) => {
+  if (q5.ownerId === u.userId) {
+    u.asked.push(q5);
+  }
+});
 
 let res = [q0, q1, q2, q3, q4, q5];
 

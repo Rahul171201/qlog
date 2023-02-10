@@ -1,4 +1,6 @@
 import Answer from "@/classes/Answer";
+import questions from "./questions";
+import users from "./users";
 
 let a0 = new Answer(
   0,
@@ -8,6 +10,12 @@ let a0 = new Answer(
   0,
   new Date()
 );
+questions[a0.qid].answers.push(a0);
+users.forEach((u) => {
+  if (a0.ownerId === u.userId) {
+    u.answered.push(a0);
+  }
+});
 
 let a1 = new Answer(
   1,
@@ -17,6 +25,12 @@ let a1 = new Answer(
   2,
   new Date()
 );
+questions[a1.qid].answers.push(a1);
+users.forEach((u) => {
+  if (a1.ownerId === u.userId) {
+    u.answered.push(a1);
+  }
+});
 
 let a2 = new Answer(
   2,
@@ -26,6 +40,12 @@ let a2 = new Answer(
   4,
   new Date()
 );
+questions[a2.qid].answers.push(a2);
+users.forEach((u) => {
+  if (a2.ownerId === u.userId) {
+    u.answered.push(a2);
+  }
+});
 
 let a3 = new Answer(
   3,
@@ -35,6 +55,12 @@ let a3 = new Answer(
   2,
   new Date()
 );
+questions[a3.qid].answers.push(a3);
+users.forEach((u) => {
+  if (a3.ownerId === u.userId) {
+    u.answered.push(a3);
+  }
+});
 
 let a4 = new Answer(
   4,
@@ -44,6 +70,12 @@ let a4 = new Answer(
   1,
   new Date()
 );
+questions[a4.qid].answers.push(a4);
+users.forEach((u) => {
+  if (a4.ownerId === u.userId) {
+    u.answered.push(a4);
+  }
+});
 
 let a5 = new Answer(
   5,
@@ -53,6 +85,12 @@ let a5 = new Answer(
   0,
   new Date()
 );
+questions[a5.qid].answers.push(a5);
+users.forEach((u) => {
+  if (a5.ownerId === u.userId) {
+    u.answered.push(a5);
+  }
+});
 
 let a6 = new Answer(
   6,
@@ -62,6 +100,12 @@ let a6 = new Answer(
   3,
   new Date()
 );
+questions[a6.qid].answers.push(a6);
+users.forEach((u) => {
+  if (a6.ownerId === u.userId) {
+    u.answered.push(a6);
+  }
+});
 
 let a7 = new Answer(
   7,
@@ -71,6 +115,12 @@ let a7 = new Answer(
   0,
   new Date()
 );
+questions[a7.qid].answers.push(a7);
+users.forEach((u) => {
+  if (a7.ownerId === u.userId) {
+    u.answered.push(a7);
+  }
+});
 
 let a8 = new Answer(
   8,
@@ -80,6 +130,12 @@ let a8 = new Answer(
   0,
   new Date()
 );
+questions[a8.qid].answers.push(a8);
+users.forEach((u) => {
+  if (a8.ownerId === u.userId) {
+    u.answered.push(a8);
+  }
+});
 
 let a9 = new Answer(
   9,
@@ -89,6 +145,12 @@ let a9 = new Answer(
   4,
   new Date()
 );
+questions[a9.qid].answers.push(a9);
+users.forEach((u) => {
+  if (a9.ownerId === u.userId) {
+    u.answered.push(a9);
+  }
+});
 
 let a10 = new Answer(
   10,
@@ -98,6 +160,12 @@ let a10 = new Answer(
   0,
   new Date()
 );
+questions[a10.qid].answers.push(a10);
+users.forEach((u) => {
+  if (a10.ownerId === u.userId) {
+    u.answered.push(a10);
+  }
+});
 
 let res = [a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10];
 

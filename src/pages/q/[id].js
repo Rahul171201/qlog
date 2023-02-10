@@ -7,6 +7,7 @@ import { useContext, useEffect, useState } from "react";
 import { AnswersContext } from "@/contexts/AnswersContext";
 import { UserContext } from "@/contexts/UserContext";
 import { QuestionsContext } from "@/contexts/QuestionsContext";
+import Link from "next/link";
 
 const lato = Lato({
   weight: "400",
@@ -64,6 +65,14 @@ const Question = ({ qId }) => {
                 );
               })}{" "}
             </div>
+            <div className={styles.bottomBar}>
+              <Link
+                href={"/ans/" + question.id + "/add_answer"}
+                className={styles.answerButton}
+              >
+                Add Answer
+              </Link>
+            </div>
           </div>
 
           <div className={styles.questionSideBox}>
@@ -83,6 +92,7 @@ const Question = ({ qId }) => {
             </div>
           </div>
         </div>
+
         <div className={styles.answersBox}>
           {ans.map((a, idx) => {
             return <AnswerCard key={idx} answer={a}></AnswerCard>;

@@ -8,6 +8,7 @@ class Question {
     this.title = title;
     this.description = description;
     this.ownerName = ownerName;
+    this.ownerId = ownerId;
     this.answers = [];
     this.rating = 0;
     this.tags = tags;

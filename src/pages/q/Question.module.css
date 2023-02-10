@@ -93,6 +93,25 @@
   color: rgb(103, 161, 255);
 }
 
+.bottomBar {
+  width: 100%;
+  height: min-content;
+  margin-top: 10px;
+}
+
+.answerButton {
+  width: 60px;
+  height: 40px;
+  background-color: rgb(58, 135, 237);
+  color: white;
+  border-radius: 9px;
+  padding: 10px;
+  text-decoration: none;
+}
+.answerButton:hover {
+  background-color: rgb(69, 69, 213);
+}
+
 @media (max-width: 550px) {
   .questionTitle {
     font-size: 2rem;

@@ -1,7 +1,5 @@
 class User {
   // fields
-  answered;
-  asked;
   #upvoted;
   #downvoted;
   #rated;
