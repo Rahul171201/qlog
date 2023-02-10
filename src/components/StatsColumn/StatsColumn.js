@@ -18,7 +18,7 @@ const StatsColumn = (props) => {
         user.asked.length === 0 ? (
           <BlankCard
             title="No questions asked yet!"
-            content="Start with a question ?"
+            content="Curious? Start your day by asking a question!"
           ></BlankCard>
         ) : (
           user.asked.map((q) => {
@@ -27,6 +27,7 @@ const StatsColumn = (props) => {
                 key={q.id}
                 title={q.title}
                 description={q.description}
+                id={q.id}
               ></StatsCard>
             );
           })
@@ -34,7 +35,7 @@ const StatsColumn = (props) => {
       ) : user.answered.length === 0 ? (
         <BlankCard
           title="No questions answered yet!"
-          content="Start with an answer ?"
+          content="Start your day by answering a question!"
         ></BlankCard>
       ) : (
         user.answered.map((a) => {
@@ -47,9 +48,10 @@ const StatsColumn = (props) => {
 
           return (
             <StatsCard
-              key={a.id}
+              key={a.qid}
               title={q_title}
               description={a.content}
+              id={a.qid}
             ></StatsCard>
           );
         })

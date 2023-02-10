@@ -7,9 +7,12 @@ const lato = Lato({
   subsets: ["latin"],
 });
 
-const StatsCard = ({ title, description }) => {
+const StatsCard = ({ id, title, description }) => {
   return (
-    <Link href={"/feed"} className={`${styles.cardWrapper} ${lato.className}`}>
+    <Link
+      href={"/q/" + id}
+      className={`${styles.cardWrapper} ${lato.className}`}
+    >
       <div className={styles.cardTitle}>{title}</div>
       <hr className={styles.horizontalRule}></hr>
       <div className={styles.cardContent}>{description}</div>

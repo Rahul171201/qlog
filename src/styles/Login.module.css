@@ -26,6 +26,7 @@
 
 .questionMark {
   font-size: 20rem;
+  user-select: none;
 }
 
 .description {

@@ -10,6 +10,9 @@
   color: white;
   text-decoration: none;
 }
+.cardWrapper:hover {
+  background-color: rgb(96, 222, 253);
+}
 
 .cardTitle {
   font-size: 2rem;
