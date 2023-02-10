@@ -62,6 +62,10 @@ const AddAnswer = ({ qId }) => {
     Router.push("/q/" + question.id);
   };
 
+  const handleClear = () => {
+    setAnswer("");
+  };
+
   return (
     <div className={`${styles.answerWrapper} ${lato.className}`}>
       <Navbar></Navbar>
@@ -83,7 +87,9 @@ const AddAnswer = ({ qId }) => {
           ></textarea>
         </div>
         <div className={styles.bottomBar}>
-          <button className={styles.clearallButton}>CLEAR</button>
+          <button className={styles.clearallButton} onClick={handleClear}>
+            CLEAR
+          </button>
           <button className={styles.postButton} onClick={handleSubmit}>
             POST
           </button>

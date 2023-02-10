@@ -7,18 +7,12 @@ const lato = Lato({
   subsets: ["latin"],
 });
 
-const StatsCard = () => {
+const StatsCard = ({ title, description }) => {
   return (
     <Link href={"/feed"} className={`${styles.cardWrapper} ${lato.className}`}>
-      <div className={styles.cardTitle}>
-        Why are men getting lazy day by day ?
-      </div>
+      <div className={styles.cardTitle}>{title}</div>
       <hr className={styles.horizontalRule}></hr>
-      <div className={styles.cardContent}>
-        Lorem ipusm bahut ajeeb hai backodi hai lorem ipsum hai bahoht bakchodi
-        lorem ipsum lorem ipsum bakchodi. bAKCHODI AKSCNXNXCWSNXWNW
-        ASXMSKDCXSCWCX ECDWCWERCWREVWRV nacxjdnscxjdncjwnjwkenc
-      </div>
+      <div className={styles.cardContent}>{description}</div>
     </Link>
   );
 };

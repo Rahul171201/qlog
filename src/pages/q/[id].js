@@ -39,6 +39,21 @@ const Question = ({ qId }) => {
 
   let ans = answers.filter((answer) => answer.qid === question.id);
 
+  const [answerGiven, setAnswerGiven] = useState(false);
+  const [questionAsked, setQuestionAsked] = useState(false);
+
+  useEffect(() => {
+    user.answered.forEach((a) => {
+      // console.log(a.qid);
+      if (a.qid === +qId) {
+        setAnswerGiven(true);
+      }
+    });
+    if (question.ownerId === user.userId) {
+      setAnswerGiven(true);
+    }
+  }, []);
+
   const handleRating = () => {
     console.log(user);
     user.rate(question);
@@ -66,12 +81,16 @@ const Question = ({ qId }) => {
               })}{" "}
             </div>
             <div className={styles.bottomBar}>
-              <Link
-                href={"/ans/" + question.id + "/add_answer"}
-                className={styles.answerButton}
-              >
-                Add Answer
-              </Link>
+              {answerGiven || questionAsked ? (
+                <></>
+              ) : (
+                <Link
+                  href={"/ans/" + question.id + "/add_answer"}
+                  className={styles.answerButton}
+                >
+                  Add Answer
+                </Link>
+              )}
             </div>
           </div>
 

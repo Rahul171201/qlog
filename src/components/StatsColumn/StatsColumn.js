@@ -3,12 +3,14 @@ import StatsCard from "../StatsCard/StatsCard";
 import { useContext } from "react";
 import { UserContext } from "@/contexts/UserContext";
 import BlankCard from "../BlankCard/BlankCard";
+import { QuestionsContext } from "@/contexts/QuestionsContext";
 
 const StatsColumn = (props) => {
   let context = useContext(UserContext);
   let { user, setUser } = context;
 
-  console.log(user.asked.length, "hmm");
+  context = useContext(QuestionsContext);
+  let { questions, setQuestions } = context;
 
   return (
     <div className={styles.columnWrapper}>
@@ -24,7 +26,7 @@ const StatsColumn = (props) => {
               <StatsCard
                 key={q.id}
                 title={q.title}
-                decription={q.description}
+                description={q.description}
               ></StatsCard>
             );
           })
@@ -36,10 +38,17 @@ const StatsColumn = (props) => {
         ></BlankCard>
       ) : (
         user.answered.map((a) => {
+          let q_title;
+          questions.forEach((q) => {
+            if (q.id === a.qid) {
+              q_title = q.title;
+            }
+          });
+
           return (
             <StatsCard
               key={a.id}
-              title={a.content}
+              title={q_title}
               description={a.content}
             ></StatsCard>
           );
