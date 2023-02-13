@@ -3,6 +3,7 @@ import UserContextProvider from "@/contexts/UserContext";
 import RegisteredUsersContextProvider from "@/contexts/RegisteredUsersContext";
 import QuestionsContextProvider from "@/contexts/QuestionsContext";
 import AnswersContextProvider from "@/contexts/AnswersContext";
+import SearchContextProvider from "@/contexts/SearchContext";
 
 export default function App({ Component, pageProps }) {
   return (
@@ -10,7 +11,9 @@ export default function App({ Component, pageProps }) {
       <RegisteredUsersContextProvider>
         <QuestionsContextProvider>
           <AnswersContextProvider>
-            <Component {...pageProps} />
+            <SearchContextProvider>
+              <Component {...pageProps} />
+            </SearchContextProvider>
           </AnswersContextProvider>
         </QuestionsContextProvider>
       </RegisteredUsersContextProvider>
