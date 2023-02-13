@@ -8,6 +8,12 @@ import { UserContext } from "@/contexts/UserContext";
 import Router from "next/router";
 import { SearchContext } from "@/contexts/SearchContext";
 import QuestionFilter from "@/helper/QuestionFilter";
+import { Lato } from "@next/font/google";
+
+const lato = Lato({
+  weight: "400",
+  subsets: ["latin"],
+});
 
 const Feed = () => {
   let context = useContext(QuestionsContext);
@@ -36,9 +42,19 @@ const Feed = () => {
       <Navbar></Navbar>
       <div className={styles.feedWrapper}>
         <div className={styles.feedBox}>
-          {feedQuestions.map((question) => {
-            return <QuestionCard key={question.id} q={question}></QuestionCard>;
-          })}
+          {feedQuestions.length !== 0 ? (
+            feedQuestions.map((question) => {
+              return (
+                <QuestionCard key={question.id} q={question}></QuestionCard>
+              );
+            })
+          ) : (
+            <div className={styles.blankPageWrapper}>
+              <span className={`${styles.noresultText} ${lato.className}`}>
+                Sorry no results found!
+              </span>
+            </div>
+          )}
         </div>
         <Sidebar></Sidebar>
       </div>
