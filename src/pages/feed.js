@@ -16,12 +16,6 @@ const Feed = () => {
   context = useContext(UserContext);
   let { user, setUser } = context;
 
-  useEffect(() => {
-    if (user === undefined) {
-      Router.push("/login");
-    }
-  }, []);
-
   context = useContext(SearchContext);
   let { searchText, setSearchText } = context;
 
@@ -32,6 +26,11 @@ const Feed = () => {
 
   let feedQuestions = QuestionFilter(questions, search_words);
 
+  useEffect(() => {
+    if (user === undefined) {
+      Router.push("/login");
+    }
+  }, []);
   return (
     <main className={styles.main}>
       <Navbar></Navbar>

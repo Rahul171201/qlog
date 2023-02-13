@@ -2,6 +2,7 @@ import styles from "./Search.module.css";
 import Image from "next/image";
 import { useState, useContext } from "react";
 import { SearchContext } from "@/contexts/SearchContext";
+import Router from "next/router";
 
 const Search = () => {
   const [text, setText] = useState("");
@@ -25,6 +26,9 @@ const Search = () => {
           placeholder="Search for questions"
           className={styles.searchField}
           onChange={handleChange}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") handleSearch();
+          }}
         ></input>
         <Image
           src="/magnifier.png"
