@@ -29,6 +29,7 @@
 
 .questionDescription {
   width: 90%;
+  overflow-wrap: break-word;
   font-size: 1rem;
 }
 

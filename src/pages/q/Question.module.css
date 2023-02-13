@@ -34,6 +34,8 @@
   font-size: 2.3rem;
 }
 .questionDescription {
+  inline-size: 60vw;
+  overflow-wrap: break-word;
   font-size: 1.2rem;
 }
 .ratingWrapper {

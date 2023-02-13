@@ -11,7 +11,9 @@ class Question {
     this.ownerId = ownerId;
     this.answers = [];
     this.rating = 0;
-    this.tags = tags;
+    this.tags = tags.map((item) => {
+      return item.toLowerCase();
+    });
     this.date = date;
     // initilizing private fields
     this.#ratedBy = new Map();
