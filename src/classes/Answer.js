@@ -1,12 +1,17 @@
 class Answer {
-  constructor(id, ownerId, ownerName, content, qid, date) {
+  constructor(id, ownerId, ownerName, content, qid, date, upvotes, downvotes) {
     this.id = id;
     this.ownerId = ownerId;
     this.ownerName = ownerName;
     this.content = content;
     this.qid = qid;
-    this.upvotes = 363;
-    this.downvotes = 15;
+
+    if (upvotes) this.upvotes = upvotes;
+    else this.upvotes = 0;
+
+    if (downvotes) this.downvotes = downvotes;
+    else this.downvotes = 0;
+
     this.date = JSON.stringify(date);
   }
 

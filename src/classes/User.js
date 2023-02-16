@@ -38,6 +38,9 @@ class User {
     } else if (!this.#upvoted.has(answer.id)) {
       this.#upvoted.set(answer.id, answer);
       answer.upvotes += 1;
+    } else {
+      this.#upvoted.delete(answer.id);
+      answer.upvotes -= 1;
     }
   }
 
@@ -54,6 +57,9 @@ class User {
     } else if (!this.#downvoted.has(answer.id)) {
       this.#downvoted.set(answer.id, answer);
       answer.downvotes += 1;
+    } else {
+      this.#downvoted.delete(answer.id);
+      answer.downvotes -= 1;
     }
   }
 

@@ -18,6 +18,9 @@ const nonKeyWords = [
   "not",
   "till",
   "upon",
+  "and",
+  "or",
+  "but",
 ];
 
 const QuestionFilter = (questions, search_words) => {

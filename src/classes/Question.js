@@ -3,18 +3,20 @@ class Question {
   #ratedBy;
 
   // constructor function
-  constructor(id, title, description, ownerName, ownerId, tags, date) {
+  constructor(id, title, description, ownerName, ownerId, tags, date, rating) {
     this.id = id;
     this.title = title;
     this.description = description;
     this.ownerName = ownerName;
     this.ownerId = ownerId;
     this.answers = [];
-    this.rating = 0;
+
     this.tags = tags.map((item) => {
       return item.toLowerCase();
     });
     this.date = date;
+    if (rating) this.rating = rating;
+    else this.rating = 0;
     // initilizing private fields
     this.#ratedBy = new Map();
   }

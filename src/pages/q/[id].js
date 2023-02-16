@@ -96,14 +96,18 @@ const Question = ({ qId }) => {
 
           <div className={styles.questionSideBox}>
             <div className={styles.ratingWrapper} onClick={handleRating}>
-              <span className={styles.rating}>{question.rating}</span>
-              <Image
-                src="/images/star.png"
-                alt="rating-icon"
-                width={50}
-                height={50}
-                className={styles.icon}
-              ></Image>
+              <div className={styles.iconWrapper}>
+                <Image
+                  src="/images/star.png"
+                  alt="rating-icon"
+                  width={50}
+                  height={50}
+                  className={styles.icon}
+                ></Image>
+              </div>
+              <div className={styles.tempWrapper}>
+                <span className={styles.rating}>{question.rating}</span>
+              </div>
             </div>
             <div className={styles.infoWrapper}>
               <span>{question.ownerName}</span>

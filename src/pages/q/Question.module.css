@@ -44,12 +44,21 @@
   align-items: center;
   position: relative;
 }
+.tempWrapper {
+  position: absolute;
+  width: 3.2rem;
+  display: flex;
+  justify-content: center;
+}
 .rating {
   color: white;
-  z-index: 1;
+  font-size: 0.8rem;
+}
+.iconWrapper {
+  position: relative;
   position: absolute;
-  top: 18px;
-  right: 20px;
+}
+.icon {
   cursor: pointer;
 }
 .infoWrapper {
@@ -80,12 +89,7 @@
   align-items: center;
   margin: 30px 0px;
 }
-.icon {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  cursor: pointer;
-}
+
 .tagBox {
   display: flex;
   gap: 10px;

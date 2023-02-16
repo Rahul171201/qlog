@@ -10,7 +10,8 @@ let q0 = new Question(
   "Sainath Reddy",
   16,
   ["research", "health"],
-  new Date()
+  new Date(),
+  124
 );
 users.forEach((u) => {
   if (q0.ownerId === u.userId) {
@@ -28,7 +29,8 @@ let q1 = new Question(
   "Rahul Roy",
   1,
   ["climate", "health", "weather"],
-  new Date()
+  new Date(),
+  263
 );
 users.forEach((u) => {
   if (q1.ownerId === u.userId) {
@@ -46,7 +48,8 @@ let q2 = new Question(
   "Jinesh Kanjiya",
   25,
   ["politics", "modi", "india"],
-  new Date()
+  new Date(),
+  25
 );
 users.forEach((u) => {
   if (q2.ownerId === u.userId) {
@@ -63,7 +66,8 @@ let q3 = new Question(
   "Sushant Bhatia",
   49,
   ["technology", "industry"],
-  new Date()
+  new Date(),
+  156
 );
 users.forEach((u) => {
   if (q3.ownerId === u.userId) {
@@ -78,7 +82,8 @@ let q4 = new Question(
   "Rahul Roy",
   1,
   ["sports", "football"],
-  new Date()
+  new Date(),
+  367
 );
 users.forEach((u) => {
   if (q4.ownerId === u.userId) {
@@ -93,7 +98,8 @@ let q5 = new Question(
   "Arushi Wadhwa",
   100,
   ["social", "culture", "food", "drinks"],
-  new Date()
+  new Date(),
+  128
 );
 users.forEach((u) => {
   if (q5.ownerId === u.userId) {
