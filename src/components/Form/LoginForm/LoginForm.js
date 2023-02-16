@@ -12,6 +12,7 @@ const lato = Lato({
   subsets: ["latin"],
 });
 
+// Login Form Component
 const LoginForm = (props) => {
   const [flag, setFlag] = useState(false);
 

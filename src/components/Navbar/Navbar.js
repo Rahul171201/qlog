@@ -57,7 +57,7 @@ const Navbar = () => {
         </div>
         <div className={`${styles.hamburgerWrapper} ${lato.className}`}>
           <Image
-            src="/hamburger.png"
+            src="/images/hamburger.png"
             alt="hamburger-icon"
             width={50}
             height={50}

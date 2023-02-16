@@ -7,6 +7,7 @@ const itim = Itim({
   subsets: ["latin"],
 });
 
+// Logo Component
 const Logo = () => {
   return (
     <Link href={"/feed"} className={`${styles.logoWrapper} ${itim.className}`}>

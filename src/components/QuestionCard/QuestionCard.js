@@ -16,7 +16,7 @@ const QuestionCard = (props) => {
           <span>{props.q.title}</span>
           <div className={styles.rating}>
             <Image
-              src="/star.png"
+              src="/images/star.png"
               alt="star-icon"
               width={30}
               height={30}

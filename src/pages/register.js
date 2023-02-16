@@ -8,33 +8,35 @@ const itim = Itim({
   subsets: ["latin"],
 });
 
+// input field data for register form
 const inputFieldData = [
   {
     type: "email",
     placeholder: "Type your email address",
     label: "Email",
-    image: "/email.png",
+    image: "/images/email.png",
   },
   {
     type: "text",
     placeholder: "Type your user name",
     label: "Username",
-    image: "/id-card.png",
+    image: "/images/id-card.png",
   },
   {
     type: "password",
     placeholder: "Type your password",
     label: "Password",
-    image: "/padlock.png",
+    image: "/images/padlock.png",
   },
   {
     type: "password",
     placeholder: "Confirm your password",
     label: "Confirm Password",
-    image: "/padlock.png",
+    image: "/images/padlock.png",
   },
 ];
 
+// Register Component
 const Register = () => {
   return (
     <main className={styles.loginMain}>

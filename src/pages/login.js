@@ -10,24 +10,27 @@ const itim = Itim({
   subsets: ["latin"],
 });
 
+// input field data for login form
 const inputFieldData = [
   {
     type: "text",
     placeholder: "Type your user id",
     label: "User Id",
-    image: "/user.png",
+    image: "/images/user.png",
   },
   {
     type: "password",
     placeholder: "Type your password",
     label: "Password",
-    image: "/padlock.png",
+    image: "/images/padlock.png",
   },
 ];
 
+// Login Component
 const Login = () => {
+  // user context
   let context = useContext(UserContext);
-  let { user, setUser } = context;
+  let { setUser } = context;
 
   useEffect(() => {
     setUser(undefined);

@@ -31,7 +31,7 @@ const Search = () => {
           }}
         ></input>
         <Image
-          src="/magnifier.png"
+          src="/images/magnifier.png"
           alt="search-icon"
           width={30}
           height={30}

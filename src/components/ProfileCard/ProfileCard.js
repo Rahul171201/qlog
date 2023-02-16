@@ -19,7 +19,7 @@ const ProfileCard = () => {
           <div className={`${styles.profileCard} ${lato.className}`}>
             <div className={styles.profileImageContainer}>
               <Image
-                src="/profile.png"
+                src="/images/profile.png"
                 alt="profile-image"
                 width={150}
                 height={150}

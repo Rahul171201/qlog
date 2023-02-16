@@ -98,7 +98,7 @@ const Question = ({ qId }) => {
             <div className={styles.ratingWrapper} onClick={handleRating}>
               <span className={styles.rating}>{question.rating}</span>
               <Image
-                src="/star.png"
+                src="/images/star.png"
                 alt="rating-icon"
                 width={50}
                 height={50}
