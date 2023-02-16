@@ -25,8 +25,6 @@ const Feed = () => {
   context = useContext(SearchContext);
   let { searchText, setSearchText } = context;
 
-  console.log(searchText);
-
   let search_words =
     searchText === undefined ? undefined : searchText.split(" ");
 

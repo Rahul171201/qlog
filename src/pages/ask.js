@@ -75,7 +75,6 @@ const Ask = () => {
       if (e.target[i].value !== undefined && e.target[i].value !== "")
         questionTags.push(e.target[i].value);
     }
-    console.log(questionTags);
 
     let newQuestion = new Question(
       questions.length,

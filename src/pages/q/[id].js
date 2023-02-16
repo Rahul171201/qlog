@@ -8,6 +8,8 @@ import { AnswersContext } from "@/contexts/AnswersContext";
 import { UserContext } from "@/contexts/UserContext";
 import { QuestionsContext } from "@/contexts/QuestionsContext";
 import Link from "next/link";
+import { SearchContext } from "@/contexts/SearchContext";
+import Router from "next/router";
 
 const lato = Lato({
   weight: "400",
@@ -25,10 +27,6 @@ const Question = ({ qId }) => {
 
   const [flag, setFlag] = useState(0);
 
-  useEffect(() => {
-    console.log("hojaa");
-  }, [flag]);
-
   context = useContext(AnswersContext);
 
   let { answers, setAnswers } = context;
@@ -42,9 +40,11 @@ const Question = ({ qId }) => {
   const [answerGiven, setAnswerGiven] = useState(false);
   const [questionAsked, setQuestionAsked] = useState(false);
 
+  context = useContext(SearchContext);
+  let { searchText, setSearchText } = context;
+
   useEffect(() => {
     user.answered.forEach((a) => {
-      // console.log(a.qid);
       if (a.qid === +qId) {
         setAnswerGiven(true);
       }
@@ -55,10 +55,14 @@ const Question = ({ qId }) => {
   }, []);
 
   const handleRating = () => {
-    console.log(user);
     user.rate(question);
-    console.log(question.rating);
     setFlag(!flag);
+  };
+
+  const handleTagSubmit = (e) => {
+    const tagData = e.target.innerHTML.substr(1, e.target.innerHTML.length);
+    setSearchText(tagData);
+    Router.push("/feed");
   };
 
   return (
@@ -74,9 +78,14 @@ const Question = ({ qId }) => {
             <div className={styles.tagBox}>
               {question.tags.map((tag, idx) => {
                 return (
-                  <a href="#" className={styles.tag} key={idx}>
+                  <div
+                    onClick={handleTagSubmit}
+                    href="#"
+                    className={styles.tag}
+                    key={idx}
+                  >
                     #{tag}
-                  </a>
+                  </div>
                 );
               })}{" "}
             </div>

@@ -35,7 +35,6 @@ const AddAnswer = ({ qId }) => {
 
   const handleChange = (e) => {
     setAnswer(e.target.value);
-    console.log(answer);
   };
 
   const handleSubmit = () => {

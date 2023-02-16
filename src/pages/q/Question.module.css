@@ -1,7 +1,7 @@
 .main {
   width: 100vw;
   min-height: 100vh;
-  background-image: url("/bg-desktop.svg");
+  background-image: url("/images/bg-desktop.svg");
   background-color: blueviolet;
   display: flex;
   flex-direction: column;
@@ -49,6 +49,7 @@
   width: 3.2rem;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 }
 .rating {
   color: white;
@@ -97,6 +98,7 @@
 .tag {
   text-decoration: none;
   color: rgb(103, 161, 255);
+  cursor: pointer;
 }
 
 .bottomBar {
