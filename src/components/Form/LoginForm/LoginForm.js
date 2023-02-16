@@ -34,7 +34,6 @@ const LoginForm = (props) => {
     const password = e.target[1].value;
 
     users.forEach((u) => {
-      console.log(u);
       if (u.userId === userId && u.password === password) {
         setUser(u);
         setFlag(true);

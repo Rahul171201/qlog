@@ -2,11 +2,12 @@ import styles from "../styles/Ask.module.css";
 import Navbar from "@/components/Navbar/Navbar";
 
 import { Lato } from "@next/font/google";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { QuestionsContext } from "@/contexts/QuestionsContext";
 import { UserContext } from "@/contexts/UserContext";
 import Question from "@/classes/Question";
 import Router from "next/router";
+import { SearchContext } from "@/contexts/SearchContext";
 
 const lato = Lato({
   weight: "400",
@@ -19,6 +20,13 @@ const Ask = () => {
 
   context = useContext(UserContext);
   let { user, setUser } = context;
+
+  context = useContext(SearchContext);
+  let { searchText, setSearchText } = context;
+
+  useEffect(() => {
+    setSearchText(undefined);
+  }, []);
 
   const removeTag = (e) => {
     e.remove();

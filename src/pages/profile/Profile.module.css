@@ -1,7 +1,7 @@
 .profileWrapper {
   width: 100vw;
   min-height: 100vh;
-  background-image: url("/bg-desktop.svg");
+  background-image: url("/images/bg-desktop.svg");
   background-color: blueviolet;
 }
 
