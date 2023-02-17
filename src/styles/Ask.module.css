@@ -44,9 +44,14 @@
   padding: 20px;
 }
 
+.hiddenTextArea {
+  display: none;
+}
+
 .descriptionInput {
   padding: 10px;
   min-height: 200px;
+  border: 1px solid black;
 }
 
 .submitButtonWrapper {
