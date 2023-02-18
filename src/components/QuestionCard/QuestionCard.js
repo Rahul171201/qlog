@@ -2,8 +2,7 @@ import styles from "./QuestionCard.module.css";
 import { Lato } from "@next/font/google";
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect } from "react";
-import handleDescriptionDisplay from "@/helper/HandleDescriptionDisplay";
+import { useEffect, useState } from "react";
 
 const lato = Lato({
   weight: "400",
@@ -11,7 +10,17 @@ const lato = Lato({
 });
 
 const QuestionCard = (props) => {
-  useEffect(() => {}, []);
+  useEffect(() => {
+    handleDescriptionDisplay(props.q.description);
+  }, []);
+
+  const handleDescriptionDisplay = (desc) => {
+    const element = document.createElement("div");
+    element.innerHTML = desc;
+    const description = document.getElementById("description" + props.id);
+    description.innerHTML = "";
+    description.append(element);
+  };
 
   return (
     <Link href={"/q/" + props.q.id} className={styles.cardWrapper}>
@@ -29,6 +38,10 @@ const QuestionCard = (props) => {
           </div>
         </div>
         <hr className={styles.horizontalRule}></hr>
+        <div
+          id={`description` + props.id}
+          className={styles.questionDescription}
+        ></div>
       </div>
       <div className={`${styles.circle} ${styles.bigCircle}`}></div>
       <div className={`${styles.circle} ${styles.mediumCircle}`}></div>

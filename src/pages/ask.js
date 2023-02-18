@@ -70,8 +70,8 @@ const Ask = () => {
     const image = document.createElement("img");
     image.src = "/images/star.png";
     image.alt = "test";
-    image.style.width = "300px";
-    image.style.height = "300px";
+    image.style.width = "30vw";
+    image.style.height = "auto";
     node.append(image);
   };
 

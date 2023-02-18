@@ -1,18 +1,20 @@
 .cardWrapper {
+  padding: 20px;
   width: 80%;
-  min-height: 300px;
+  height: min-content;
   background-color: white;
   position: relative;
   border-radius: 15px;
   margin: 50px 0px;
   text-decoration: none;
   color: black;
+  border: 1px solid rgb(144, 122, 233);
 }
 
 .card {
   width: 100%;
   min-height: 300px;
-  border: 1px solid rgb(144, 122, 233);
+
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -25,12 +27,14 @@
   font-size: 2rem;
   display: flex;
   justify-content: space-between;
+  padding: 20px 0px;
 }
 
 .questionDescription {
   width: 90%;
   overflow-wrap: break-word;
   font-size: 1rem;
+  padding: 20px 0px;
 }
 
 .rating {
@@ -40,7 +44,7 @@
   width: 200px;
   align-items: center;
   text-align: center;
-  justify-content: center;
+  justify-content: flex-end;
 }
 .ratingValue {
   font-size: 1rem;
@@ -54,6 +58,7 @@
   border: none;
   border-radius: 5px;
   opacity: 0.5;
+  margin: 20px 0px;
 }
 
 .circle {
@@ -86,6 +91,7 @@
 
 @media (max-width: 550px) {
   .cardWrapper {
+    width: 90%;
     margin-left: 10px;
   }
   .bigCircle {

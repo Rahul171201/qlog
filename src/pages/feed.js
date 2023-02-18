@@ -43,7 +43,11 @@ const Feed = () => {
           {feedQuestions.length !== 0 ? (
             feedQuestions.map((question) => {
               return (
-                <QuestionCard key={question.id} q={question}></QuestionCard>
+                <QuestionCard
+                  key={question.id}
+                  q={question}
+                  id={question.id}
+                ></QuestionCard>
               );
             })
           ) : (
