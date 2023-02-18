@@ -63,7 +63,7 @@
   width: 200px;
   height: 40px;
   border: none;
-  border-radius: 9px;
+  border-radius: 5px;
   color: white;
   background-color: green;
   cursor: pointer;
@@ -77,13 +77,32 @@
   width: 100px;
   height: 40px;
   color: white;
-  border-radius: 9px;
+  border-radius: 5px;
   background-color: rgb(41, 162, 227);
   cursor: pointer;
 }
 
 .submitButton:hover {
   background-color: rgb(108, 210, 242);
+}
+
+.fileInputWrapper {
+  padding: 20px 0px;
+}
+
+.fileInputButton {
+  background-color: rgb(154, 25, 25);
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.fileInputButton:hover {
+  background-color: red;
+}
+
+.fileInput {
+  display: none;
 }
 
 @media (max-width: 550px) {

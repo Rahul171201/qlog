@@ -32,7 +32,7 @@ const Ask = () => {
     e.preventDefault();
     const questionTitle = e.target[0].value;
 
-    const text = document.getElementById("display-text").innerHTML;
+    const text = document.getElementById("descriptionArea").innerHTML;
     const questionDescription = text;
 
     const questionTags = [];
@@ -59,20 +59,21 @@ const Ask = () => {
 
     Router.push("/feed");
   };
+  const uploadImage = (e) => {
+    const node = document.getElementById("descriptionArea");
 
-  const addImage = (e) => {
-    e.preventDefault();
-    const hiddenInput = document.getElementById("hidden-text");
-
-    const node =
-      e.target.parentNode.parentNode[0].parentNode.nextSibling.lastChild;
-    console.log(node);
-    const image = document.createElement("img");
-    image.src = "/images/star.png";
-    image.alt = "test";
-    image.style.width = "30vw";
-    image.style.height = "auto";
-    node.append(image);
+    const uploadImageButton = document.getElementById("uploadImageButton");
+    let reader = new FileReader();
+    reader.readAsDataURL(uploadImageButton.files[0]);
+    reader.onload = () => {
+      const image = document.createElement("img");
+      image.src = reader.result;
+      image.alt = "test";
+      image.style.width = "30vw";
+      image.style.height = "auto";
+      node.append(image);
+    };
+    e.target.value = "";
   };
 
   return (
@@ -94,7 +95,7 @@ const Ask = () => {
               type="submit"
               contentEditable="true"
               className={styles.descriptionInput}
-              id="display-text"
+              id="descriptionArea"
             ></div>
           </div>
           <div className={styles.tagsWrapper}>
@@ -102,14 +103,18 @@ const Ask = () => {
               Add Tag
             </button>
           </div>
-          <div className={styles.insertImageWrapper}>
-            <button className={styles.insertImageButton} onClick={addImage}>
-              Insert Image
-            </button>
+          <div className={styles.fileInputWrapper}>
+            <label for="uploadImageButton" className={styles.fileInputButton}>
+              Upload Image
+            </label>
+            <input
+              onChange={uploadImage}
+              type="file"
+              className={styles.fileInput}
+              id="uploadImageButton"
+              accept="image/*"
+            ></input>
           </div>
-          {/* <div>
-            <input type="file" className={styles.fileInput}></input>
-          </div> */}
           <div className={styles.submitButtonWrapper}>
             <button className={styles.submitButton} type="submit">
               POST
