@@ -49,7 +49,7 @@
   display: flex;
   flex-direction: column;
   width: 95%;
-  min-height: 400px;
+  height: min-content;
   background-color: white;
   margin-bottom: 30px;
 }
@@ -66,7 +66,7 @@
 
 .textArea {
   display: flex;
-  height: 320px;
+  min-height: 320px;
   display: flex;
 }
 
@@ -114,6 +114,29 @@
 
 .postButton:hover {
   background-image: linear-gradient(45deg, rgb(87, 171, 70), rgb(36, 198, 36));
+}
+
+.uploadButtonWrapper {
+  width: 90px;
+  height: min-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.uploadButton {
+  background-color: rgb(11, 86, 165);
+  padding: 10px;
+  color: white;
+  border-radius: 9px;
+  cursor: pointer;
+}
+.uploadButton:hover {
+  background-color: rgb(75, 147, 242);
+}
+
+.fileInput {
+  display: none;
 }
 
 @media (max-width: 600px) {

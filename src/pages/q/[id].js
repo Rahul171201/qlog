@@ -127,7 +127,7 @@ const Question = ({ qId }) => {
 
         <div className={styles.answersBox}>
           {ans.map((a, idx) => {
-            return <AnswerCard key={idx} answer={a}></AnswerCard>;
+            return <AnswerCard key={idx} answer={a} id={a.id}></AnswerCard>;
           })}
         </div>
       </div>

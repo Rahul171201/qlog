@@ -31,15 +31,12 @@ const AddAnswer = ({ qId }) => {
   context = useContext(UserContext);
   let { user, setUser } = context;
 
-  const [answer, setAnswer] = useState("");
-
-  const handleChange = (e) => {
-    setAnswer(e.target.value);
-  };
-
   const handleSubmit = () => {
     let total_answers = answers.length;
     let id = total_answers;
+
+    const answer = document.getElementById("answerArea").innerHTML;
+
     let new_answer = new Answer(
       id,
       user.userId,
@@ -65,6 +62,24 @@ const AddAnswer = ({ qId }) => {
     setAnswer("");
   };
 
+  const uploadImage = (e) => {
+    const node = document.getElementById("answerArea");
+
+    const fileInput = document.getElementById("fileInput");
+
+    let reader = new FileReader();
+    reader.readAsDataURL(fileInput.files[0]);
+    reader.onload = () => {
+      const image = document.createElement("img");
+      image.src = reader.result;
+      image.alt = "answer-image";
+      image.style.width = "30vw";
+      image.style.height = "auto";
+      node.append(image);
+    };
+    e.target.value = "";
+  };
+
   return (
     <div className={`${styles.answerWrapper} ${lato.className}`}>
       <Navbar></Navbar>
@@ -79,16 +94,29 @@ const AddAnswer = ({ qId }) => {
       <div className={styles.answerBox}>
         <div className={styles.topBar}>Type your answer below</div>
         <div className={styles.textArea}>
-          <textarea
+          <div
+            contentEditable="true"
             className={styles.text}
-            onChange={handleChange}
-            value={answer}
-          ></textarea>
+            id="answerArea"
+          ></div>
         </div>
         <div className={styles.bottomBar}>
           <button className={styles.clearallButton} onClick={handleClear}>
             CLEAR
           </button>
+          <div className={styles.uploadButtonWrapper}>
+            <label for="fileInput" className={styles.uploadButton}>
+              Upload Image
+            </label>
+            <input
+              onChange={uploadImage}
+              type="file"
+              accept="image/*"
+              id="fileInput"
+              className={styles.fileInput}
+            ></input>
+          </div>
+
           <button className={styles.postButton} onClick={handleSubmit}>
             POST
           </button>

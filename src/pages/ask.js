@@ -68,7 +68,7 @@ const Ask = () => {
     reader.onload = () => {
       const image = document.createElement("img");
       image.src = reader.result;
-      image.alt = "test";
+      image.alt = "question-image";
       image.style.width = "30vw";
       image.style.height = "auto";
       node.append(image);
