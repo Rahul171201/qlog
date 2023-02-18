@@ -10,6 +10,7 @@ import { QuestionsContext } from "@/contexts/QuestionsContext";
 import Link from "next/link";
 import { SearchContext } from "@/contexts/SearchContext";
 import Router from "next/router";
+import handleDescriptionDisplay from "@/helper/HandleDescriptionDisplay";
 
 const lato = Lato({
   weight: "400",
@@ -44,6 +45,7 @@ const Question = ({ qId }) => {
   let { searchText, setSearchText } = context;
 
   useEffect(() => {
+    handleDescriptionDisplay(question.description);
     user.answered.forEach((a) => {
       if (a.qid === +qId) {
         setAnswerGiven(true);
@@ -72,9 +74,7 @@ const Question = ({ qId }) => {
         <div className={styles.questionBox}>
           <div className={styles.questionWrapper}>
             <div className={styles.questionTitle}>{question.title}</div>
-            <div className={styles.questionDescription}>
-              {question.description}
-            </div>
+            <div id="description" className={styles.questionDescription}></div>
             <div className={styles.tagBox}>
               {question.tags.map((tag, idx) => {
                 return (

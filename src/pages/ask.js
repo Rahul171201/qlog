@@ -32,7 +32,7 @@ const Ask = () => {
     e.preventDefault();
     const questionTitle = e.target[0].value;
 
-    const text = document.getElementById("display-text").innerText;
+    const text = document.getElementById("display-text").innerHTML;
     const questionDescription = text;
 
     const questionTags = [];
@@ -61,6 +61,7 @@ const Ask = () => {
   };
 
   const addImage = (e) => {
+    e.preventDefault();
     const hiddenInput = document.getElementById("hidden-text");
 
     const node =
@@ -69,6 +70,8 @@ const Ask = () => {
     const image = document.createElement("img");
     image.src = "/images/star.png";
     image.alt = "test";
+    image.style.width = "300px";
+    image.style.height = "300px";
     node.append(image);
   };
 
@@ -99,10 +102,13 @@ const Ask = () => {
               Add Tag
             </button>
           </div>
-          {/* <div className={styles.insertImageWrapper}>
+          <div className={styles.insertImageWrapper}>
             <button className={styles.insertImageButton} onClick={addImage}>
               Insert Image
             </button>
+          </div>
+          {/* <div>
+            <input type="file" className={styles.fileInput}></input>
           </div> */}
           <div className={styles.submitButtonWrapper}>
             <button className={styles.submitButton} type="submit">
