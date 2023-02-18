@@ -59,7 +59,7 @@ const AddAnswer = ({ qId }) => {
   };
 
   const handleClear = () => {
-    setAnswer("");
+    document.getElementById("answerArea").innerHTML = "";
   };
 
   const uploadImage = (e) => {
