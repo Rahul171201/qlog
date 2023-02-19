@@ -11,15 +11,28 @@ const lato = Lato({
   subsets: ["latin"],
 });
 
-const handleRedirect = () => {
-  Router.push("/profile/edit");
-};
-
 const ProfileCard = () => {
   return (
     <UserContext.Consumer>
       {(context) => {
         let { user, setUser } = context;
+
+        const handleRedirect = () => {
+          Router.push("/profile/edit");
+        };
+
+        const uploadProfile = (e) => {
+          const profileImage = document.getElementById("profile-image");
+          let reader = new FileReader();
+          reader.readAsDataURL(profileImage.files[0]);
+          reader.onload = () => {
+            let temp_user = user;
+            temp_user.profileImage = reader.result;
+            setUser(temp_user);
+          };
+          e.target.value = "";
+          Router.push("/profile/" + user.userId);
+        };
 
         return (
           <div className={`${styles.profileCard} ${lato.className}`}>
@@ -41,12 +54,31 @@ const ProfileCard = () => {
             </div>
             <div className={styles.profileImageContainer}>
               <Image
-                src={"/profiles/" + user.profileImage}
+                src={user.profileImage}
                 alt="profile-image"
                 width={150}
                 height={150}
                 className={styles.profileImage}
+                id="final-profile-image"
               ></Image>
+              <div className={styles.uploadProfile}>
+                <label for="profile-image" className={styles.labelProfileImage}>
+                  <Image
+                    src="/images/camera.png"
+                    alt="camera icon"
+                    width={40}
+                    height={40}
+                  ></Image>
+                </label>
+
+                <input
+                  type="file"
+                  accept="image/*"
+                  className={styles.fileInput}
+                  id="profile-image"
+                  onChange={uploadProfile}
+                ></input>
+              </div>
             </div>
             <div className={styles.infoContainer}>
               <span className={styles.name}>{user.userName}</span>

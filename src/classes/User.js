@@ -15,7 +15,8 @@ class User {
     this.#downvoted = new Map();
     this.#rated = new Map();
     this.password = password;
-    this.profileImage = profileImage;
+    if (profileImage) this.profileImage = profileImage;
+    else this.profileImage = "/profiles/unknown-user.png";
   }
 
   /**

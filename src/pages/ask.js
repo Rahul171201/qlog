@@ -71,6 +71,7 @@ const Ask = () => {
       image.alt = "question-image";
       image.style.width = "30vw";
       image.style.height = "auto";
+      image.style.display = "block";
       node.append(image);
     };
     e.target.value = "";
