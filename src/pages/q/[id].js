@@ -11,6 +11,7 @@ import Link from "next/link";
 import { SearchContext } from "@/contexts/SearchContext";
 import Router from "next/router";
 import handleDescriptionDisplay from "@/helper/HandleDescriptionDisplay";
+import sortAnswerArray from "@/helper/SortAnswerArray";
 
 const lato = Lato({
   weight: "400",
@@ -37,6 +38,7 @@ const Question = ({ qId }) => {
   let { user, setUser } = context;
 
   let ans = answers.filter((answer) => answer.qid === question.id);
+  ans = sortAnswerArray(ans);
 
   const [answerGiven, setAnswerGiven] = useState(false);
   const [questionAsked, setQuestionAsked] = useState(false);

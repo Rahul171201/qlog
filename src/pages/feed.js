@@ -9,6 +9,7 @@ import Router from "next/router";
 import { SearchContext } from "@/contexts/SearchContext";
 import QuestionFilter from "@/helper/QuestionFilter";
 import { Lato } from "@next/font/google";
+import sortQuestionArray from "@/helper/SortQuestionArray";
 
 const lato = Lato({
   weight: "400",
@@ -29,6 +30,8 @@ const Feed = () => {
     searchText === undefined ? undefined : searchText.split(" ");
 
   let feedQuestions = QuestionFilter(questions, search_words);
+
+  feedQuestions = sortQuestionArray(feedQuestions);
 
   useEffect(() => {
     if (user === undefined) {
