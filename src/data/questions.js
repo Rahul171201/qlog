@@ -5,7 +5,10 @@ let q0 = new Question(
   0,
   "Why are men becoming lazy day by day?",
   `According to recent studies, men have become lazy over the past decade. 
-  Laziness not only reduces productivity but also impacts health. 
+  Laziness not only reduces productivity but also impacts health. Moreover,
+  It has been noticed that men get more lazy during the rainy and autumn months
+  in our country.
+  <img src="/images/lazy-graph.png" alt="graph" width="300" height="auto" style="display:block">
   I wanted to know the reasons behind this.`,
   "Sainath Reddy",
   16,
@@ -25,6 +28,8 @@ let q1 = new Question(
   `The temperature in Delhi and Gurgaon has significantly gone down.
    This year the winter is very severe. Why is it happening this year.
    I'm facing a lot of problems including health problems.
+   The winter is not only getting out of bounds for us, it's for the outside
+   animals as well. The enviornment seems to be be getting extremely survival unfriendly!
    I dont understand! Someone please explain`,
   "Rahul Roy",
   1,
@@ -41,10 +46,12 @@ users.forEach((u) => {
 let q2 = new Question(
   2,
   "Will Narendra Modi become Prime Minister again?",
-  `My simple question is : WILL NARENDRA MODI BECOME PM AGAIN THIS YEAR?.
+  `I want to know how the political scenario would be 5 years down the line.
   With the emergence of new political groups supporting Congress, 
-  will Modi be able to defend his seat again? Its not only me but the nation wants to know.
-  Please share your views`,
+  will Modi be able to defend his seat again? Its not only me but the nation wants to know I'm sure.
+  Please share your views\n
+  <img src="/images/modi.avif" alt="modi" width="300" height="auto" style="display:block">
+  `,
   "Jinesh Kanjiya",
   25,
   ["politics", "modi", "india"],
@@ -78,7 +85,14 @@ users.forEach((u) => {
 let q4 = new Question(
   4,
   "Who is better Ronaldo or Messi?",
-  `Everybody debates on this question. But I wanted to know the views of you folks!`,
+  `Everybody debates on this question. But I wanted to know the views of you folks!
+    Is the argentinian star better than the portugese champion? Or is it
+    not justified to compare them...
+    <img src="/images/messi-ronaldo.webp" alt="messi and ronaldo" width="300" height="auto" style="display:block">
+    Messi had a fantastic career with Barcelona, winning the Champions league 
+    and golden boot, while the Real Madrid star is not behing in this respect as well.
+    So on what ground can we differentiate?
+  `,
   "Rahul Roy",
   1,
   ["sports", "football"],
