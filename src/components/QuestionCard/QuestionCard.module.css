@@ -6,7 +6,6 @@
   position: relative;
   border-radius: 15px;
   margin: 50px 0px;
-  text-decoration: none;
   color: black;
   border: 1px solid rgb(144, 122, 233);
 }
@@ -22,7 +21,7 @@
   justify-content: space-evenly;
 }
 
-.questionTitle {
+.questionHeading {
   width: 80%;
   font-size: 2rem;
   display: flex;
@@ -30,11 +29,19 @@
   padding: 20px 0px;
 }
 
+.questionTitle {
+  text-decoration: none;
+  color: black;
+}
+
 .questionDescription {
   width: 90%;
+  height: 100px;
+  overflow: hidden;
   overflow-wrap: break-word;
   font-size: 1rem;
   padding: 20px 0px;
+  opacity: 0.3;
 }
 
 .rating {

@@ -3,6 +3,7 @@ import { Lato } from "@next/font/google";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import ContinueReading from "../ContinueReading/ContinueReading";
 
 const lato = Lato({
   weight: "400",
@@ -22,11 +23,21 @@ const QuestionCard = (props) => {
     description.append(element);
   };
 
+  const showContent = (e) => {
+    const continueBox = document.getElementById("continueBox" + props.q.id);
+    continueBox.style.display = "none";
+    const contentBox = document.getElementById("description" + props.id);
+    contentBox.style.height = "min-content";
+    contentBox.style.opacity = "1";
+  };
+
   return (
-    <Link href={"/q/" + props.q.id} className={styles.cardWrapper}>
+    <div className={styles.cardWrapper}>
       <div className={`${styles.card} ${lato.className}`}>
-        <div className={styles.questionTitle}>
-          <span>{props.q.title}</span>
+        <div className={styles.questionHeading}>
+          <Link href={"/q/" + props.q.id} className={styles.questionTitle}>
+            {props.q.title}
+          </Link>
           <div className={styles.rating}>
             <Image
               src="/images/star.png"
@@ -42,11 +53,14 @@ const QuestionCard = (props) => {
           id={`description` + props.id}
           className={styles.questionDescription}
         ></div>
+        <div onClick={showContent} id={"continueBox" + props.q.id}>
+          <ContinueReading></ContinueReading>
+        </div>
       </div>
       <div className={`${styles.circle} ${styles.bigCircle}`}></div>
       <div className={`${styles.circle} ${styles.mediumCircle}`}></div>
       <div className={`${styles.circle} ${styles.smallCircle}`}></div>
-    </Link>
+    </div>
   );
 };
 

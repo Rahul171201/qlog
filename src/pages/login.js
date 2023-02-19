@@ -46,7 +46,7 @@ const Login = () => {
           <div className={styles.questionMark}>?</div>
           <div className={styles.description}>
             <em>
-              Finding answers to your questions? Chech us out, we can solve your
+              Finding answers to your questions? Check us out, we can solve your
               problems!
             </em>
           </div>
