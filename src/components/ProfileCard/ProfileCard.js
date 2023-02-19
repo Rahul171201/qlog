@@ -1,13 +1,19 @@
 import styles from "./ProfileCard.module.css";
 import Image from "next/image";
 import { UserContext } from "@/contexts/UserContext";
-
 import { Lato } from "@next/font/google";
+import showToolTip from "@/helper/ShowToolTip";
+import hideToolTip from "@/helper/HideToolTip";
+import Router from "next/router";
 
 const lato = Lato({
   weight: "400",
   subsets: ["latin"],
 });
+
+const handleRedirect = () => {
+  Router.push("/profile/edit");
+};
 
 const ProfileCard = () => {
   return (
@@ -17,6 +23,22 @@ const ProfileCard = () => {
 
         return (
           <div className={`${styles.profileCard} ${lato.className}`}>
+            <div
+              className={styles.editProfile}
+              onMouseEnter={showToolTip}
+              onMouseLeave={hideToolTip}
+              onClick={handleRedirect}
+            >
+              <Image
+                src="/images/editing.png"
+                alt="edit profile"
+                width={20}
+                height={20}
+              ></Image>
+              <div className={styles.toolTip} id="tool-tip">
+                Edit Profile
+              </div>
+            </div>
             <div className={styles.profileImageContainer}>
               <Image
                 src={"/profiles/" + user.profileImage}

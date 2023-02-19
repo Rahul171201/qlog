@@ -5,6 +5,7 @@
   border-radius: 9px;
   display: flex;
   justify-content: space-evenly;
+  position: relative;
 }
 
 .profileImageContainer {
@@ -33,6 +34,21 @@
 
 .email {
   color: grey;
+}
+
+.editProfile {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}
+.toolTip {
+  width: max-content;
+  display: none;
+  position: absolute;
+  top: -40px;
+  background-color: bisque;
+  font-size: 0.6rem;
+  padding: 10px;
 }
 
 @media (max-width: 900px) {
