@@ -41,7 +41,9 @@ const Register = () => {
   return (
     <main className={styles.loginMain}>
       <div className={styles.navbar}>
-        <Logo></Logo>
+        <div className={styles.logoWrapper}>
+          <Logo></Logo>
+        </div>
       </div>
       <div className={styles.loginWrapper}>
         <div className={`${styles.descriptionBox} ${itim.className}`}>

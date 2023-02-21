@@ -9,6 +9,15 @@
   }
 }
 
+@keyframes spin {
+  from {
+    transform: translate(-200%, 0) rotate(0turn);
+  }
+  to {
+    transform: translate(0, 0) rotate(2turn);
+  }
+}
+
 .loginMain {
   width: 100vw;
   min-height: 100vh;
@@ -20,6 +29,10 @@
   width: 100%;
   display: flex;
   pointer-events: none;
+}
+
+.logoWrapper {
+  animation: spin 1500ms;
 }
 
 .loginWrapper {

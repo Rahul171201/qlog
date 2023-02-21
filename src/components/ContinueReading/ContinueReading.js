@@ -10,6 +10,7 @@ const ContinueReading = () => {
         alt="down-arrow"
         width={20}
         height={20}
+        className={styles.icon}
       ></Image>
     </div>
   );

@@ -1,3 +1,12 @@
+@keyframes translation {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(20px, 0);
+  }
+}
+
 .wrapper {
   user-select: none;
   width: 200px;
@@ -16,4 +25,10 @@
 }
 .wrapper:hover {
   background-color: gainsboro;
+}
+
+.wrapper:hover .icon {
+  animation: translation 1000ms;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
