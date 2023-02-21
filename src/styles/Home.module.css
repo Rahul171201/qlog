@@ -1,0 +1,45 @@
+@keyframes loader {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.mainWrapper {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/images/bg-desktop.svg");
+  background-color: blueviolet;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loadingWrapper {
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.loadingText {
+  font-size: 4rem;
+  color: white;
+  letter-spacing: 5px;
+}
+
+.icon {
+  animation: loader 1000ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@media (max-width: 550px) {
+  .loadingText {
+    font-size: 2rem;
+  }
+}

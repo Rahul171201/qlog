@@ -1,3 +1,14 @@
+@keyframes slide-in {
+  from {
+    transform: translate(-100%, 0);
+    opacity: 0.4;
+  }
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
 .loginMain {
   width: 100vw;
   min-height: 100vh;
@@ -23,6 +34,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation: slide-in 1500ms;
 }
 
 .questionMark {

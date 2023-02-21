@@ -1,3 +1,13 @@
+@keyframes slide-in {
+  from {
+    transform: translate(100%, 0);
+    opacity: 0.4;
+  }
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
 .formWrapper {
   width: 50%;
   min-height: 70vh;
@@ -10,6 +20,7 @@
   border-radius: 9px;
   padding: 20px 0px;
   margin-bottom: 20px;
+  animation: slide-in 1500ms;
 }
 .header {
   font-size: 3rem;
