@@ -9,8 +9,10 @@
   background-color: rgb(49, 193, 245);
   color: white;
   text-decoration: none;
+  transition: transform 500ms;
 }
 .cardWrapper:hover {
+  transform: scale(1.1);
   background-color: rgb(96, 222, 253);
 }
 

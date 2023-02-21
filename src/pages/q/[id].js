@@ -43,6 +43,8 @@ const Question = ({ qId }) => {
   const [answerGiven, setAnswerGiven] = useState(false);
   const [questionAsked, setQuestionAsked] = useState(false);
 
+  const [counter, setCounter] = useState(1);
+
   context = useContext(SearchContext);
   let { searchText, setSearchText } = context;
 
@@ -58,7 +60,16 @@ const Question = ({ qId }) => {
     }
   }, []);
 
-  const handleRating = () => {
+  const handleRating = (e) => {
+    // e.stopPropagation();
+    const icon = document.getElementById("icon");
+    if (icon) {
+      const multiplier = counter * 360;
+
+      icon.style.transform = `rotate(${multiplier}deg)`;
+      setCounter(counter + 1);
+    }
+
     user.rate(question);
     setFlag(!flag);
   };
@@ -95,12 +106,14 @@ const Question = ({ qId }) => {
               {answerGiven || questionAsked ? (
                 <></>
               ) : (
-                <Link
-                  href={"/ans/" + question.id + "/add_answer"}
-                  className={styles.answerButton}
-                >
-                  Add Answer
-                </Link>
+                <div className={styles.answerButtonWrapper}>
+                  <Link
+                    href={"/ans/" + question.id + "/add_answer"}
+                    className={styles.answerButton}
+                  >
+                    Add Answer
+                  </Link>
+                </div>
               )}
             </div>
           </div>
@@ -114,6 +127,7 @@ const Question = ({ qId }) => {
                   width={50}
                   height={50}
                   className={styles.icon}
+                  id="icon"
                 ></Image>
               </div>
               <div className={styles.tempWrapper}>

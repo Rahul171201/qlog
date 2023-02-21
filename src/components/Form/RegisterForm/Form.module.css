@@ -66,6 +66,7 @@
 }
 
 .submitButton {
+  margin: 20px 0px;
   width: 70%;
   height: 50px;
   background-color: black;
@@ -74,9 +75,11 @@
   border-radius: 5px;
   cursor: pointer;
   font-size: 1.3rem;
+  transition: transform 500ms;
 }
 
 .submitButton:hover {
+  transform: scale(1.2);
   background-color: rgb(45, 7, 115);
   color: white;
 }
@@ -96,6 +99,9 @@
   justify-content: center;
   align-items: center;
   color: black;
+}
+.alternateLink:hover {
+  color: blueviolet;
 }
 
 .imageIcon {

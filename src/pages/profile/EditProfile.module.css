@@ -28,6 +28,7 @@
 }
 
 .submitButton {
+  width: 200px;
   height: 30px;
   margin-top: 20px;
   background-color: rgb(6, 66, 178);
@@ -35,8 +36,10 @@
   border: none;
   cursor: pointer;
   letter-spacing: 3px;
+  transition: transform 500ms;
 }
 
 .submitButton:hover {
+  transform: scale(1.1);
   background-color: rgb(52, 108, 212);
 }

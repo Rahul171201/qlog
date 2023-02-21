@@ -1,29 +1,4 @@
-const nonKeyWords = [
-  "in",
-  "on",
-  "if",
-  "of",
-  "at",
-  "by",
-  "when",
-  "where",
-  "how",
-  "what",
-  "why",
-  "to",
-  "a",
-  "an",
-  "there",
-  "then",
-  "not",
-  "till",
-  "upon",
-  "and",
-  "or",
-  "but",
-  "are",
-  "is",
-];
+import nonKeyWords from "@/data/non_keywords";
 
 const QuestionFilter = (questions, search_words) => {
   if (search_words === undefined) return questions;

@@ -48,6 +48,9 @@
   letter-spacing: 2px;
   color: white;
 }
+.navListItem:hover {
+  color: rgba(240, 255, 255, 0.781);
+}
 
 .hamburgerMenu {
   display: flex;

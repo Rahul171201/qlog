@@ -72,8 +72,10 @@
   justify-content: center;
   align-items: center;
   text-decoration: none;
+  transition: transform 500ms;
 }
 .askQuestionButton:hover {
+  transform: scale(1.1);
   background-color: rgb(38, 216, 38);
 }
 

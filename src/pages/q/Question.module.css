@@ -37,6 +37,7 @@
   inline-size: 60vw;
   overflow-wrap: break-word;
   font-size: 1.2rem;
+  line-height: 1.8;
 }
 .ratingWrapper {
   display: flex;
@@ -61,7 +62,9 @@
 }
 .icon {
   cursor: pointer;
+  transition: transform 1500ms;
 }
+
 .infoWrapper {
   width: max-content;
   min-height: 50px;
@@ -100,11 +103,22 @@
   color: rgb(103, 161, 255);
   cursor: pointer;
 }
+.tag:hover {
+  color: rgb(5, 20, 138);
+}
 
 .bottomBar {
   width: 100%;
   height: min-content;
   margin-top: 10px;
+}
+.answerButtonWrapper {
+  width: max-content;
+  height: max-content;
+  transition: transform 500ms;
+}
+.answerButtonWrapper:hover {
+  transform: scale(1.1);
 }
 
 .answerButton {
