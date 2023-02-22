@@ -1,17 +1,14 @@
 import styles from "./Form.module.css";
 import Input from "../Input/Input";
-import { Lato } from "@next/font/google";
+import lato from "@/data/latoFont";
 import User from "@/classes/User";
 import { useContext, useEffect, useState } from "react";
 import Router from "next/router";
 import Link from "next/link";
 import { RegisteredUsersContext } from "@/contexts/RegisteredUsersContext";
+import handleRegister from "@/helper/HandleRegister";
 
-const lato = Lato({
-  weight: "400",
-  subsets: ["latin"],
-});
-
+// Register Form Component
 const RegisterForm = (props) => {
   const [flag, setFlag] = useState(false);
 
@@ -21,37 +18,23 @@ const RegisterForm = (props) => {
     }
   }, [flag]);
 
+  // registered users context
   let context = useContext(RegisteredUsersContext);
   let { registeredUsers, setRegisteredUsers } = context;
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const email = e.target[0].value;
-    const userName = e.target[1].value;
-    const password = e.target[2].value;
-    const confirmPassword = e.target[3].value;
-    let total_users = registeredUsers.length;
-
-    if (password === confirmPassword) {
-      let temp_users = registeredUsers;
-      temp_users.push(
-        new User(
-          (total_users + 1) * (total_users + 1),
-          userName,
-          email,
-          password
-        )
-      );
-      setRegisteredUsers(temp_users);
-      setFlag(true);
-    }
-  };
 
   return (
     <div className={`${styles.formWrapper} ${lato.className}`}>
       <div className={styles.header}>{props.name}</div>
-      <form className={styles.form} onSubmit={handleSubmit}>
+      <form
+        className={styles.form}
+        onSubmit={(e) => {
+          const finalRegisteredUsers = handleRegister(e, registeredUsers);
+          if (finalRegisteredUsers) {
+            setRegisteredUsers(finalRegisteredUsers);
+            setFlag(true);
+          }
+        }}
+      >
         {props.data.map((item, idx) => {
           return (
             <Input

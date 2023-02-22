@@ -1,16 +1,11 @@
 import styles from "./Form.module.css";
 import Input from "../Input/Input";
-import { Lato } from "@next/font/google";
+import lato from "@/data/latoFont";
 import { UserContext } from "@/contexts/UserContext";
-import users from "../../../data/users";
+import handleLogin from "@/helper/HandleLogin";
 import { useContext, useEffect, useState } from "react";
 import Router from "next/router";
 import Link from "next/link";
-
-const lato = Lato({
-  weight: "400",
-  subsets: ["latin"],
-});
 
 // Login Form Component
 const LoginForm = (props) => {
@@ -22,34 +17,21 @@ const LoginForm = (props) => {
     }
   }, [flag]);
 
+  // user context
   let context = useContext(UserContext);
   let { user, setUser } = context;
-
-  const handleSubmit = (e) => {
-    // flag to know if the user is found in this function
-    let currentFlag = false;
-    e.preventDefault();
-
-    const userId = +e.target[0].value;
-    const password = e.target[1].value;
-
-    users.forEach((u) => {
-      if (u.userId === userId && u.password === password) {
-        setUser(u);
-        setFlag(true);
-        currentFlag = true;
-      }
-    });
-
-    if (!currentFlag) {
-      alert("Wrong username or password");
-    }
-  };
 
   return (
     <div className={`${styles.formWrapper} ${lato.className}`}>
       <div className={styles.header}>{props.name}</div>
-      <form className={styles.form} onSubmit={handleSubmit}>
+      <form
+        className={styles.form}
+        onSubmit={(e) => {
+          const finalUser = handleLogin(e);
+          setUser(finalUser);
+          if (finalUser) setFlag(true);
+        }}
+      >
         {props.data.map((item, idx) => {
           return (
             <Input

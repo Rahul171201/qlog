@@ -1,30 +1,10 @@
 import styles from "../styles/Login.module.css";
 import Logo from "@/components/Logo/Logo";
-import { Itim } from "@next/font/google";
+import itim from "@/data/itimFont";
 import LoginForm from "@/components/Form/LoginForm/LoginForm";
 import { useContext, useEffect } from "react";
 import { UserContext } from "@/contexts/UserContext";
-
-const itim = Itim({
-  weight: "400",
-  subsets: ["latin"],
-});
-
-// input field data for login form
-const inputFieldData = [
-  {
-    type: "text",
-    placeholder: "Type your user id",
-    label: "User Id",
-    image: "/images/user.png",
-  },
-  {
-    type: "password",
-    placeholder: "Type your password",
-    label: "Password",
-    image: "/images/padlock.png",
-  },
-];
+import loginFormData from "@/data/loginFormData";
 
 // Login Component
 const Login = () => {
@@ -55,7 +35,7 @@ const Login = () => {
         </div>
         <LoginForm
           name="Login"
-          data={inputFieldData}
+          data={loginFormData}
           mainButton="Login"
           alternateButton="Sign Up"
         ></LoginForm>

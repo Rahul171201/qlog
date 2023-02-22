@@ -1,11 +1,6 @@
 import styles from "./Logo.module.css";
-import { Itim } from "@next/font/google";
+import itim from "@/data/itimFont";
 import Link from "next/link";
-
-const itim = Itim({
-  weight: "400",
-  subsets: ["latin"],
-});
 
 // Logo Component
 const Logo = () => {

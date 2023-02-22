@@ -1,35 +1,17 @@
 import styles from "./QuestionCard.module.css";
-import { Lato } from "@next/font/google";
+import lato from "@/data/latoFont";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import handleDescriptionDisplay from "../../helper/HandleDescriptionDisplay";
 import ContinueReading from "../ContinueReading/ContinueReading";
+import showContent from "@/helper/ShowContent";
 
-const lato = Lato({
-  weight: "400",
-  subsets: ["latin"],
-});
-
+// Question card component
 const QuestionCard = (props) => {
   useEffect(() => {
-    handleDescriptionDisplay(props.q.description);
+    handleDescriptionDisplay(props.q.description, props.id);
   }, []);
-
-  const handleDescriptionDisplay = (desc) => {
-    const element = document.createElement("div");
-    element.innerHTML = desc;
-    const description = document.getElementById("description" + props.id);
-    description.innerHTML = "";
-    description.append(element);
-  };
-
-  const showContent = (e) => {
-    const continueBox = document.getElementById("continueBox" + props.q.id);
-    continueBox.style.display = "none";
-    const contentBox = document.getElementById("description" + props.id);
-    contentBox.style.height = "min-content";
-    contentBox.style.opacity = "1";
-  };
 
   return (
     <div className={styles.cardWrapper}>
@@ -53,7 +35,12 @@ const QuestionCard = (props) => {
           id={`description` + props.id}
           className={styles.questionDescription}
         ></div>
-        <div onClick={showContent} id={"continueBox" + props.q.id}>
+        <div
+          onClick={(e) => {
+            showContent(e, props.q.id, props.id);
+          }}
+          id={"continueBox" + props.q.id}
+        >
           <ContinueReading></ContinueReading>
         </div>
       </div>

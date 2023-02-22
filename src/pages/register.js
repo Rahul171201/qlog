@@ -1,40 +1,8 @@
 import styles from "../styles/Login.module.css";
 import Logo from "@/components/Logo/Logo";
-import { Itim } from "@next/font/google";
+import itim from "@/data/itimFont";
 import RegisterForm from "@/components/Form/RegisterForm/RegisterForm";
-
-const itim = Itim({
-  weight: "400",
-  subsets: ["latin"],
-});
-
-// input field data for register form
-const inputFieldData = [
-  {
-    type: "email",
-    placeholder: "Type your email address",
-    label: "Email",
-    image: "/images/email.png",
-  },
-  {
-    type: "text",
-    placeholder: "Type your user name",
-    label: "Username",
-    image: "/images/id-card.png",
-  },
-  {
-    type: "password",
-    placeholder: "Type your password",
-    label: "Password",
-    image: "/images/padlock.png",
-  },
-  {
-    type: "password",
-    placeholder: "Confirm your password",
-    label: "Confirm Password",
-    image: "/images/padlock.png",
-  },
-];
+import registerFormData from "@/data/registerFormData";
 
 // Register Component
 const Register = () => {
@@ -57,7 +25,7 @@ const Register = () => {
         </div>
         <RegisterForm
           name="Register"
-          data={inputFieldData}
+          data={registerFormData}
           mainButton="Sign Up"
           alternateButton="Login"
         ></RegisterForm>

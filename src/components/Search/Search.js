@@ -7,6 +7,7 @@ import Router from "next/router";
 const Search = () => {
   const [text, setText] = useState("");
 
+  // searchText
   let context = useContext(SearchContext);
   let { searchText, setSearchText } = context;
 

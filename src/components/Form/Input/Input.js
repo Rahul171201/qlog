@@ -1,12 +1,8 @@
 import styles from "./Input.module.css";
-import { Lato } from "@next/font/google";
 import Image from "next/image";
+import lato from "@/data/latoFont";
 
-const lato = Lato({
-  weight: "400",
-  subsets: ["latin"],
-});
-
+// Input Component
 const Input = (props) => {
   return (
     <div className={`${styles.inputWrapper} ${lato.className}`}>

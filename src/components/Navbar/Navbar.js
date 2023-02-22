@@ -1,16 +1,11 @@
 import Logo from "@/components/Logo/Logo";
 import Search from "@/components/Search/Search";
 import styles from "./Navbar.module.css";
-import { Lato } from "@next/font/google";
+import lato from "@/data/latoFont";
 import Image from "next/image";
 import { useContext, useState } from "react";
 import Link from "next/link";
 import { UserContext } from "@/contexts/UserContext";
-
-const lato = Lato({
-  weight: "400",
-  subsets: ["latin"],
-});
 
 const Navbar = () => {
   const [hamburger, setHamburger] = useState(false);
@@ -19,6 +14,7 @@ const Navbar = () => {
     setHamburger(!hamburger);
   };
 
+  // user context
   let context = useContext(UserContext);
   let { user, setUser } = context;
 

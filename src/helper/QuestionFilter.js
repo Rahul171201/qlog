@@ -1,4 +1,4 @@
-import nonKeyWords from "@/data/non_keywords";
+import nonKeyWords from "@/data/nonKeywords";
 
 const QuestionFilter = (questions, search_words) => {
   if (search_words === undefined) return questions;
