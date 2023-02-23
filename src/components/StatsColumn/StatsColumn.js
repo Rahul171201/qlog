@@ -6,11 +6,9 @@ import BlankCard from "../BlankCard/BlankCard";
 import { QuestionsContext } from "@/contexts/QuestionsContext";
 
 const StatsColumn = (props) => {
-  let context = useContext(UserContext);
-  let { user, setUser } = context;
+  const { user, setUser } = useContext(UserContext);
 
-  context = useContext(QuestionsContext);
-  let { questions, setQuestions } = context;
+  const { questions, setQuestions } = useContext(QuestionsContext);
 
   return (
     <div className={styles.columnWrapper}>

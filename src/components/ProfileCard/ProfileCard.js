@@ -1,16 +1,13 @@
 import styles from "./ProfileCard.module.css";
 import Image from "next/image";
 import { UserContext } from "@/contexts/UserContext";
-import { Lato } from "@next/font/google";
+import lato from "@/data/latoFont";
 import showToolTip from "@/helper/showToolTip";
 import hideToolTip from "@/helper/hideToolTip";
+import uploadProfile from "@/helper/uploadProfile";
 import Router from "next/router";
 
-const lato = Lato({
-  weight: "400",
-  subsets: ["latin"],
-});
-
+// Profile Card Component
 const ProfileCard = () => {
   return (
     <UserContext.Consumer>
@@ -19,19 +16,6 @@ const ProfileCard = () => {
 
         const handleRedirect = () => {
           Router.push("/profile/edit");
-        };
-
-        const uploadProfile = (e) => {
-          const profileImage = document.getElementById("profile-image");
-          let reader = new FileReader();
-          reader.readAsDataURL(profileImage.files[0]);
-          reader.onload = () => {
-            let temp_user = user;
-            temp_user.profileImage = reader.result;
-            setUser(temp_user);
-          };
-          e.target.value = "";
-          Router.push("/profile/" + user.userId);
         };
 
         return (
@@ -62,7 +46,10 @@ const ProfileCard = () => {
                 id="final-profile-image"
               ></Image>
               <div className={styles.uploadProfile}>
-                <label for="profile-image" className={styles.labelProfileImage}>
+                <label
+                  htmlFor="profile-image"
+                  className={styles.labelProfileImage}
+                >
                   <Image
                     src="/images/camera.png"
                     alt="camera icon"
@@ -76,7 +63,11 @@ const ProfileCard = () => {
                   accept="image/*"
                   className={styles.fileInput}
                   id="profile-image"
-                  onChange={uploadProfile}
+                  onChange={(e) => {
+                    const temp_user = uploadProfile(e, user);
+                    setUser(temp_user);
+                    Router.push("/profile/" + user.userId);
+                  }}
                 ></input>
               </div>
             </div>

@@ -19,8 +19,9 @@ const RegisterForm = (props) => {
   }, [flag]);
 
   // registered users context
-  let context = useContext(RegisteredUsersContext);
-  let { registeredUsers, setRegisteredUsers } = context;
+  const { registeredUsers, setRegisteredUsers } = useContext(
+    RegisteredUsersContext
+  );
 
   return (
     <div className={`${styles.formWrapper} ${lato.className}`}>

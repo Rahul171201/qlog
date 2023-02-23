@@ -1,97 +1,60 @@
 import styles from "../styles/Ask.module.css";
 import Navbar from "@/components/Navbar/Navbar";
 import addTag from "@/helper/addTag";
-import { Lato } from "@next/font/google";
+import lato from "@/data/latoFont";
 import { useContext, useEffect } from "react";
 import { QuestionsContext } from "@/contexts/QuestionsContext";
 import { UserContext } from "@/contexts/UserContext";
-import Question from "@/classes/Question";
 import Router from "next/router";
+import handleQuestionSubmit from "@/helper/handleQuestionSubmit";
 import { SearchContext } from "@/contexts/SearchContext";
-
-const lato = Lato({
-  weight: "400",
-  subsets: ["latin"],
-});
+import uploadImage from "@/helper/uploadImage";
 
 const Ask = () => {
-  let context = useContext(QuestionsContext);
-  let { questions, setQuestions } = context;
+  const { questions, setQuestions } = useContext(QuestionsContext);
 
-  context = useContext(UserContext);
-  let { user, setUser } = context;
+  const { user, setUser } = useContext(UserContext);
 
-  context = useContext(SearchContext);
-  let { searchText, setSearchText } = context;
+  const { searchText, setSearchText } = useContext(SearchContext);
 
   useEffect(() => {
     setSearchText(undefined);
   }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const questionTitle = e.target[0].value;
-
-    const text = document.getElementById("descriptionArea").innerHTML;
-    const questionDescription = text;
-
-    const questionTags = [];
-    for (let i = 2; i < e.target.length; i++) {
-      if (e.target[i].value !== undefined && e.target[i].value !== "")
-        questionTags.push(e.target[i].value);
-    }
-
-    let newQuestion = new Question(
-      questions.length,
-      questionTitle,
-      questionDescription,
-      user.userName,
-      user.userId,
-      questionTags,
-      new Date()
-    );
-
-    let temp_ques = questions;
-    temp_ques.push(newQuestion);
-    setQuestions(temp_ques);
-
-    user.asked.push(newQuestion);
-
-    Router.push("/feed");
-  };
-  const uploadImage = (e) => {
-    const node = document.getElementById("descriptionArea");
-
-    const uploadImageButton = document.getElementById("uploadImageButton");
-    let reader = new FileReader();
-    reader.readAsDataURL(uploadImageButton.files[0]);
-    reader.onload = () => {
-      const image = document.createElement("img");
-      image.src = reader.result;
-      image.alt = "question-image";
-      image.style.width = "30vw";
-      image.style.height = "auto";
-      image.style.display = "block";
-      node.append(image);
-    };
-    e.target.value = "";
-  };
-
   return (
     <div className={styles.askWrapper}>
       <Navbar></Navbar>
       <div className={`${styles.formWrapper} ${lato.className}`}>
-        <form className={styles.questionForm} onSubmit={handleSubmit}>
+        <form
+          className={styles.questionForm}
+          onSubmit={(e) => {
+            const [newQuestion, temp_ques] = handleQuestionSubmit(
+              e,
+              questions,
+              user
+            );
+            setQuestions(temp_ques);
+            let temp_user = user;
+            temp_user.asked.push(newQuestion);
+            setUser(temp_user);
+            Router.push("/feed");
+          }}
+        >
           <div className={styles.titleWrapper}>
-            <label className={styles.label}>Title</label>
-            <input type="text" className={styles.titleInput} required></input>
+            <label htmlFor="title" className={styles.label}>
+              Title
+            </label>
+            <input
+              id="title"
+              type="text"
+              className={styles.titleInput}
+              required
+            ></input>
           </div>
           <div className={styles.descriptionWrapper}>
-            <textarea
-              id="hidden-text"
-              className={styles.hiddenTextArea}
-            ></textarea>
-            <label className={styles.label}>Description</label>
+            <label htmlFor="descriptionArea" className={styles.label}>
+              Description
+            </label>
             <div
               type="submit"
               contentEditable="true"
@@ -105,11 +68,17 @@ const Ask = () => {
             </button>
           </div>
           <div className={styles.fileInputWrapper}>
-            <label for="uploadImageButton" className={styles.fileInputButton}>
+            <label
+              htmlFor="uploadImageButton"
+              className={styles.fileInputButton}
+            >
               Upload Image
             </label>
             <input
-              onChange={uploadImage}
+              onChange={(e) => {
+                const node = document.getElementById("descriptionArea");
+                uploadImage(e, node);
+              }}
               type="file"
               className={styles.fileInput}
               id="uploadImageButton"

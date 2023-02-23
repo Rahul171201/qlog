@@ -2,17 +2,12 @@ import styles from "./QuestionCard.module.css";
 import lato from "@/data/latoFont";
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import handleDescriptionDisplay from "../../helper/handleDescriptionDisplay";
 import ContinueReading from "../ContinueReading/ContinueReading";
 import showContent from "@/helper/showContent";
+import QuestionDescription from "../Description/Description";
 
 // Question card component
 const QuestionCard = (props) => {
-  useEffect(() => {
-    handleDescriptionDisplay(props.q.description, props.id);
-  }, []);
-
   return (
     <div className={styles.cardWrapper}>
       <div className={`${styles.card} ${lato.className}`}>
@@ -34,7 +29,9 @@ const QuestionCard = (props) => {
         <div
           id={`description` + props.id}
           className={styles.questionDescription}
-        ></div>
+        >
+          <QuestionDescription desc={props.q.description}></QuestionDescription>
+        </div>
         <div
           onClick={(e) => {
             showContent(e, props.q.id, props.id);

@@ -2,7 +2,7 @@ import styles from "./StatsCard.module.css";
 import Link from "next/link";
 import { Lato } from "@next/font/google";
 import { useEffect } from "react";
-import handleDescriptionDisplay from "@/helper/handleDescriptionDisplay";
+import Description from "../Description/Description";
 
 const lato = Lato({
   weight: "400",
@@ -10,15 +10,6 @@ const lato = Lato({
 });
 
 const StatsCard = ({ id, title, description }) => {
-  useEffect(() => {
-    handleContentDisplay();
-  });
-  const handleContentDisplay = () => {
-    const node = document.getElementById("content-area" + id);
-
-    node.innerHTML = description;
-  };
-
   return (
     <Link
       href={"/q/" + id}
@@ -26,7 +17,9 @@ const StatsCard = ({ id, title, description }) => {
     >
       <div className={styles.cardTitle}>{title}</div>
       <hr className={styles.horizontalRule}></hr>
-      <div className={styles.cardContent} id={"content-area" + id}></div>
+      <div className={styles.cardContent} id={"content-area" + id}>
+        <Description desc={description}></Description>
+      </div>
     </Link>
   );
 };

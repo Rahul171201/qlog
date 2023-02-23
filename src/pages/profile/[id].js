@@ -2,20 +2,10 @@ import styles from "./Profile.module.css";
 import Navbar from "@/components/Navbar/Navbar";
 import ProfileCard from "@/components/ProfileCard/ProfileCard";
 import StatsColumn from "@/components/StatsColumn/StatsColumn";
-import { Lato } from "@next/font/google";
-import { UserContext } from "@/contexts/UserContext";
+import lato from "@/data/latoFont";
 import Link from "next/link";
-import { useContext } from "react";
-
-const lato = Lato({
-  weight: "400",
-  subsets: ["latin"],
-});
 
 const Profile = ({ userId }) => {
-  let context = useContext(UserContext);
-  let { user, setUser } = context;
-
   return (
     <div className={`${styles.profileWrapper} ${lato.className}`}>
       <Navbar></Navbar>

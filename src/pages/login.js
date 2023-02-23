@@ -9,8 +9,7 @@ import loginFormData from "@/data/loginFormData";
 // Login Component
 const Login = () => {
   // user context
-  let context = useContext(UserContext);
-  let { setUser } = context;
+  const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
     setUser(undefined);

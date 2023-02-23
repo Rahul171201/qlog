@@ -8,8 +8,7 @@ const Search = () => {
   const [text, setText] = useState("");
 
   // searchText
-  let context = useContext(SearchContext);
-  let { searchText, setSearchText } = context;
+  const { searchText, setSearchText } = useContext(SearchContext);
 
   const handleSearch = () => {
     if (text === "") setSearchText(undefined);

@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import styles from "./Question.module.css";
 import Image from "next/image";
 import AnswerCard from "@/components/AnswerCard/AnswerCard";
-import { Lato } from "@next/font/google";
+import lato from "@/data/latoFont";
 import { useContext, useEffect, useState } from "react";
 import { AnswersContext } from "@/contexts/AnswersContext";
 import { UserContext } from "@/contexts/UserContext";
@@ -10,18 +10,14 @@ import { QuestionsContext } from "@/contexts/QuestionsContext";
 import Link from "next/link";
 import { SearchContext } from "@/contexts/SearchContext";
 import Router from "next/router";
-import handleDescriptionDisplay from "@/helper/handleDescriptionDisplay";
 import sortAnswerArray from "@/helper/sortAnswerArray";
-
-const lato = Lato({
-  weight: "400",
-  subsets: ["latin"],
-});
+import QuestionDescription from "@/components/Description/Description";
 
 const Question = ({ qId }) => {
-  let context = useContext(QuestionsContext);
-  let { questions, setQuestions } = context;
+  // questions context
+  const { questions, setQuestions } = useContext(QuestionsContext);
 
+  // current question
   let question;
   questions.forEach((q) => {
     if (q.id === +qId) question = q;
@@ -29,13 +25,10 @@ const Question = ({ qId }) => {
 
   const [flag, setFlag] = useState(0);
 
-  context = useContext(AnswersContext);
-
-  let { answers, setAnswers } = context;
-
-  context = useContext(UserContext);
-
-  let { user, setUser } = context;
+  // answers context
+  const { answers, setAnswers } = useContext(AnswersContext);
+  // user context
+  const { user, setUser } = useContext(UserContext);
 
   let ans = answers.filter((answer) => answer.qid === question.id);
   ans = sortAnswerArray(ans);
@@ -45,11 +38,10 @@ const Question = ({ qId }) => {
 
   const [counter, setCounter] = useState(1);
 
-  context = useContext(SearchContext);
-  let { searchText, setSearchText } = context;
+  // search context
+  const { searchText, setSearchText } = useContext(SearchContext);
 
   useEffect(() => {
-    handleDescriptionDisplay(question.description);
     user.answered.forEach((a) => {
       if (a.qid === +qId) {
         setAnswerGiven(true);
@@ -60,8 +52,10 @@ const Question = ({ qId }) => {
     }
   }, []);
 
+  /**
+   * FIXME: Here we require to do dom maupulation or there is another way?
+   */
   const handleRating = (e) => {
-    // e.stopPropagation();
     const icon = document.getElementById("icon");
     if (icon) {
       const multiplier = counter * 360;
@@ -87,7 +81,11 @@ const Question = ({ qId }) => {
         <div className={styles.questionBox}>
           <div className={styles.questionWrapper}>
             <div className={styles.questionTitle}>{question.title}</div>
-            <div id="description" className={styles.questionDescription}></div>
+            <div id="description" className={styles.questionDescription}>
+              <QuestionDescription
+                desc={question.description}
+              ></QuestionDescription>
+            </div>
             <div className={styles.tagBox}>
               {question.tags.map((tag, idx) => {
                 return (
@@ -100,7 +98,7 @@ const Question = ({ qId }) => {
                     #{tag}
                   </div>
                 );
-              })}{" "}
+              })}
             </div>
             <div className={styles.bottomBar}>
               {answerGiven || questionAsked ? (

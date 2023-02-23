@@ -6,8 +6,11 @@ import lato from "@/data/latoFont";
 const Input = (props) => {
   return (
     <div className={`${styles.inputWrapper} ${lato.className}`}>
-      <label className={styles.label}>{props.label}</label>
+      <label htmlFor={props.label} className={styles.label}>
+        {props.label}
+      </label>
       <input
+        id={props.label}
         type={props.type}
         placeholder={props.placeholder}
         className={styles.inputField}

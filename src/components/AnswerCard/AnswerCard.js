@@ -1,16 +1,12 @@
 import { UserContext } from "@/contexts/UserContext";
 import { useContext, useEffect, useState } from "react";
+import Description from "../Description/Description";
 import styles from "./AnswerCard.module.css";
 
 const AnswerCard = ({ answer, id }) => {
   const [flag, setFlag] = useState(false);
 
-  let context = useContext(UserContext);
-  let { user, setUser } = context;
-
-  useEffect(() => {
-    handleAnswerDisplay();
-  }, []);
+  const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {}, [flag]);
 
@@ -22,14 +18,6 @@ const AnswerCard = ({ answer, id }) => {
   const handleDownvote = () => {
     user.downvote(answer);
     setFlag(!flag);
-  };
-
-  const handleAnswerDisplay = () => {
-    const element = document.createElement("div");
-    element.innerHTML = answer.content;
-    const content = document.getElementById("content" + id);
-    content.innerHTML = "";
-    content.append(element);
   };
 
   return (
@@ -48,7 +36,9 @@ const AnswerCard = ({ answer, id }) => {
           <span>2 days ago</span>
         </div>
         <hr className={styles.horizontalRule}></hr>
-        <div className={styles.content} id={"content" + id}></div>
+        <div className={styles.content} id={"content" + id}>
+          <Description desc={answer.content}></Description>
+        </div>
       </div>
       <div className={styles.bookmarkDesign}></div>
     </div>

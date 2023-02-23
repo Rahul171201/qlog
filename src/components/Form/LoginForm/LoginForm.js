@@ -18,8 +18,7 @@ const LoginForm = (props) => {
   }, [flag]);
 
   // user context
-  let context = useContext(UserContext);
-  let { user, setUser } = context;
+  const { user, setUser } = useContext(UserContext);
 
   return (
     <div className={`${styles.formWrapper} ${lato.className}`}>

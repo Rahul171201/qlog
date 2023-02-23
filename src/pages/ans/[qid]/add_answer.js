@@ -1,22 +1,18 @@
 import styles from "./Answer.module.css";
 import Navbar from "@/components/Navbar/Navbar";
-
-import { Lato } from "@next/font/google";
-import { useContext, useState } from "react";
+import lato from "@/data/latoFont";
+import { useContext } from "react";
 import { QuestionsContext } from "@/contexts/QuestionsContext";
 import Router from "next/router";
 import { AnswersContext } from "@/contexts/AnswersContext";
-import Answer from "@/classes/Answer";
 import { UserContext } from "@/contexts/UserContext";
-
-const lato = Lato({
-  weight: "400",
-  subsets: ["latin"],
-});
+import uploadImage from "@/helper/uploadImage";
+import handleAnswerSubmit from "@/helper/handleAnswerSubmit";
+import Description from "@/components/Description/Description";
 
 const AddAnswer = ({ qId }) => {
-  let context = useContext(QuestionsContext);
-  let { questions, setQuestions } = context;
+  // questions context
+  const { questions, setQuestions } = useContext(QuestionsContext);
 
   let question;
   questions.forEach((q) => {
@@ -25,60 +21,17 @@ const AddAnswer = ({ qId }) => {
     }
   });
 
-  context = useContext(AnswersContext);
-  let { answers, setAnswers } = context;
+  // answers context
+  const { answers, setAnswers } = useContext(AnswersContext);
+  // user context
+  const { user, setUser } = useContext(UserContext);
 
-  context = useContext(UserContext);
-  let { user, setUser } = context;
-
-  const handleSubmit = () => {
-    let total_answers = answers.length;
-    let id = total_answers;
-
-    const answer = document.getElementById("answerArea").innerHTML;
-
-    let new_answer = new Answer(
-      id,
-      user.userId,
-      user.userName,
-      answer,
-      question.id,
-      new Date()
-    );
-
-    let temp_answers = answers;
-    temp_answers.push(new_answer);
-    setAnswers(temp_answers);
-
-    question.answers.push(new_answer);
-
-    let temp_user = user;
-    temp_user.answered.push(new_answer);
-    setUser(temp_user);
-    Router.push("/q/" + question.id);
-  };
-
+  /**
+   * FIXME:
+   * DOM MANUPIULATION CORRECT?
+   */
   const handleClear = () => {
     document.getElementById("answerArea").innerHTML = "";
-  };
-
-  const uploadImage = (e) => {
-    const node = document.getElementById("answerArea");
-
-    const fileInput = document.getElementById("fileInput");
-
-    let reader = new FileReader();
-    reader.readAsDataURL(fileInput.files[0]);
-    reader.onload = () => {
-      const image = document.createElement("img");
-      image.src = reader.result;
-      image.alt = "answer-image";
-      image.style.width = "30vw";
-      image.style.height = "auto";
-      image.style.display = "block";
-      node.append(image);
-    };
-    e.target.value = "";
   };
 
   return (
@@ -87,7 +40,9 @@ const AddAnswer = ({ qId }) => {
       <div className={styles.questionWrapper}>
         <div className={styles.questionTitle}>{question.title}</div>
         <hr className={styles.horizontalRule}></hr>
-        <div className={styles.questionDescription}>{question.description}</div>
+        <div className={styles.questionDescription}>
+          <Description desc={question.description}></Description>
+        </div>
         <div className={styles.infoBar}>
           <span>{question.ownerName}</span>
         </div>
@@ -106,11 +61,14 @@ const AddAnswer = ({ qId }) => {
             CLEAR
           </button>
           <div className={styles.uploadButtonWrapper}>
-            <label for="fileInput" className={styles.uploadButton}>
+            <label htmlFor="fileInput" className={styles.uploadButton}>
               Upload Image
             </label>
             <input
-              onChange={uploadImage}
+              onChange={(e) => {
+                const node = document.getElementById("answerArea");
+                uploadImage(e, node);
+              }}
               type="file"
               accept="image/*"
               id="fileInput"
@@ -118,7 +76,17 @@ const AddAnswer = ({ qId }) => {
             ></input>
           </div>
 
-          <button className={styles.postButton} onClick={handleSubmit}>
+          <button
+            className={styles.postButton}
+            onClick={() => {
+              const [temp_answers, temp_question, temp_user] =
+                handleAnswerSubmit(answers, user, question);
+              question = temp_question;
+              setAnswers(temp_answers);
+              setUser(temp_user);
+              Router.push("/q/" + question.id);
+            }}
+          >
             POST
           </button>
         </div>

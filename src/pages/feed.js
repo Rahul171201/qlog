@@ -17,20 +17,16 @@ const lato = Lato({
 });
 
 const Feed = () => {
-  let context = useContext(QuestionsContext);
-  let { questions, setQuestions } = context;
+  const { questions, setQuestions } = useContext(QuestionsContext);
 
-  context = useContext(UserContext);
-  let { user, setUser } = context;
+  const { user, setUser } = useContext(UserContext);
 
-  context = useContext(SearchContext);
-  let { searchText, setSearchText } = context;
+  const { searchText, setSearchText } = useContext(SearchContext);
 
-  let search_words =
+  const search_words =
     searchText === undefined ? undefined : searchText.split(" ");
 
   let feedQuestions = QuestionFilter(questions, search_words);
-
   feedQuestions = sortQuestionArray(feedQuestions);
 
   useEffect(() => {

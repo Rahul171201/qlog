@@ -2,13 +2,7 @@ import { useEffect } from "react";
 import Router from "next/router";
 import styles from "../styles/Home.module.css";
 import Image from "next/image";
-
-import { Lato } from "@next/font/google";
-
-const lato = Lato({
-  weight: "400",
-  subsets: ["latin"],
-});
+import lato from "@/data/latoFont";
 
 export default function Home() {
   useEffect(() => {

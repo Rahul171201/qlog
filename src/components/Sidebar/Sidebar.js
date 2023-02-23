@@ -9,8 +9,7 @@ const lato = Lato({
 });
 
 const Sidebar = () => {
-  let context = useContext(SearchContext);
-  let { searchText, setSearchText } = context;
+  let { searchText, setSearchText } = useContext(SearchContext);
 
   const handleClick = (e) => {
     const text = e.target.innerHTML.toLowerCase();
