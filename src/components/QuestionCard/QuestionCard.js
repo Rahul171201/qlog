@@ -3,9 +3,9 @@ import lato from "@/data/latoFont";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import handleDescriptionDisplay from "../../helper/HandleDescriptionDisplay";
+import handleDescriptionDisplay from "../../helper/handleDescriptionDisplay";
 import ContinueReading from "../ContinueReading/ContinueReading";
-import showContent from "@/helper/ShowContent";
+import showContent from "@/helper/showContent";
 
 // Question card component
 const QuestionCard = (props) => {

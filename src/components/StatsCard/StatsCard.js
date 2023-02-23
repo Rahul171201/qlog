@@ -2,7 +2,7 @@ import styles from "./StatsCard.module.css";
 import Link from "next/link";
 import { Lato } from "@next/font/google";
 import { useEffect } from "react";
-import handleDescriptionDisplay from "@/helper/HandleDescriptionDisplay";
+import handleDescriptionDisplay from "@/helper/handleDescriptionDisplay";
 
 const lato = Lato({
   weight: "400",

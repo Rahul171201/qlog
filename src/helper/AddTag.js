@@ -1,4 +1,4 @@
-import removeTag from "./RemoveTag";
+import removeTag from "./removeTag";
 
 const addTag = (e) => {
   e.preventDefault();

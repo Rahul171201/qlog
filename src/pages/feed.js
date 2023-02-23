@@ -7,9 +7,9 @@ import { QuestionsContext } from "@/contexts/QuestionsContext";
 import { UserContext } from "@/contexts/UserContext";
 import Router from "next/router";
 import { SearchContext } from "@/contexts/SearchContext";
-import QuestionFilter from "@/helper/QuestionFilter";
+import QuestionFilter from "@/helper/questionFilter";
 import { Lato } from "@next/font/google";
-import sortQuestionArray from "@/helper/SortQuestionArray";
+import sortQuestionArray from "@/helper/sortQuestionArray";
 
 const lato = Lato({
   weight: "400",

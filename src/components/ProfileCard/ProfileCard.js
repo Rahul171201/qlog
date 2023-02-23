@@ -2,8 +2,8 @@ import styles from "./ProfileCard.module.css";
 import Image from "next/image";
 import { UserContext } from "@/contexts/UserContext";
 import { Lato } from "@next/font/google";
-import showToolTip from "@/helper/ShowToolTip";
-import hideToolTip from "@/helper/HideToolTip";
+import showToolTip from "@/helper/showToolTip";
+import hideToolTip from "@/helper/hideToolTip";
 import Router from "next/router";
 
 const lato = Lato({

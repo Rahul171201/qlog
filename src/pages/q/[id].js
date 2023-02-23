@@ -10,8 +10,8 @@ import { QuestionsContext } from "@/contexts/QuestionsContext";
 import Link from "next/link";
 import { SearchContext } from "@/contexts/SearchContext";
 import Router from "next/router";
-import handleDescriptionDisplay from "@/helper/HandleDescriptionDisplay";
-import sortAnswerArray from "@/helper/SortAnswerArray";
+import handleDescriptionDisplay from "@/helper/handleDescriptionDisplay";
+import sortAnswerArray from "@/helper/sortAnswerArray";
 
 const lato = Lato({
   weight: "400",

@@ -2,7 +2,7 @@ import styles from "./Form.module.css";
 import Input from "../Input/Input";
 import lato from "@/data/latoFont";
 import { UserContext } from "@/contexts/UserContext";
-import handleLogin from "@/helper/HandleLogin";
+import handleLogin from "@/helper/handleLogin";
 import { useContext, useEffect, useState } from "react";
 import Router from "next/router";
 import Link from "next/link";

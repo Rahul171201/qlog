@@ -6,7 +6,7 @@ import { useContext, useEffect, useState } from "react";
 import Router from "next/router";
 import Link from "next/link";
 import { RegisteredUsersContext } from "@/contexts/RegisteredUsersContext";
-import handleRegister from "@/helper/HandleRegister";
+import handleRegister from "@/helper/handleRegister";
 
 // Register Form Component
 const RegisterForm = (props) => {

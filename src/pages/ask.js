@@ -1,6 +1,6 @@
 import styles from "../styles/Ask.module.css";
 import Navbar from "@/components/Navbar/Navbar";
-import addTag from "@/helper/AddTag";
+import addTag from "@/helper/addTag";
 import { Lato } from "@next/font/google";
 import { useContext, useEffect } from "react";
 import { QuestionsContext } from "@/contexts/QuestionsContext";
