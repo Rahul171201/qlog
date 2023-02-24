@@ -35,11 +35,9 @@
   background-color: rgb(138, 169, 236);
   margin: 20px 0px;
   cursor: pointer;
-  transition: transform 500ms;
 }
 .listItem:hover {
-  transform: scale(1.1);
-  background-color: rgb(186, 155, 208);
+  background-color: rgb(186, 155, 208) !important;
 }
 
 @media (max-width: 1000px) {

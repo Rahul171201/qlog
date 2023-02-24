@@ -1,7 +1,8 @@
 import styles from "./Sidebar.module.css";
 import { Lato } from "@next/font/google";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { SearchContext } from "@/contexts/SearchContext";
+import Router from "next/router";
 
 const lato = Lato({
   weight: "400",
@@ -11,7 +12,30 @@ const lato = Lato({
 const Sidebar = () => {
   let { searchText, setSearchText } = useContext(SearchContext);
 
+  const [currentItem, setCurrentItem] = useState(null);
+
+  /**
+   * FIXME:
+   * IS THIS FUNCTION REQUIRED TO BE HERE?
+   */
   const handleClick = (e) => {
+    const element = e.target;
+    if (currentItem === element) {
+      element.style.backgroundColor = "rgb(138, 169, 236)";
+
+      setCurrentItem(null);
+      setSearchText(undefined);
+      Router.push("/feed");
+      return;
+    } else {
+      if (currentItem) {
+        const previousItem = currentItem;
+        previousItem.style.backgroundColor = "rgb(138, 169, 236)";
+      }
+      element.style.backgroundColor = "rgb(186, 155, 208)";
+      setCurrentItem(element);
+    }
+
     const text = e.target.innerHTML.toLowerCase();
     setSearchText(text);
   };
