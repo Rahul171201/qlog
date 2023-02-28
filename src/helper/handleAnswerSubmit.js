@@ -1,20 +1,17 @@
-import Answer from "@/classes/Answer";
-
-const handleAnswerSubmit = (answers, user, question, answerArea) => {
-  let total_answers = answers.length;
+const handleAnswerSubmit = (answers, user, question, content, attachments) => {
+  let total_answers = answers.size;
   let id = total_answers;
-
-  const answer = answerArea.current.innerHTML;
 
   let new_answer = {
     id: id,
     ownerId: user.userId,
     ownerName: user.userName,
-    content: answer,
+    content: content,
     qid: question.id,
     date: new Date(),
     upvotes: 0,
     downvotes: 0,
+    attachments: attachments,
   };
 
   return new_answer;

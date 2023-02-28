@@ -48,10 +48,19 @@
   display: none;
 }
 
-.descriptionInput {
-  padding: 10px;
-  min-height: 200px;
+.descriptionArea {
   border: 1px solid black;
+  padding: 20px;
+}
+
+.descriptionInput {
+  width: 90%;
+  min-height: 200px;
+  height: calc();
+  padding: 10px;
+  border: none;
+  outline-style: none;
+  resize: none;
 }
 
 .submitButtonWrapper {

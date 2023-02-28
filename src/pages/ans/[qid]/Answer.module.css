@@ -67,13 +67,21 @@
 
 .textArea {
   display: flex;
-  min-height: 320px;
-  display: flex;
+}
+
+.answerArea {
+  width: 100%;
+  height: max-content;
+  border: 1px solid black;
 }
 
 .text {
-  flex: 1;
+  width: 90%;
   padding: 10px;
+  min-height: 200px;
+  resize: none;
+  outline-style: none;
+  border: none;
 }
 
 .bottomBar {

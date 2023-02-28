@@ -1,9 +1,9 @@
 import styles from "./StatsCard.module.css";
 import Link from "next/link";
 import lato from "@/data/latoFont";
-import Description from "../Description/Description";
+import ImageComponent from "../ImageComponent/ImageComponent";
 
-const StatsCard = ({ id, title, description }) => {
+const StatsCard = ({ id, title, description, attachments }) => {
   return (
     <Link
       href={"/q/" + id}
@@ -12,7 +12,10 @@ const StatsCard = ({ id, title, description }) => {
       <div className={styles.cardTitle}>{title}</div>
       <hr className={styles.horizontalRule}></hr>
       <div className={styles.cardContent}>
-        <Description desc={description}></Description>
+        {description}
+        {attachments.map((attachment, index) => {
+          return <ImageComponent key={index} src={attachment}></ImageComponent>;
+        })}
       </div>
     </Link>
   );

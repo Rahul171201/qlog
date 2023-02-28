@@ -2,20 +2,23 @@ import styles from "../styles/Ask.module.css";
 import Navbar from "@/components/Navbar/Navbar";
 import addTag from "@/helper/addTag";
 import lato from "@/data/latoFont";
-import { useContext, useEffect } from "react";
-import { QuestionsContext } from "@/contexts/QuestionsContext";
+import { useContext, useEffect, useState } from "react";
 import { UserContext } from "@/contexts/UserContext";
 import Router from "next/router";
 import handleQuestionSubmit from "@/helper/handleQuestionSubmit";
 import { SearchContext } from "@/contexts/SearchContext";
-import uploadImage from "@/helper/uploadImage";
+import ImageComponent from "@/components/ImageComponent/ImageComponent";
+import useLocalStorage from "@/hooks/useLocalStorage";
 
 const Ask = () => {
-  const { questions, setQuestions } = useContext(QuestionsContext);
+  const [questions, setQuestions] = useLocalStorage("questions", new Map());
 
+  // user context
   const { user, setUser } = useContext(UserContext);
-
+  // search context
   const { searchText, setSearchText } = useContext(SearchContext);
+
+  const [attachments, setAttachments] = useState([]);
 
   useEffect(() => {
     setSearchText(undefined);
@@ -28,15 +31,17 @@ const Ask = () => {
         <form
           className={styles.questionForm}
           onSubmit={(e) => {
-            const [newQuestion, temp_ques] = handleQuestionSubmit(
+            const newQuestion = handleQuestionSubmit(
               e,
               questions,
-              user
+              user,
+              attachments
             );
-            setQuestions(temp_ques);
-            let temp_user = user;
-            temp_user.asked.push(newQuestion);
-            setUser(temp_user);
+            questions.set(newQuestion.id, newQuestion);
+            console.log(questions);
+            setQuestions(new Map(Array.from(questions.entries())));
+            user.asked.push(newQuestion);
+            setUser(user);
             Router.push("/feed");
           }}
         >
@@ -55,12 +60,15 @@ const Ask = () => {
             <label htmlFor="descriptionArea" className={styles.label}>
               Description
             </label>
-            <div
-              type="submit"
-              contentEditable="true"
-              className={styles.descriptionInput}
-              id="descriptionArea"
-            ></div>
+            <div type="submit" className={styles.descriptionArea}>
+              <textarea className={styles.descriptionInput}></textarea>
+              {attachments.map((attachment, index) => {
+                return (
+                  // <div key={index}>ok</div>
+                  <ImageComponent key={index} src={attachment}></ImageComponent>
+                );
+              })}
+            </div>
           </div>
           <div className={styles.tagsWrapper}>
             <button onClick={(e) => addTag(e)} className={styles.addTagButton}>
@@ -76,8 +84,12 @@ const Ask = () => {
             </label>
             <input
               onChange={(e) => {
-                const node = document.getElementById("descriptionArea");
-                uploadImage(e, node);
+                const uploadImageButton = e.target;
+                let reader = new FileReader();
+                reader.readAsDataURL(uploadImageButton.files[0]);
+                reader.onload = () => {
+                  setAttachments([...attachments, reader.result]);
+                };
               }}
               type="file"
               className={styles.fileInput}

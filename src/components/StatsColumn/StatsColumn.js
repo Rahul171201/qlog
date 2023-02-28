@@ -28,6 +28,7 @@ const StatsColumn = (props) => {
                 title={q.title}
                 description={q.description}
                 id={q.id}
+                attachments={q.attachments}
               ></StatsCard>
             );
           })
@@ -52,6 +53,7 @@ const StatsColumn = (props) => {
               title={q_title}
               description={a.content}
               id={a.qid}
+              attachments={a.attachments}
             ></StatsCard>
           );
         })

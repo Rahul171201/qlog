@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import ContinueReading from "../ContinueReading/ContinueReading";
 import showContent from "@/helper/showContent";
-import QuestionDescription from "../Description/Description";
+import ImageComponent from "../ImageComponent/ImageComponent";
 
 // Question card component
 const QuestionCard = (props) => {
@@ -30,7 +30,13 @@ const QuestionCard = (props) => {
           id={`description` + props.id}
           className={styles.questionDescription}
         >
-          <QuestionDescription desc={props.q.description}></QuestionDescription>
+          {props.q.description}
+          {props.q.attachments.map((attachment, index) => {
+            console.log(attachment);
+            return (
+              <ImageComponent src={attachment} key={index}></ImageComponent>
+            );
+          })}
         </div>
         <div
           onClick={(e) => {

@@ -6,7 +6,6 @@ let q0 = {
   Laziness not only reduces productivity but also impacts health. Moreover,
   It has been noticed that men get more lazy during the rainy and autumn months
   in our country.
-  <img src="/images/lazy-graph.png" alt="graph" width="300" height="auto" style="display:block">
   I wanted to know the reasons behind this.`,
   ownerName: "Sainath Reddy",
   ownerId: 16,
@@ -14,7 +13,7 @@ let q0 = {
   date: new Date(),
   rating: 124,
   answers: [],
-  attachments: [],
+  attachments: ["/images/lazy-graph.png"],
 };
 const user0 = users.get(q0.ownerId);
 user0.asked.push(q0);
@@ -46,7 +45,6 @@ let q2 = {
   With the emergence of new political groups supporting Congress, 
   will Modi be able to defend his seat again? Its not only me but the nation wants to know I'm sure.
   Please share your views\n
-  <img src="/images/modi.avif" alt="modi" width="300" height="auto" style="display:block">
   `,
   ownerName: "Jinesh Kanjiya",
   ownerId: 25,
@@ -54,7 +52,7 @@ let q2 = {
   date: new Date(),
   rating: 25,
   answers: [],
-  attachments: [],
+  attachments: ["/images/modi.avif"],
 };
 const user2 = users.get(q2.ownerId);
 user2.asked.push(q2);
@@ -82,7 +80,6 @@ let q4 = {
   description: `Everybody debates on this question. But I wanted to know the views of you folks!
     Is the argentinian star better than the portugese champion? Or is it
     not justified to compare them...
-    <img src="/images/messi-ronaldo.webp" alt="messi and ronaldo" width="300" height="auto" style="display:block">
     Messi had a fantastic career with Barcelona, winning the Champions league 
     and golden boot, while the Real Madrid star is not behing in this respect as well.
     So on what ground can we differentiate?
@@ -93,7 +90,7 @@ let q4 = {
   date: new Date(),
   rating: 367,
   answers: [],
-  attachments: [],
+  attachments: ["/images/messi-ronaldo.webp"],
 };
 const user4 = users.get(q4.ownerId);
 user4.asked.push(q4);

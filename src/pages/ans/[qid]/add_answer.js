@@ -1,15 +1,12 @@
 import styles from "./Answer.module.css";
 import Navbar from "@/components/Navbar/Navbar";
 import lato from "@/data/latoFont";
-import { useContext, useRef } from "react";
-import { QuestionsContext } from "@/contexts/QuestionsContext";
+import { useContext, useRef, useState } from "react";
 import Router from "next/router";
-import { AnswersContext } from "@/contexts/AnswersContext";
 import { UserContext } from "@/contexts/UserContext";
-import uploadImage from "@/helper/uploadImage";
 import handleAnswerSubmit from "@/helper/handleAnswerSubmit";
-import Description from "@/components/Description/Description";
 import useLocalStorage from "@/hooks/useLocalStorage";
+import ImageComponent from "@/components/ImageComponent/ImageComponent";
 
 const AddAnswer = ({ qId }) => {
   // questions context
@@ -22,15 +19,14 @@ const AddAnswer = ({ qId }) => {
   // user context
   const { user, setUser } = useContext(UserContext);
 
+  // to store the answer content
+  const [content, setContent] = useState("");
+  const [attachments, setAttachments] = useState([]);
+
   const answerArea = useRef();
 
-  /**
-   * FIXME:
-   * DOM MANUPIULATION CORRECT?
-   */
   const handleClear = () => {
-    const area = answerArea.current;
-    area.innerHTML = "";
+    setContent("");
   };
 
   return (
@@ -40,7 +36,12 @@ const AddAnswer = ({ qId }) => {
         <div className={styles.questionTitle}>{question.title}</div>
         <hr className={styles.horizontalRule}></hr>
         <div className={styles.questionDescription}>
-          <Description desc={question.description}></Description>
+          {question.description}
+          {question.attachments.map((attachment, index) => {
+            return (
+              <ImageComponent key={index} src={attachment}></ImageComponent>
+            );
+          })}
         </div>
         <div className={styles.infoBar}>
           <span>{question.ownerName}</span>
@@ -49,14 +50,18 @@ const AddAnswer = ({ qId }) => {
       <div className={styles.answerBox}>
         <div className={styles.topBar}>Type your answer below</div>
         <div className={styles.textArea}>
-          <div
-            contentEditable="true"
-            className={styles.text}
-            id="answerArea"
-            ref={answerArea}
-          >
-            {/* {imageUrl ? <ImageimgUrl={imageUrl} /> : null}
-            {text} */}
+          <div id="answerArea" className={styles.answerArea} ref={answerArea}>
+            <textarea
+              className={styles.text}
+              onChange={(e) => setContent(e.target.value)}
+            >
+              {content}
+            </textarea>
+            {attachments.map((attachment, index) => {
+              return (
+                <ImageComponent key={index} src={attachment}></ImageComponent>
+              );
+            })}
           </div>
         </div>
         <div className={styles.bottomBar}>
@@ -69,8 +74,12 @@ const AddAnswer = ({ qId }) => {
             </label>
             <input
               onChange={(e) => {
-                const node = document.getElementById("answerArea");
-                uploadImage(e, node);
+                const uploadImageButton = e.target;
+                let reader = new FileReader();
+                reader.readAsDataURL(uploadImageButton.files[0]);
+                reader.onload = () => {
+                  setAttachments([...attachments, reader.result]);
+                };
               }}
               type="file"
               accept="image/*"
@@ -86,11 +95,14 @@ const AddAnswer = ({ qId }) => {
                 answers,
                 user,
                 question,
-                answerArea
+                content,
+                attachments
               );
               answers.set(new_answer.id, new_answer);
+              question.answers.push(new_answer);
               user.answered.push(new_answer);
-              setAnswers(answers);
+              setAnswers(new Map(Array.from(answers.entries())));
+              setQuestions(new Map(Array.from(questions.entries())));
               setUser(user);
               Router.push("/q/" + question.id);
             }}

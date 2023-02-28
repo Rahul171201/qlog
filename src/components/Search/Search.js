@@ -13,7 +13,6 @@ const Search = () => {
   const handleSearch = () => {
     if (text === "") setSearchText(undefined);
     else setSearchText(text);
-    Router.push("/feed");
   };
 
   const handleChange = (e) => {

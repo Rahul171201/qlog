@@ -9,8 +9,8 @@ import Link from "next/link";
 import { SearchContext } from "@/contexts/SearchContext";
 import Router from "next/router";
 import sortAnswerArray from "@/helper/sortAnswerArray";
-import QuestionDescription from "@/components/Description/Description";
 import useLocalStorage from "@/hooks/useLocalStorage";
+import ImageComponent from "@/components/ImageComponent/ImageComponent";
 
 const Question = ({ qId }) => {
   const [questions, setQuestions] = useLocalStorage("questions", new Map());
@@ -75,9 +75,12 @@ const Question = ({ qId }) => {
           <div className={styles.questionWrapper}>
             <div className={styles.questionTitle}>{question.title}</div>
             <div id="description" className={styles.questionDescription}>
-              <QuestionDescription
-                desc={question.description}
-              ></QuestionDescription>
+              {question.description}
+              {question.attachments.map((attachment, index) => {
+                return (
+                  <ImageComponent src={attachment} key={index}></ImageComponent>
+                );
+              })}
             </div>
             <div className={styles.tagBox}>
               {question.tags.map((tag, idx) => {
