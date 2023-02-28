@@ -1,75 +1,103 @@
-import User from "@/classes/User";
+let u1 = {
+  userId: 1,
+  userName: "Rahul Roy",
+  email: "rahulroydps@gmail.com",
+  password: "rahul@123",
+  profileImage: "/profiles/rahul.png",
+  asked: [],
+  answered: [],
+};
+let u2 = {
+  userId: 4,
+  userName: "Souvik Patra",
+  email: "bengalBadshah@gmail.com",
+  password: "rahul@123",
+  profileImage: "/profiles/souvik.png",
+  asked: [],
+  answered: [],
+};
+let u3 = {
+  userId: 9,
+  userName: "Ronels Macwan",
+  email: "blazingRonels@gmail.com",
+  password: "rahul@123",
+  profileImage: "/profiles/ronels.png",
+  asked: [],
+  answered: [],
+};
+let u4 = {
+  userId: 16,
+  userName: "Sainath Reddy",
+  email: "BabaSai@gmail.com",
+  password: "rahul@123",
+  profileImage: "/profiles/sainath.png",
+  asked: [],
+  answered: [],
+};
+let u5 = {
+  userId: 25,
+  userName: "Jinesh Kanjiya",
+  email: "JinOp@gmail.com",
+  password: "rahul@123",
+  profileImage: "/profiles/jinesh.png",
+  asked: [],
+  answered: [],
+};
+let u6 = {
+  userId: 36,
+  userName: "Dhairya Rachchh",
+  email: "mentorDhairya@gmail.com",
+  password: "rahul@123",
+  asked: [],
+  answered: [],
+};
+let u7 = {
+  userId: 49,
+  userName: "Sushant Bhatia",
+  email: "managerSushant@gmail.com",
+  password: "rahul@123",
+  profileImage: "/profiles/sushant.png",
+  asked: [],
+  answered: [],
+};
+let u8 = {
+  userId: 64,
+  userName: "Abhishek Khurana",
+  email: "sltAbhishek@gmail.com",
+  password: "rahul@123",
+  profileImage: "/profiles/abhishek.png",
+  asked: [],
+  answered: [],
+};
+let u9 = {
+  userId: 81,
+  userName: "Ragy Thomas",
+  email: "ceoRagy@gmail.com",
+  password: "rahul@123",
+  profileImage: "/profiles/ragy.png",
+  asked: [],
+  answered: [],
+};
+let u10 = {
+  userId: 100,
+  userName: "Arushi Wadhwa",
+  email: "hrArushi@gmail.com",
+  password: "rahul@123",
+  profileImage: "/profiles/arushi.png",
+  asked: [],
+  answered: [],
+};
 
-let u1 = new User(
-  1,
-  "Rahul Roy",
-  "rahulroydps@gmail.com",
-  "rahul@123",
-  "/profiles/rahul.png"
-);
-let u2 = new User(
-  4,
-  "Souvik Patra",
-  "bengalBadshah@gmail.com",
-  "rahul@123",
-  "/profiles/souvik.png"
-);
-let u3 = new User(
-  9,
-  "Ronels Macwan",
-  "blazingRonels@gmail.com",
-  "rahul@123",
-  "/profiles/ronels.png"
-);
-let u4 = new User(
-  16,
-  "Sainath Reddy",
-  "BabaSai@gmail.com",
-  "rahul@123",
-  "/profiles/sainath.png"
-);
-let u5 = new User(
-  25,
-  "Jinesh Kanjiya",
-  "JinOp@gmail.com",
-  "rahul@123",
-  "/profiles/jinesh.png"
-);
-let u6 = new User(
-  36,
-  "Dhairya Rachchh",
-  "mentorDhairya@gmail.com",
-  "rahul@123"
-);
-let u7 = new User(
-  49,
-  "Sushant Bhatia",
-  "managerSushant@gmail.com",
-  "rahul@123",
-  "/profiles/sushant.png"
-);
-let u8 = new User(
-  64,
-  "Abhishek Khurana",
-  "sltAbhishek@gmail.com",
-  "rahul@123",
-  "/profiles/abhishek.png"
-);
-let u9 = new User(
-  81,
-  "Ragy Thomas",
-  "ceoRagy@gmail.com",
-  "rahul@123",
-  "/profiles/ragy.png"
-);
-let u10 = new User(
-  100,
-  "Arushi Wadhwa",
-  "hrArushi@gmail.com",
-  "rahul@123",
-  "/profiles/arushi.png"
-);
-
-let result = [u1, u2, u3, u4, u5, u6, u7, u8, u9, u10];
+let result = new Map();
+result.set(u1.userId, u1);
+result.set(u2.userId, u2);
+result.set(u3.userId, u3);
+result.set(u4.userId, u4);
+result.set(u5.userId, u5);
+result.set(u6.userId, u6);
+result.set(u7.userId, u7);
+result.set(u8.userId, u8);
+result.set(u9.userId, u9);
+result.set(u10.userId, u10);
 
 export default result;

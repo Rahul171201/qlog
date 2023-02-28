@@ -4,40 +4,33 @@ import Image from "next/image";
 import AnswerCard from "@/components/AnswerCard/AnswerCard";
 import lato from "@/data/latoFont";
 import { useContext, useEffect, useState } from "react";
-import { AnswersContext } from "@/contexts/AnswersContext";
 import { UserContext } from "@/contexts/UserContext";
-import { QuestionsContext } from "@/contexts/QuestionsContext";
 import Link from "next/link";
 import { SearchContext } from "@/contexts/SearchContext";
 import Router from "next/router";
 import sortAnswerArray from "@/helper/sortAnswerArray";
 import QuestionDescription from "@/components/Description/Description";
+import useLocalStorage from "@/hooks/useLocalStorage";
 
 const Question = ({ qId }) => {
-  // questions context
-  const { questions, setQuestions } = useContext(QuestionsContext);
+  const [questions, setQuestions] = useLocalStorage("questions", new Map());
+  // const [answers, setAnswers] = useLocalStorage("answers", new Map());
+  // const [users, setUsers] = useLocalStorage("users", new Map());
 
   // current question
-  let question;
-  questions.forEach((q) => {
-    if (q.id === +qId) question = q;
-  });
+  const question = questions.get(+qId);
 
   const [flag, setFlag] = useState(0);
 
-  // answers context
-  const { answers, setAnswers } = useContext(AnswersContext);
-  // user context
-  const { user, setUser } = useContext(UserContext);
-
-  let ans = answers.filter((answer) => answer.qid === question.id);
-  ans = sortAnswerArray(ans);
+  const ans = sortAnswerArray(question.answers);
 
   const [answerGiven, setAnswerGiven] = useState(false);
   const [questionAsked, setQuestionAsked] = useState(false);
 
   const [counter, setCounter] = useState(1);
 
+  // user context
+  const { user, setUser } = useContext(UserContext);
   // search context
   const { searchText, setSearchText } = useContext(SearchContext);
 
@@ -48,12 +41,12 @@ const Question = ({ qId }) => {
       }
     });
     if (question.ownerId === user.userId) {
-      setAnswerGiven(true);
+      setQuestionAsked(true);
     }
   }, []);
 
   /**
-   * FIXME: Here we require to do dom maupulation or there is another way?
+   * FIXME: Here we require to do dom manipulation or there is another way?
    */
   const handleRating = (e) => {
     const icon = document.getElementById("icon");

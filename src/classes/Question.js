@@ -3,13 +3,25 @@ class Question {
   #ratedBy;
 
   // constructor function
-  constructor(id, title, description, ownerName, ownerId, tags, date, rating) {
+  constructor(
+    id,
+    title,
+    description,
+    ownerName,
+    ownerId,
+    tags,
+    date,
+    rating,
+    answers
+  ) {
     this.id = id;
     this.title = title;
     this.description = description;
     this.ownerName = ownerName;
     this.ownerId = ownerId;
-    this.answers = [];
+
+    if (answers) this.answers = answers;
+    else this.answers = [];
 
     this.tags = tags.map((item) => {
       return item.toLowerCase();

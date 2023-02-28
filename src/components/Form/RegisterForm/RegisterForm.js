@@ -1,27 +1,14 @@
 import styles from "./Form.module.css";
 import Input from "../Input/Input";
 import lato from "@/data/latoFont";
-import User from "@/classes/User";
-import { useContext, useEffect, useState } from "react";
 import Router from "next/router";
 import Link from "next/link";
-import { RegisteredUsersContext } from "@/contexts/RegisteredUsersContext";
 import handleRegister from "@/helper/handleRegister";
+import useLocalStorage from "@/hooks/useLocalStorage";
 
 // Register Form Component
 const RegisterForm = (props) => {
-  const [flag, setFlag] = useState(false);
-
-  useEffect(() => {
-    if (flag) {
-      Router.push("/login");
-    }
-  }, [flag]);
-
-  // registered users context
-  const { registeredUsers, setRegisteredUsers } = useContext(
-    RegisteredUsersContext
-  );
+  const [users, setUsers] = useLocalStorage("users", new Map());
 
   return (
     <div className={`${styles.formWrapper} ${lato.className}`}>
@@ -29,10 +16,10 @@ const RegisterForm = (props) => {
       <form
         className={styles.form}
         onSubmit={(e) => {
-          const finalRegisteredUsers = handleRegister(e, registeredUsers);
-          if (finalRegisteredUsers) {
-            setRegisteredUsers(finalRegisteredUsers);
-            setFlag(true);
+          const value = handleRegister(e, users);
+          if (value) {
+            setUsers(new Map(Array.from(value.entries())));
+            Router.push("/login");
           }
         }}
       >

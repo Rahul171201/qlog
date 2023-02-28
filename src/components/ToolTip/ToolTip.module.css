@@ -1,0 +1,8 @@
+.toolTip {
+  width: max-content;
+  position: absolute;
+  top: -40px;
+  background-color: bisque;
+  font-size: 0.6rem;
+  padding: 10px;
+}

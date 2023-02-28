@@ -2,38 +2,48 @@ import styles from "../styles/Feed.module.css";
 import Navbar from "@/components/Navbar/Navbar";
 import QuestionCard from "@/components/QuestionCard/QuestionCard";
 import Sidebar from "@/components/Sidebar/Sidebar";
-import { useContext, useEffect } from "react";
-import { QuestionsContext } from "@/contexts/QuestionsContext";
+import { useContext, useEffect, useState } from "react";
 import { UserContext } from "@/contexts/UserContext";
 import Router from "next/router";
 import { SearchContext } from "@/contexts/SearchContext";
-import QuestionFilter from "@/helper/questionFilter";
-import { Lato } from "@next/font/google";
+import questionFilter from "@/helper/questionFilter";
+import lato from "@/data/latoFont";
 import sortQuestionArray from "@/helper/sortQuestionArray";
-
-const lato = Lato({
-  weight: "400",
-  subsets: ["latin"],
-});
+import useLocalStorage from "@/hooks/useLocalStorage";
 
 const Feed = () => {
-  const { questions, setQuestions } = useContext(QuestionsContext);
-
-  const { user, setUser } = useContext(UserContext);
-
-  const { searchText, setSearchText } = useContext(SearchContext);
-
-  const search_words =
-    searchText === undefined ? undefined : searchText.split(" ");
-
-  let feedQuestions = QuestionFilter(questions, search_words);
-  feedQuestions = sortQuestionArray(feedQuestions);
-
   useEffect(() => {
     if (user === undefined) {
       Router.push("/login");
     }
   }, []);
+
+  // user context
+  const { user, setUser } = useContext(UserContext);
+
+  // search context
+  const { searchText, setSearchText } = useContext(SearchContext);
+
+  const search_words =
+    searchText === undefined ? undefined : searchText.split(" ");
+
+  /**
+   * FIXME:
+   * Computationally heavy process for fetching data from localStorage
+   * Lazy initializer or not?
+   */
+  const [questions, setQuestions] = useLocalStorage("questions", new Map());
+
+  /**
+   * FIXME:
+   * Is storing data into arrays for sorted ordering performance friendly?
+   */
+  console.log("searching");
+  let feedQuestions = questionFilter(questions, search_words);
+  feedQuestions = sortQuestionArray(feedQuestions);
+
+  console.log("feed", user);
+
   return (
     <main className={styles.main}>
       <Navbar></Navbar>

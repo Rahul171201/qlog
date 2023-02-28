@@ -6,8 +6,10 @@ import BlankCard from "../BlankCard/BlankCard";
 import { QuestionsContext } from "@/contexts/QuestionsContext";
 
 const StatsColumn = (props) => {
+  // user context
   const { user, setUser } = useContext(UserContext);
 
+  // questions context
   const { questions, setQuestions } = useContext(QuestionsContext);
 
   return (

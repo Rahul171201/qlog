@@ -5,16 +5,30 @@ class User {
   #rated;
 
   // constructor function
-  constructor(userId, userName, email, password, profileImage) {
+  constructor(
+    userId,
+    userName,
+    email,
+    password,
+    profileImage,
+    asked,
+    answered
+  ) {
     this.userId = userId;
     this.userName = userName;
     this.email = email;
-    this.answered = [];
-    this.asked = [];
+
+    if (asked) this.asked = asked;
+    else this.asked = [];
+
+    if (answered) this.answered = answered;
+    else this.answered = [];
+
     this.#upvoted = new Map();
     this.#downvoted = new Map();
     this.#rated = new Map();
     this.password = password;
+
     if (profileImage) this.profileImage = profileImage;
     else this.profileImage = "/profiles/unknown-user.png";
   }

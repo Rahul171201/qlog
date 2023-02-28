@@ -1,24 +1,19 @@
-import users from "../data/users";
-
-const handleLogin = (e) => {
-  // flag to know if the user is found in this function
-  let currentFlag = false;
-  let finalUser = undefined;
+const handleLogin = (e, users) => {
   e.preventDefault();
 
   const userId = +e.target[0].value;
   const password = e.target[1].value;
 
-  users.forEach((u) => {
-    if (u.userId === userId && u.password === password) {
-      finalUser = u;
-      currentFlag = true;
-    }
-  });
+  let finalUser =
+    users.has(userId) && users.get(userId).password === password
+      ? users.get(userId)
+      : undefined;
 
-  if (!currentFlag) {
+  if (!finalUser) {
     alert("Wrong username or password");
   }
+
+  console.log("handle login", finalUser);
 
   return finalUser;
 };

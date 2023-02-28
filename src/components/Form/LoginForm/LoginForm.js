@@ -6,19 +6,17 @@ import handleLogin from "@/helper/handleLogin";
 import { useContext, useEffect, useState } from "react";
 import Router from "next/router";
 import Link from "next/link";
+import useLocalStorage from "@/hooks/useLocalStorage";
+import User from "@/classes/User";
 
 // Login Form Component
 const LoginForm = (props) => {
-  const [flag, setFlag] = useState(false);
-
-  useEffect(() => {
-    if (flag) {
-      Router.push("/feed");
-    }
-  }, [flag]);
-
   // user context
   const { user, setUser } = useContext(UserContext);
+
+  let [users, setUsers] = useLocalStorage("users", new Map());
+
+  // if (users) console.log("login", users.get(1).rate);
 
   return (
     <div className={`${styles.formWrapper} ${lato.className}`}>
@@ -26,9 +24,12 @@ const LoginForm = (props) => {
       <form
         className={styles.form}
         onSubmit={(e) => {
-          const finalUser = handleLogin(e);
-          setUser(finalUser);
-          if (finalUser) setFlag(true);
+          const finalUser = handleLogin(e, users);
+          if (finalUser) {
+            const params = Object.values(finalUser);
+            setUser(new User(...params));
+            Router.push("/feed");
+          }
         }}
       >
         {props.data.map((item, idx) => {

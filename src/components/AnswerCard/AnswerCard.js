@@ -1,4 +1,5 @@
 import { UserContext } from "@/contexts/UserContext";
+import useLocalStorage from "@/hooks/useLocalStorage";
 import { useContext, useEffect, useState } from "react";
 import Description from "../Description/Description";
 import styles from "./AnswerCard.module.css";
@@ -8,10 +9,11 @@ const AnswerCard = ({ answer, id }) => {
 
   const { user, setUser } = useContext(UserContext);
 
-  useEffect(() => {}, [flag]);
+  const [users, setUsers] = useLocalStorage("users", []);
 
   const handleUpvote = () => {
     user.upvote(answer);
+
     setFlag(!flag);
   };
 

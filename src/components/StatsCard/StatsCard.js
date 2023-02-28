@@ -1,13 +1,7 @@
 import styles from "./StatsCard.module.css";
 import Link from "next/link";
-import { Lato } from "@next/font/google";
-import { useEffect } from "react";
+import lato from "@/data/latoFont";
 import Description from "../Description/Description";
-
-const lato = Lato({
-  weight: "400",
-  subsets: ["latin"],
-});
 
 const StatsCard = ({ id, title, description }) => {
   return (
@@ -17,7 +11,7 @@ const StatsCard = ({ id, title, description }) => {
     >
       <div className={styles.cardTitle}>{title}</div>
       <hr className={styles.horizontalRule}></hr>
-      <div className={styles.cardContent} id={"content-area" + id}>
+      <div className={styles.cardContent}>
         <Description desc={description}></Description>
       </div>
     </Link>
