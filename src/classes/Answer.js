@@ -1,5 +1,15 @@
 class Answer {
-  constructor(id, ownerId, ownerName, content, qid, date, upvotes, downvotes) {
+  constructor(
+    id,
+    ownerId,
+    ownerName,
+    content,
+    qid,
+    date,
+    upvotes,
+    downvotes,
+    attachments
+  ) {
     this.id = id;
     this.ownerId = ownerId;
     this.ownerName = ownerName;
@@ -13,6 +23,9 @@ class Answer {
     else this.downvotes = 0;
 
     this.date = JSON.stringify(date);
+
+    if (attachments) this.attachments = attachments;
+    else this.attachments = [];
   }
 
   /**

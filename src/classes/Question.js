@@ -12,7 +12,8 @@ class Question {
     tags,
     date,
     rating,
-    answers
+    answers,
+    attachments
   ) {
     this.id = id;
     this.title = title;
@@ -29,6 +30,10 @@ class Question {
     this.date = date;
     if (rating) this.rating = rating;
     else this.rating = 0;
+
+    if (attachments) this.attachments = attachments;
+    else this.attachments = [];
+
     // initilizing private fields
     this.#ratedBy = new Map();
   }

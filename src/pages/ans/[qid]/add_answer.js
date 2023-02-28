@@ -1,7 +1,7 @@
 import styles from "./Answer.module.css";
 import Navbar from "@/components/Navbar/Navbar";
 import lato from "@/data/latoFont";
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { QuestionsContext } from "@/contexts/QuestionsContext";
 import Router from "next/router";
 import { AnswersContext } from "@/contexts/AnswersContext";
@@ -9,29 +9,28 @@ import { UserContext } from "@/contexts/UserContext";
 import uploadImage from "@/helper/uploadImage";
 import handleAnswerSubmit from "@/helper/handleAnswerSubmit";
 import Description from "@/components/Description/Description";
+import useLocalStorage from "@/hooks/useLocalStorage";
 
 const AddAnswer = ({ qId }) => {
   // questions context
-  const { questions, setQuestions } = useContext(QuestionsContext);
+  const [questions, setQuestions] = useLocalStorage("questions", new Map());
 
-  let question;
-  questions.forEach((q) => {
-    if (q.id === +qId) {
-      question = q;
-    }
-  });
+  const question = questions.get(+qId);
 
   // answers context
-  const { answers, setAnswers } = useContext(AnswersContext);
+  const [answers, setAnswers] = useLocalStorage("answers", new Map());
   // user context
   const { user, setUser } = useContext(UserContext);
+
+  const answerArea = useRef();
 
   /**
    * FIXME:
    * DOM MANUPIULATION CORRECT?
    */
   const handleClear = () => {
-    document.getElementById("answerArea").innerHTML = "";
+    const area = answerArea.current;
+    area.innerHTML = "";
   };
 
   return (
@@ -54,7 +53,11 @@ const AddAnswer = ({ qId }) => {
             contentEditable="true"
             className={styles.text}
             id="answerArea"
-          ></div>
+            ref={answerArea}
+          >
+            {/* {imageUrl ? <ImageimgUrl={imageUrl} /> : null}
+            {text} */}
+          </div>
         </div>
         <div className={styles.bottomBar}>
           <button className={styles.clearallButton} onClick={handleClear}>
@@ -79,11 +82,16 @@ const AddAnswer = ({ qId }) => {
           <button
             className={styles.postButton}
             onClick={() => {
-              const [temp_answers, temp_question, temp_user] =
-                handleAnswerSubmit(answers, user, question);
-              question = temp_question;
-              setAnswers(temp_answers);
-              setUser(temp_user);
+              const new_answer = handleAnswerSubmit(
+                answers,
+                user,
+                question,
+                answerArea
+              );
+              answers.set(new_answer.id, new_answer);
+              user.answered.push(new_answer);
+              setAnswers(answers);
+              setUser(user);
               Router.push("/q/" + question.id);
             }}
           >

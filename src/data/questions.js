@@ -14,6 +14,7 @@ let q0 = {
   date: new Date(),
   rating: 124,
   answers: [],
+  attachments: [],
 };
 const user0 = users.get(q0.ownerId);
 user0.asked.push(q0);
@@ -33,6 +34,7 @@ let q1 = {
   date: new Date(),
   rating: 263,
   answers: [],
+  attachments: [],
 };
 const user1 = users.get(q1.ownerId);
 user1.asked.push(q1);
@@ -52,6 +54,7 @@ let q2 = {
   date: new Date(),
   rating: 25,
   answers: [],
+  attachments: [],
 };
 const user2 = users.get(q2.ownerId);
 user2.asked.push(q2);
@@ -68,6 +71,7 @@ let q3 = {
   date: new Date(),
   rating: 156,
   answers: [],
+  attachments: [],
 };
 const user3 = users.get(q3.ownerId);
 user3.asked.push(q3);
@@ -89,6 +93,7 @@ let q4 = {
   date: new Date(),
   rating: 367,
   answers: [],
+  attachments: [],
 };
 const user4 = users.get(q4.ownerId);
 user4.asked.push(q4);
@@ -103,6 +108,7 @@ let q5 = {
   date: new Date(),
   rating: 128,
   answers: [],
+  attachments: [],
 };
 const user5 = users.get(q5.ownerId);
 user5.asked.push(q5);

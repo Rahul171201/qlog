@@ -11,6 +11,7 @@ let a0 = {
   date: new Date(),
   upvotes: 363,
   downvotes: 15,
+  attachments: [],
 };
 
 const q0 = questions.get(a0.qid);
@@ -28,6 +29,7 @@ let a1 = {
   date: new Date(),
   upvotes: 23,
   downvotes: 2,
+  attachments: [],
 };
 const q1 = questions.get(a1.qid);
 q1.answers.push(a1);
@@ -44,6 +46,7 @@ let a2 = {
   date: new Date(),
   upvotes: 45,
   downvotes: 3,
+  attachments: [],
 };
 const q2 = questions.get(a2.qid);
 q2.answers.push(a2);
@@ -60,6 +63,7 @@ let a3 = {
   date: new Date(),
   upvotes: 5,
   downvotes: 16,
+  attachments: [],
 };
 const q3 = questions.get(a3.qid);
 q3.answers.push(a3);
@@ -76,6 +80,7 @@ let a4 = {
   date: new Date(),
   upvotes: 10,
   downvotes: 26,
+  attachments: [],
 };
 const q4 = questions.get(a4.qid);
 q4.answers.push(a4);
@@ -92,6 +97,7 @@ let a5 = {
   date: new Date(),
   upvotes: 360,
   downvotes: 25,
+  attachments: [],
 };
 const q5 = questions.get(a5.qid);
 q5.answers.push(a5);
@@ -108,6 +114,7 @@ let a6 = {
   date: new Date(),
   upvotes: 100,
   downvotes: 15,
+  attachments: [],
 };
 const q6 = questions.get(a6.qid);
 q6.answers.push(a6);
@@ -124,6 +131,7 @@ let a7 = {
   date: new Date(),
   upvotes: 29,
   downvotes: 0,
+  attachments: [],
 };
 const q7 = questions.get(a7.qid);
 q7.answers.push(a7);
@@ -140,6 +148,7 @@ let a8 = {
   date: new Date(),
   upvotes: 298,
   downvotes: 37,
+  attachments: [],
 };
 const q8 = questions.get(a8.qid);
 q8.answers.push(a8);
@@ -156,6 +165,7 @@ let a9 = {
   date: new Date(),
   upvotes: 899,
   downvotes: 129,
+  attachments: [],
 };
 const q9 = questions.get(a9.qid);
 q9.answers.push(a9);
@@ -172,6 +182,7 @@ let a10 = {
   date: new Date(),
   upvotes: 478,
   downvotes: 9,
+  attachments: [],
 };
 const q10 = questions.get(a10.qid);
 q10.answers.push(a10);

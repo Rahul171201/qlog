@@ -1,30 +1,23 @@
 import Answer from "@/classes/Answer";
 
-const handleAnswerSubmit = (answers, user, question) => {
+const handleAnswerSubmit = (answers, user, question, answerArea) => {
   let total_answers = answers.length;
   let id = total_answers;
 
-  const answer = document.getElementById("answerArea").innerHTML;
+  const answer = answerArea.current.innerHTML;
 
-  let new_answer = new Answer(
-    id,
-    user.userId,
-    user.userName,
-    answer,
-    question.id,
-    new Date()
-  );
+  let new_answer = {
+    id: id,
+    ownerId: user.userId,
+    ownerName: user.userName,
+    content: answer,
+    qid: question.id,
+    date: new Date(),
+    upvotes: 0,
+    downvotes: 0,
+  };
 
-  const temp_answers = answers;
-  temp_answers.push(new_answer);
-
-  const temp_question = question;
-  temp_question.answers.push(new_answer);
-
-  const temp_user = user;
-  temp_user.answered.push(new_answer);
-
-  return [temp_answers, temp_question, temp_user];
+  return new_answer;
 };
 
 export default handleAnswerSubmit;
