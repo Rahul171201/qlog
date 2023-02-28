@@ -14,15 +14,19 @@ import ImageComponent from "@/components/ImageComponent/ImageComponent";
 
 const Question = ({ qId }) => {
   const [questions, setQuestions] = useLocalStorage("questions", new Map());
+  const [users, setUsers] = useLocalStorage("users", new Map());
+  const [answers, setAnswers] = useLocalStorage("answers", new Map());
   // const [answers, setAnswers] = useLocalStorage("answers", new Map());
   // const [users, setUsers] = useLocalStorage("users", new Map());
 
   // current question
   const question = questions.get(+qId);
 
-  const [flag, setFlag] = useState(0);
-
-  const ans = sortAnswerArray(question.answers);
+  const answerArray = [];
+  question.answers.forEach((id) => {
+    answerArray.push(answers.get(id));
+  });
+  const ans = sortAnswerArray(answerArray);
 
   const [answerGiven, setAnswerGiven] = useState(false);
   const [questionAsked, setQuestionAsked] = useState(false);
@@ -57,8 +61,18 @@ const Question = ({ qId }) => {
       setCounter(counter + 1);
     }
 
-    user.rate(question);
-    setFlag(!flag);
+    const currentUser = users.get(user.userId);
+    if (currentUser.hasRated.includes(question.id)) {
+      question.rating--;
+      const index = currentUser.hasRated.indexOf(question.id);
+      if (index > -1) currentUser.hasRated.splice(index, 1);
+    } else {
+      currentUser.hasRated.push(question.id);
+      question.rating++;
+    }
+
+    setQuestions(new Map(Array.from(questions.entries())));
+    setUsers(new Map(Array.from(users.entries())));
   };
 
   const handleTagSubmit = (e) => {

@@ -4,13 +4,13 @@ import { useContext } from "react";
 import { UserContext } from "@/contexts/UserContext";
 import BlankCard from "../BlankCard/BlankCard";
 import { QuestionsContext } from "@/contexts/QuestionsContext";
+import useLocalStorage from "@/hooks/useLocalStorage";
 
 const StatsColumn = (props) => {
   // user context
   const { user, setUser } = useContext(UserContext);
 
-  // questions context
-  const { questions, setQuestions } = useContext(QuestionsContext);
+  const [questions, setQuestions] = useLocalStorage("questions", new Map());
 
   return (
     <div className={styles.columnWrapper}>
@@ -40,13 +40,7 @@ const StatsColumn = (props) => {
         ></BlankCard>
       ) : (
         user.answered.map((a) => {
-          let q_title;
-          questions.forEach((q) => {
-            if (q.id === a.qid) {
-              q_title = q.title;
-            }
-          });
-
+          const q_title = questions.get(a.qid).title;
           return (
             <StatsCard
               key={a.qid}

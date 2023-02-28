@@ -6,6 +6,9 @@ let u1 = {
   profileImage: "/profiles/rahul.png",
   asked: [],
   answered: [],
+  hasRated: [],
+  hasUpvoted: [],
+  hasDownvoted: [],
 };
 let u2 = {
   userId: 4,
@@ -15,6 +18,9 @@ let u2 = {
   profileImage: "/profiles/souvik.png",
   asked: [],
   answered: [],
+  hasRated: [],
+  hasUpvoted: [],
+  hasDownvoted: [],
 };
 let u3 = {
   userId: 9,
@@ -24,6 +30,9 @@ let u3 = {
   profileImage: "/profiles/ronels.png",
   asked: [],
   answered: [],
+  hasRated: [],
+  hasUpvoted: [],
+  hasDownvoted: [],
 };
 let u4 = {
   userId: 16,
@@ -33,6 +42,9 @@ let u4 = {
   profileImage: "/profiles/sainath.png",
   asked: [],
   answered: [],
+  hasRated: [],
+  hasUpvoted: [],
+  hasDownvoted: [],
 };
 let u5 = {
   userId: 25,
@@ -42,6 +54,9 @@ let u5 = {
   profileImage: "/profiles/jinesh.png",
   asked: [],
   answered: [],
+  hasRated: [],
+  hasUpvoted: [],
+  hasDownvoted: [],
 };
 let u6 = {
   userId: 36,
@@ -50,6 +65,9 @@ let u6 = {
   password: "rahul@123",
   asked: [],
   answered: [],
+  hasRated: [],
+  hasUpvoted: [],
+  hasDownvoted: [],
 };
 let u7 = {
   userId: 49,
@@ -59,6 +77,9 @@ let u7 = {
   profileImage: "/profiles/sushant.png",
   asked: [],
   answered: [],
+  hasRated: [],
+  hasUpvoted: [],
+  hasDownvoted: [],
 };
 let u8 = {
   userId: 64,
@@ -68,6 +89,9 @@ let u8 = {
   profileImage: "/profiles/abhishek.png",
   asked: [],
   answered: [],
+  hasRated: [],
+  hasUpvoted: [],
+  hasDownvoted: [],
 };
 let u9 = {
   userId: 81,
@@ -77,6 +101,9 @@ let u9 = {
   profileImage: "/profiles/ragy.png",
   asked: [],
   answered: [],
+  hasRated: [],
+  hasUpvoted: [],
+  hasDownvoted: [],
 };
 let u10 = {
   userId: 100,
@@ -86,6 +113,9 @@ let u10 = {
   profileImage: "/profiles/arushi.png",
   asked: [],
   answered: [],
+  hasRated: [],
+  hasUpvoted: [],
+  hasDownvoted: [],
 };
 
 let result = new Map();

@@ -15,7 +15,7 @@ let a0 = {
 };
 
 const q0 = questions.get(a0.qid);
-q0.answers.push(a0);
+q0.answers.push(a0.id);
 const u0 = users.get(a0.ownerId);
 u0.answered.push(a0);
 
@@ -32,7 +32,7 @@ let a1 = {
   attachments: [],
 };
 const q1 = questions.get(a1.qid);
-q1.answers.push(a1);
+q1.answers.push(a1.id);
 const u1 = users.get(a1.ownerId);
 u1.answered.push(a1);
 
@@ -49,7 +49,7 @@ let a2 = {
   attachments: [],
 };
 const q2 = questions.get(a2.qid);
-q2.answers.push(a2);
+q2.answers.push(a2.id);
 const u2 = users.get(a2.ownerId);
 u2.answered.push(a2);
 
@@ -66,7 +66,7 @@ let a3 = {
   attachments: [],
 };
 const q3 = questions.get(a3.qid);
-q3.answers.push(a3);
+q3.answers.push(a3.id);
 const u3 = users.get(a3.ownerId);
 u3.answered.push(a3);
 
@@ -83,7 +83,7 @@ let a4 = {
   attachments: [],
 };
 const q4 = questions.get(a4.qid);
-q4.answers.push(a4);
+q4.answers.push(a4.id);
 const u4 = users.get(a4.ownerId);
 u4.answered.push(a4);
 
@@ -100,7 +100,7 @@ let a5 = {
   attachments: [],
 };
 const q5 = questions.get(a5.qid);
-q5.answers.push(a5);
+q5.answers.push(a5.id);
 const u5 = users.get(a5.ownerId);
 u5.answered.push(a5);
 
@@ -117,7 +117,7 @@ let a6 = {
   attachments: [],
 };
 const q6 = questions.get(a6.qid);
-q6.answers.push(a6);
+q6.answers.push(a6.id);
 const u6 = users.get(a6.ownerId);
 u6.answered.push(a6);
 
@@ -134,7 +134,7 @@ let a7 = {
   attachments: [],
 };
 const q7 = questions.get(a7.qid);
-q7.answers.push(a7);
+q7.answers.push(a7.id);
 const u7 = users.get(a7.ownerId);
 u7.answered.push(a7);
 
@@ -151,7 +151,7 @@ let a8 = {
   attachments: [],
 };
 const q8 = questions.get(a8.qid);
-q8.answers.push(a8);
+q8.answers.push(a8.id);
 const u8 = users.get(a8.ownerId);
 u8.answered.push(a8);
 
@@ -168,7 +168,7 @@ let a9 = {
   attachments: [],
 };
 const q9 = questions.get(a9.qid);
-q9.answers.push(a9);
+q9.answers.push(a9.id);
 const u9 = users.get(a9.ownerId);
 u9.answered.push(a9);
 
@@ -185,7 +185,7 @@ let a10 = {
   attachments: [],
 };
 const q10 = questions.get(a10.qid);
-q10.answers.push(a10);
+q10.answers.push(a10.id);
 const u10 = users.get(a10.ownerId);
 u10.answered.push(a10);
 
