@@ -5,14 +5,17 @@ import LoginForm from "@/components/Form/LoginForm/LoginForm";
 import { useContext, useEffect } from "react";
 import { UserContext } from "@/contexts/UserContext";
 import loginFormData from "@/data/loginFormData";
+import { SearchContext } from "@/contexts/SearchContext";
 
 // Login Component
 const Login = () => {
   // user context
   const { user, setUser } = useContext(UserContext);
+  const { searchText, setSearchText } = useContext(SearchContext);
 
   useEffect(() => {
     setUser(undefined);
+    setSearchText(undefined);
   }, []);
 
   return (

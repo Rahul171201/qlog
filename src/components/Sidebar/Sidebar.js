@@ -2,72 +2,94 @@ import styles from "./Sidebar.module.css";
 import lato from "@/data/latoFont";
 import { useContext, useState } from "react";
 import { SearchContext } from "@/contexts/SearchContext";
-import Router from "next/router";
+import SidebarItem from "../SidebarItem/SidebarItem";
 
 // sidebar component
 const Sidebar = () => {
   // search context
   let { searchText, setSearchText } = useContext(SearchContext);
 
+  // current selected side bar item
   const [currentItem, setCurrentItem] = useState(null);
 
-  /**
-   * FIXME:
-   * IS THIS FUNCTION REQUIRED TO BE HERE?
-   */
   const handleClick = (e) => {
-    const element = e.target;
-    if (currentItem === element) {
-      element.style.backgroundColor = "rgb(138, 169, 236)";
-
-      setCurrentItem(null);
-      setSearchText(undefined);
-      Router.push("/feed");
-      return;
-    } else {
-      if (currentItem) {
-        const previousItem = currentItem;
-        previousItem.style.backgroundColor = "rgb(138, 169, 236)";
+    const index = +e.target.parentNode.getAttribute("index");
+    const value = e.target.innerHTML;
+    if (index) {
+      const selectedElement = index;
+      if (currentItem === selectedElement) {
+        setCurrentItem(null);
+        setSearchText(undefined);
+        return;
+      } else {
+        setCurrentItem(selectedElement);
       }
-      element.style.backgroundColor = "rgb(186, 155, 208)";
-      setCurrentItem(element);
-    }
 
-    const text = e.target.innerHTML.toLowerCase();
-    setSearchText(text);
+      if (value) {
+        const text = value.toLowerCase();
+        setSearchText(text);
+      }
+    }
   };
 
   return (
     <div className={`${styles.sideBarWrapper} ${lato.className}`}>
       <div className={styles.sideBar}>
         <ul className={styles.list}>
-          <li className={styles.listItem} onClick={handleClick}>
-            Music
-          </li>
-          <li className={styles.listItem} onClick={handleClick}>
-            Sports
-          </li>
-          <li className={styles.listItem} onClick={handleClick}>
-            Politics
-          </li>
-          <li className={styles.listItem} onClick={handleClick}>
-            Movies
-          </li>
-          <li className={styles.listItem} onClick={handleClick}>
-            Entertainment
-          </li>
-          <li className={styles.listItem} onClick={handleClick}>
-            Dance
-          </li>
-          <li className={styles.listItem} onClick={handleClick}>
-            Technology
-          </li>
-          <li className={styles.listItem} onClick={handleClick}>
-            Finance
-          </li>
-          <li className={styles.listItem} onClick={handleClick}>
-            Health
-          </li>
+          <div onClick={handleClick} index={1}>
+            <SidebarItem
+              className={currentItem === 1 ? "selected" : "notSelected"}
+              value="Sports"
+            ></SidebarItem>
+          </div>
+          <div onClick={handleClick} index={2}>
+            <SidebarItem
+              className={currentItem === 2 ? "selected" : "notSelected"}
+              value="Politics"
+            ></SidebarItem>
+          </div>
+          <div onClick={handleClick} index={3}>
+            <SidebarItem
+              className={currentItem === 3 ? "selected" : "notSelected"}
+              value="Dance"
+            ></SidebarItem>
+          </div>
+          <div onClick={handleClick} index={4}>
+            <SidebarItem
+              className={currentItem === 4 ? "selected" : "notSelected"}
+              value="Movies"
+            ></SidebarItem>
+          </div>
+          <div onClick={handleClick} index={5}>
+            <SidebarItem
+              className={currentItem === 5 ? "selected" : "notSelected"}
+              value="Entertainment"
+            ></SidebarItem>
+          </div>
+          <div onClick={handleClick} index={6}>
+            <SidebarItem
+              className={currentItem === 6 ? "selected" : "notSelected"}
+              value="Finance"
+            ></SidebarItem>
+          </div>
+          <div onClick={handleClick} index={7}>
+            <SidebarItem
+              className={currentItem === 7 ? "selected" : "notSelected"}
+              value="Health"
+            ></SidebarItem>
+          </div>
+          <div onClick={handleClick} index={8}>
+            <SidebarItem
+              className={currentItem === 8 ? "selected" : "notSelected"}
+              value="Technology"
+            ></SidebarItem>
+          </div>
+          <div onClick={handleClick} index={9}>
+            <SidebarItem
+              className={currentItem === 9 ? "selected" : "notSelected"}
+              value="Music"
+            ></SidebarItem>
+          </div>
         </ul>
       </div>
     </div>

@@ -28,18 +28,6 @@
   line-height: 2;
 }
 
-.listItem {
-  width: 20vw;
-  font-size: 1.5rem;
-  list-style: none;
-  background-color: rgb(138, 169, 236);
-  margin: 20px 0px;
-  cursor: pointer;
-}
-.listItem:hover {
-  background-color: rgb(186, 155, 208) !important;
-}
-
 @media (max-width: 1000px) {
   .sideBarWrapper {
     display: none;

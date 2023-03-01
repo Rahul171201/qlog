@@ -15,3 +15,10 @@
   transition: transform 1500ms;
   transform: rotate(360deg);
 }
+
+.selected {
+  background-color: rgb(186, 155, 208);
+}
+.notSelected {
+  background-color: rgb(138, 169, 236);
+}
