@@ -5,3 +5,13 @@
   padding: 0;
   margin: 0;
 }
+
+.starIcon {
+  cursor: pointer;
+  transition: transform 1500ms;
+}
+.rotateStarIcon {
+  cursor: pointer;
+  transition: transform 1500ms;
+  transform: rotate(360deg);
+}

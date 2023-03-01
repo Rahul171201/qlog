@@ -1,15 +1,12 @@
 import styles from "./Sidebar.module.css";
-import { Lato } from "@next/font/google";
+import lato from "@/data/latoFont";
 import { useContext, useState } from "react";
 import { SearchContext } from "@/contexts/SearchContext";
 import Router from "next/router";
 
-const lato = Lato({
-  weight: "400",
-  subsets: ["latin"],
-});
-
+// sidebar component
 const Sidebar = () => {
+  // search context
   let { searchText, setSearchText } = useContext(SearchContext);
 
   const [currentItem, setCurrentItem] = useState(null);

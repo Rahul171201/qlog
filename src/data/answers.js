@@ -17,7 +17,7 @@ let a0 = {
 const q0 = questions.get(a0.qid);
 q0.answers.push(a0.id);
 const u0 = users.get(a0.ownerId);
-u0.answered.push(a0);
+u0.answered.push(a0.id);
 
 let a1 = {
   id: 1,
@@ -34,7 +34,7 @@ let a1 = {
 const q1 = questions.get(a1.qid);
 q1.answers.push(a1.id);
 const u1 = users.get(a1.ownerId);
-u1.answered.push(a1);
+u1.answered.push(a1.id);
 
 let a2 = {
   id: 2,
@@ -51,7 +51,7 @@ let a2 = {
 const q2 = questions.get(a2.qid);
 q2.answers.push(a2.id);
 const u2 = users.get(a2.ownerId);
-u2.answered.push(a2);
+u2.answered.push(a2.id);
 
 let a3 = {
   id: 3,
@@ -68,7 +68,7 @@ let a3 = {
 const q3 = questions.get(a3.qid);
 q3.answers.push(a3.id);
 const u3 = users.get(a3.ownerId);
-u3.answered.push(a3);
+u3.answered.push(a3.id);
 
 let a4 = {
   id: 4,
@@ -85,7 +85,7 @@ let a4 = {
 const q4 = questions.get(a4.qid);
 q4.answers.push(a4.id);
 const u4 = users.get(a4.ownerId);
-u4.answered.push(a4);
+u4.answered.push(a4.id);
 
 let a5 = {
   id: 5,
@@ -102,7 +102,7 @@ let a5 = {
 const q5 = questions.get(a5.qid);
 q5.answers.push(a5.id);
 const u5 = users.get(a5.ownerId);
-u5.answered.push(a5);
+u5.answered.push(a5.id);
 
 let a6 = {
   id: 6,
@@ -119,7 +119,7 @@ let a6 = {
 const q6 = questions.get(a6.qid);
 q6.answers.push(a6.id);
 const u6 = users.get(a6.ownerId);
-u6.answered.push(a6);
+u6.answered.push(a6.id);
 
 let a7 = {
   id: 7,
@@ -136,7 +136,7 @@ let a7 = {
 const q7 = questions.get(a7.qid);
 q7.answers.push(a7.id);
 const u7 = users.get(a7.ownerId);
-u7.answered.push(a7);
+u7.answered.push(a7.id);
 
 let a8 = {
   id: 8,
@@ -153,7 +153,7 @@ let a8 = {
 const q8 = questions.get(a8.qid);
 q8.answers.push(a8.id);
 const u8 = users.get(a8.ownerId);
-u8.answered.push(a8);
+u8.answered.push(a8.id);
 
 let a9 = {
   id: 9,
@@ -170,7 +170,7 @@ let a9 = {
 const q9 = questions.get(a9.qid);
 q9.answers.push(a9.id);
 const u9 = users.get(a9.ownerId);
-u9.answered.push(a9);
+u9.answered.push(a9.id);
 
 let a10 = {
   id: 10,
@@ -187,7 +187,7 @@ let a10 = {
 const q10 = questions.get(a10.qid);
 q10.answers.push(a10.id);
 const u10 = users.get(a10.ownerId);
-u10.answered.push(a10);
+u10.answered.push(a10.id);
 
 let res = new Map();
 res.set(a0.id, a0);

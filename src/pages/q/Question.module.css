@@ -60,10 +60,6 @@
   position: relative;
   position: absolute;
 }
-.icon {
-  cursor: pointer;
-  transition: transform 1500ms;
-}
 
 .infoWrapper {
   width: max-content;

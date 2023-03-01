@@ -5,7 +5,6 @@ import LoginForm from "@/components/Form/LoginForm/LoginForm";
 import { useContext, useEffect } from "react";
 import { UserContext } from "@/contexts/UserContext";
 import loginFormData from "@/data/loginFormData";
-import Router from "next/router";
 
 // Login Component
 const Login = () => {

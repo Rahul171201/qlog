@@ -1,24 +1,19 @@
 import styles from "./EditProfile.module.css";
 import Navbar from "@/components/Navbar/Navbar";
-import { Lato } from "@next/font/google";
+import lato from "@/data/latoFont";
 import { useContext } from "react";
 import { UserContext } from "@/contexts/UserContext";
 import Router from "next/router";
 
-const lato = Lato({
-  weight: "400",
-  subsets: ["latin"],
-});
-
 const EditProfile = () => {
-  const context = useContext(UserContext);
-  let { user, setUser } = context;
+  // user context
+  const { user, setUser } = useContext(UserContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const name = e.target[0].value;
     const email = e.target[1].value;
-    let new_user = user;
+    const new_user = user;
     new_user.userName = name;
     new_user.email = email;
     setUser(new_user);

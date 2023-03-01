@@ -11,13 +11,12 @@ import Router from "next/router";
 import sortAnswerArray from "@/helper/sortAnswerArray";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import ImageComponent from "@/components/ImageComponent/ImageComponent";
+import handleRating from "@/helper/handleRating";
 
 const Question = ({ qId }) => {
   const [questions, setQuestions] = useLocalStorage("questions", new Map());
   const [users, setUsers] = useLocalStorage("users", new Map());
   const [answers, setAnswers] = useLocalStorage("answers", new Map());
-  // const [answers, setAnswers] = useLocalStorage("answers", new Map());
-  // const [users, setUsers] = useLocalStorage("users", new Map());
 
   // current question
   const question = questions.get(+qId);
@@ -31,16 +30,17 @@ const Question = ({ qId }) => {
   const [answerGiven, setAnswerGiven] = useState(false);
   const [questionAsked, setQuestionAsked] = useState(false);
 
-  const [counter, setCounter] = useState(1);
-
   // user context
   const { user, setUser } = useContext(UserContext);
   // search context
   const { searchText, setSearchText } = useContext(SearchContext);
 
+  // state for className for rating icon component
+  const [className, setClassName] = useState("starIcon");
+
   useEffect(() => {
-    user.answered.forEach((a) => {
-      if (a.qid === +qId) {
+    user.answered.forEach((aId) => {
+      if (question.answers.includes(aId)) {
         setAnswerGiven(true);
       }
     });
@@ -48,32 +48,6 @@ const Question = ({ qId }) => {
       setQuestionAsked(true);
     }
   }, []);
-
-  /**
-   * FIXME: Here we require to do dom manipulation or there is another way?
-   */
-  const handleRating = (e) => {
-    const icon = document.getElementById("icon");
-    if (icon) {
-      const multiplier = counter * 360;
-
-      icon.style.transform = `rotate(${multiplier}deg)`;
-      setCounter(counter + 1);
-    }
-
-    const currentUser = users.get(user.userId);
-    if (currentUser.hasRated.includes(question.id)) {
-      question.rating--;
-      const index = currentUser.hasRated.indexOf(question.id);
-      if (index > -1) currentUser.hasRated.splice(index, 1);
-    } else {
-      currentUser.hasRated.push(question.id);
-      question.rating++;
-    }
-
-    setQuestions(new Map(Array.from(questions.entries())));
-    setUsers(new Map(Array.from(users.entries())));
-  };
 
   const handleTagSubmit = (e) => {
     const tagData = e.target.innerHTML.substr(1, e.target.innerHTML.length);
@@ -127,14 +101,23 @@ const Question = ({ qId }) => {
           </div>
 
           <div className={styles.questionSideBox}>
-            <div className={styles.ratingWrapper} onClick={handleRating}>
+            <div
+              className={styles.ratingWrapper}
+              onClick={() => {
+                if (className === "starIcon") setClassName("rotateStarIcon");
+                else setClassName("starIcon");
+                handleRating(user, users, question);
+                setQuestions(new Map(Array.from(questions.entries())));
+                setUsers(new Map(Array.from(users.entries())));
+              }}
+            >
               <div className={styles.iconWrapper}>
                 <Image
                   src="/images/star.png"
                   alt="rating-icon"
                   width={50}
                   height={50}
-                  className={styles.icon}
+                  className={className}
                   id="icon"
                 ></Image>
               </div>

@@ -1,5 +1,4 @@
 import { createContext, useState } from "react";
-import User from "@/classes/User";
 
 export const UserContext = createContext();
 

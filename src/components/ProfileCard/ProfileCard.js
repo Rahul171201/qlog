@@ -2,7 +2,6 @@ import styles from "./ProfileCard.module.css";
 import Image from "next/image";
 import { UserContext } from "@/contexts/UserContext";
 import lato from "@/data/latoFont";
-import uploadProfile from "@/helper/uploadProfile";
 import Router from "next/router";
 import ToolTip from "../ToolTip/ToolTip";
 import { useContext, useRef, useState } from "react";
@@ -58,8 +57,14 @@ const ProfileCard = () => {
             className={styles.fileInput}
             id="profile-image"
             onChange={(e) => {
-              const temp_user = uploadProfile(e, user);
-              setUser(temp_user);
+              const profileImage = e.target;
+              const reader = new FileReader();
+              reader.readAsDataURL(profileImage.files[0]);
+              reader.onload = () => {
+                user.profileImage = reader.result;
+                setUser(user);
+              };
+              e.target.value = "";
               Router.push("/profile/" + user.userId);
             }}
           ></input>

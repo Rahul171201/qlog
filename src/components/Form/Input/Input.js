@@ -15,6 +15,7 @@ const Input = (props) => {
         placeholder={props.placeholder}
         className={styles.inputField}
         required
+        autoComplete="off"
       ></input>
       <Image
         src={props.image}

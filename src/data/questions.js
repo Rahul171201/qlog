@@ -16,7 +16,7 @@ let q0 = {
   attachments: ["/images/lazy-graph.png"],
 };
 const user0 = users.get(q0.ownerId);
-user0.asked.push(q0);
+user0.asked.push(q0.id);
 
 let q1 = {
   id: 1,
@@ -36,7 +36,7 @@ let q1 = {
   attachments: [],
 };
 const user1 = users.get(q1.ownerId);
-user1.asked.push(q1);
+user1.asked.push(q1.id);
 
 let q2 = {
   id: 2,
@@ -55,7 +55,7 @@ let q2 = {
   attachments: ["/images/modi.avif"],
 };
 const user2 = users.get(q2.ownerId);
-user2.asked.push(q2);
+user2.asked.push(q2.id);
 
 let q3 = {
   id: 3,
@@ -72,7 +72,7 @@ let q3 = {
   attachments: [],
 };
 const user3 = users.get(q3.ownerId);
-user3.asked.push(q3);
+user3.asked.push(q3.id);
 
 let q4 = {
   id: 4,
@@ -93,7 +93,7 @@ let q4 = {
   attachments: ["/images/messi-ronaldo.webp"],
 };
 const user4 = users.get(q4.ownerId);
-user4.asked.push(q4);
+user4.asked.push(q4.id);
 
 let q5 = {
   id: 5,
@@ -108,7 +108,7 @@ let q5 = {
   attachments: [],
 };
 const user5 = users.get(q5.ownerId);
-user5.asked.push(q5);
+user5.asked.push(q5.id);
 
 let res = new Map();
 res.set(q0.id, q0);
