@@ -2,7 +2,7 @@ import styles from "../styles/Feed.module.css";
 import Navbar from "@/components/Navbar/Navbar";
 import QuestionCard from "@/components/QuestionCard/QuestionCard";
 import Sidebar from "@/components/Sidebar/Sidebar";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "@/contexts/UserContext";
 import Router from "next/router";
 import { SearchContext } from "@/contexts/SearchContext";
@@ -13,36 +13,28 @@ import useLocalStorage from "@/hooks/useLocalStorage";
 
 const Feed = () => {
   useEffect(() => {
+    // setSearchText(undefined);
     if (user === undefined) {
       Router.push("/login");
     }
   }, []);
 
   // user context
-  const { user, setUser } = useContext(UserContext);
-
+  const { user } = useContext(UserContext);
   // search context
-  const { searchText, setSearchText } = useContext(SearchContext);
+  const { searchText } = useContext(SearchContext);
 
   const search_words =
     searchText === undefined ? undefined : searchText.split(" ");
 
-  /**
-   * FIXME:
-   * Computationally heavy process for fetching data from localStorage
-   * Lazy initializer or not?
-   */
   const [questions, setQuestions] = useLocalStorage("questions", new Map());
 
   /**
    * FIXME:
    * Is storing data into arrays for sorted ordering performance friendly?
    */
-  console.log("searching");
   let feedQuestions = questionFilter(questions, search_words);
   feedQuestions = sortQuestionArray(feedQuestions);
-
-  console.log("feed", user);
 
   return (
     <main className={styles.main}>

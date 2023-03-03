@@ -32,7 +32,6 @@ const QuestionCard = (props) => {
         >
           {props.q.description}
           {props.q.attachments.map((attachment, index) => {
-            console.log(attachment);
             return (
               <ImageComponent src={attachment} key={index}></ImageComponent>
             );

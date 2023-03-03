@@ -1,5 +1,3 @@
-import User from "@/classes/User";
-
 const handleRegister = (e, registeredUsers) => {
   e.preventDefault();
 

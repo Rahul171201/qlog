@@ -1,8 +1,8 @@
 import styles from "../styles/Login.module.css";
 import Logo from "@/components/Logo/Logo";
-import itim from "@/data/itimFont";
-import RegisterForm from "@/components/Form/RegisterForm/RegisterForm";
 import registerFormData from "@/data/registerFormData";
+import Form from "@/components/Form/Form";
+import SloganComponent from "@/components/SloganComponent/SloganComponent";
 
 // Register Component
 const Register = () => {
@@ -14,21 +14,14 @@ const Register = () => {
         </div>
       </div>
       <div className={styles.loginWrapper}>
-        <div className={`${styles.descriptionBox} ${itim.className}`}>
-          <div className={styles.questionMark}>?</div>
-          <div className={styles.description}>
-            <em>
-              Finding answers to your questions? Check us out, we can solve your
-              problems!
-            </em>
-          </div>
-        </div>
-        <RegisterForm
+        <SloganComponent></SloganComponent>
+        <Form
           name="Register"
           data={registerFormData}
           mainButton="Sign Up"
           alternateButton="Login"
-        ></RegisterForm>
+          type="register"
+        ></Form>
       </div>
     </main>
   );

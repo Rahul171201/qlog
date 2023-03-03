@@ -40,26 +40,6 @@
   justify-content: space-evenly;
 }
 
-.descriptionBox {
-  width: 40%;
-  min-height: 70vh;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  animation: slide-in 1500ms;
-}
-
-.questionMark {
-  font-size: 20rem;
-  user-select: none;
-}
-
-.description {
-  font-size: 2rem;
-  width: 80%;
-}
-
 @media (max-width: 550px) {
   .navbar {
     height: 100px;
@@ -69,16 +49,5 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  .descriptionBox {
-    width: 100%;
-    justify-content: center;
-    text-align: center;
-  }
-  .questionMark {
-    font-size: 15rem;
-  }
-  .description {
-    font-size: 2rem;
   }
 }

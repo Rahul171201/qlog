@@ -1,6 +1,5 @@
 const handleLogin = (e, users) => {
   e.preventDefault();
-
   const userId = +e.target[0].value;
   const password = e.target[1].value;
 
@@ -12,8 +11,6 @@ const handleLogin = (e, users) => {
   if (!finalUser) {
     alert("Wrong username or password");
   }
-
-  console.log("handle login", finalUser);
 
   return finalUser;
 };
