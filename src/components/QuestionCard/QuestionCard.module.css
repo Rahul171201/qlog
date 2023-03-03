@@ -21,49 +21,6 @@
   justify-content: space-evenly;
 }
 
-.questionHeading {
-  width: 80%;
-  font-size: 2rem;
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 0px;
-}
-
-.questionTitle {
-  text-decoration: none;
-  color: black;
-  transition: transform 500ms;
-}
-.questionTitle:hover {
-  transform: scale(1.05);
-  color: rgb(92, 5, 92);
-}
-
-.questionDescription {
-  width: 90%;
-  height: 100px;
-  overflow: hidden;
-  overflow-wrap: break-word;
-  font-size: 1rem;
-  padding: 20px 0px;
-  opacity: 0.3;
-  line-height: 1.8;
-}
-
-.rating {
-  background-image: url("/star.png");
-  background-repeat: no-repeat;
-  display: flex;
-  width: 200px;
-  align-items: center;
-  text-align: center;
-  justify-content: flex-end;
-}
-.ratingValue {
-  font-size: 1rem;
-  margin-left: 10px;
-}
-
 .horizontalRule {
   width: 92%;
   height: 5px;
@@ -126,13 +83,5 @@
     height: 30px;
     top: -15px;
     left: 60px;
-  }
-
-  .questionTitle {
-    padding: 15px;
-    font-size: 1.5rem;
-  }
-  .questionDescription {
-    padding: 30px;
   }
 }
