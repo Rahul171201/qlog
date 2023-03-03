@@ -31,9 +31,9 @@ const Question = ({ qId }) => {
   const [questionAsked, setQuestionAsked] = useState(false);
 
   // user context
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   // search context
-  const { searchText, setSearchText } = useContext(SearchContext);
+  const { setSearchText } = useContext(SearchContext);
 
   // state for className for rating icon component
   const [className, setClassName] = useState("starIcon");

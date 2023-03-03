@@ -7,11 +7,16 @@ import SidebarItem from "../SidebarItem/SidebarItem";
 // sidebar component
 const Sidebar = () => {
   // search context
-  let { searchText, setSearchText } = useContext(SearchContext);
+  let { setSearchText } = useContext(SearchContext);
 
   // current selected side bar item
   const [currentItem, setCurrentItem] = useState(null);
 
+  /**
+   * Handles tag selection on the sidebar items
+   * @param {Event} e
+   * @returns
+   */
   const handleClick = (e) => {
     const index = +e.target.parentNode.getAttribute("index");
     const value = e.target.innerHTML;

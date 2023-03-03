@@ -9,7 +9,7 @@ import handleDownvote from "@/helper/handleDownvote";
 // Answer Card component
 const AnswerCard = ({ answer, id }) => {
   //user context
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   const [users, setUsers] = useLocalStorage("users", new Map());
   const [answers, setAnswers] = useLocalStorage("answers", new Map());
