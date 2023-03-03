@@ -1,21 +1,22 @@
 import Logo from "@/components/Logo/Logo";
-import Search from "@/components/Search/Search";
+import Search from "@/components/Navbar/Search/Search";
 import styles from "./Navbar.module.css";
 import lato from "@/data/latoFont";
 import Image from "next/image";
 import { useContext, useState } from "react";
-import Link from "next/link";
 import { UserContext } from "@/contexts/UserContext";
+import NavItem from "./NavItem/NavItem";
 
 const Navbar = () => {
   const [hamburger, setHamburger] = useState(false);
 
+  // hamburger handler
   const handleHamburger = () => {
     setHamburger(!hamburger);
   };
 
   // user context
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   return (
     <div className={styles.navbarWrapper}>
@@ -29,24 +30,21 @@ const Navbar = () => {
         <div className={`${styles.navListWrapper} ${lato.className}`}>
           <div className={styles.navList}>
             <ul className={styles.navList}>
-              <li>
-                <Link href={"/feed"} className={styles.navListItem}>
-                  FEED
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={user ? "/profile/" + user.userId : "/feed"}
-                  className={styles.navListItem}
-                >
-                  PROFILE
-                </Link>
-              </li>
-              <li>
-                <Link href={"/login"} className={styles.navListItem}>
-                  LOGOUT
-                </Link>
-              </li>
+              <NavItem
+                name="FEED"
+                url="/feed"
+                classType="navListItem"
+              ></NavItem>
+              <NavItem
+                name="PROFILE"
+                url={user ? "/profile/" + user.userId : "/feed"}
+                classType="navListItem"
+              ></NavItem>
+              <NavItem
+                name="LOGOUT"
+                url="/login"
+                classType="navListItem"
+              ></NavItem>
             </ul>
           </div>
         </div>
@@ -62,24 +60,21 @@ const Navbar = () => {
           {hamburger ? (
             <div className={styles.hamburgerMenu}>
               <ul className={styles.menuList}>
-                <li>
-                  <Link href={"/feed"} className={styles.hamburgerItem}>
-                    FEED
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href={user ? "/profile/" + user.userId : "/feed"}
-                    className={styles.hamburgerItem}
-                  >
-                    PROFILE
-                  </Link>
-                </li>
-                <li>
-                  <Link href={"/login"} className={styles.hamburgerItem}>
-                    LOGOUT
-                  </Link>
-                </li>
+                <NavItem
+                  name="FEED"
+                  url="/feed"
+                  classType="hamburgerItem"
+                ></NavItem>
+                <NavItem
+                  name="PROFILE"
+                  url={user ? "/profile/" + user.userId : "/feed"}
+                  classType="hamburgerItem"
+                ></NavItem>
+                <NavItem
+                  name="LOGOUT"
+                  url="/login"
+                  classType="hamburgerItem"
+                ></NavItem>
               </ul>
             </div>
           ) : (

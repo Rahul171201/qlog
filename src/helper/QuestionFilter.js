@@ -1,13 +1,19 @@
 import nonKeyWords from "@/data/nonKeywords";
 
+/**
+ * Filters the questions into an array of questions containing the
+ * search text result matches
+ * @param {Map} questions
+ * @param {Array} search_words
+ * @returns
+ */
 const QuestionFilter = (questions, search_words) => {
   if (search_words === undefined) return Array.from(questions.values());
 
+  // final array of questions
   let result = [];
 
   for (let key of questions.keys()) {
-    console.log("andar aa gaya");
-
     let pushed = false; // to track if the question is already filtered out
 
     let titleArray = questions.get(key).title.split(" ");
@@ -39,7 +45,6 @@ const QuestionFilter = (questions, search_words) => {
       });
     }
   }
-  console.log(result);
   return result;
 };
 

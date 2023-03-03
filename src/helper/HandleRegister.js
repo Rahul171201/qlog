@@ -1,3 +1,9 @@
+/**
+ * Adds a new user to the database if registration successful
+ * @param {Event} e
+ * @param {Map} registeredUsers
+ * @returns
+ */
 const handleRegister = (e, registeredUsers) => {
   e.preventDefault();
 

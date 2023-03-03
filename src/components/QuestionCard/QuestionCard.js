@@ -46,6 +46,7 @@ const QuestionCard = (props) => {
           <ContinueReading></ContinueReading>
         </div>
       </div>
+      {/* Decorative circles */}
       <div className={`${styles.circle} ${styles.bigCircle}`}></div>
       <div className={`${styles.circle} ${styles.mediumCircle}`}></div>
       <div className={`${styles.circle} ${styles.smallCircle}`}></div>

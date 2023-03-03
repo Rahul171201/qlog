@@ -42,16 +42,6 @@
   position: relative;
 }
 
-.navListItem {
-  text-decoration: none;
-  cursor: pointer;
-  letter-spacing: 2px;
-  color: white;
-}
-.navListItem:hover {
-  color: rgba(240, 255, 255, 0.781);
-}
-
 .hamburgerMenu {
   display: flex;
   width: 130px;
@@ -72,17 +62,6 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-}
-
-.hamburgerItem {
-  cursor: pointer;
-  letter-spacing: 2px;
-  text-decoration: none;
-  color: black;
-}
-
-.hamburgerItem:hover {
-  color: rgb(71, 100, 228);
 }
 
 @media (max-width: 900px) {

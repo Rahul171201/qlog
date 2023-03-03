@@ -1,3 +1,10 @@
+/**
+ * Authenticates the current user in the system,
+ * if user provides correct userId and password
+ * @param {Event} e
+ * @param {Map} users
+ * @returns
+ */
 const handleLogin = (e, users) => {
   e.preventDefault();
   const userId = +e.target[0].value;
@@ -8,9 +15,7 @@ const handleLogin = (e, users) => {
       ? users.get(userId)
       : undefined;
 
-  if (!finalUser) {
-    alert("Wrong username or password");
-  }
+  if (!finalUser) alert("Wrong username or password");
 
   return finalUser;
 };
