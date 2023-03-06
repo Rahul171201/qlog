@@ -1,3 +1,12 @@
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
 .profileCard {
   width: 60%;
   min-height: 200px;
@@ -6,6 +15,7 @@
   display: flex;
   justify-content: space-evenly;
   position: relative;
+  animation: slide-in 1500ms;
 }
 
 .profileImageContainer {
