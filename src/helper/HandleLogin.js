@@ -6,7 +6,6 @@
  * @returns
  */
 const handleLogin = (e, users) => {
-  e.preventDefault();
   const userId = +e.target[0].value;
   const password = e.target[1].value;
 

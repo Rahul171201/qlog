@@ -5,8 +5,6 @@
  * @returns
  */
 const handleRegister = (e, registeredUsers) => {
-  e.preventDefault();
-
   const email = e.target[0].value;
   const userName = e.target[1].value;
   const password = e.target[2].value;

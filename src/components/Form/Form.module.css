@@ -115,6 +115,8 @@
 
 .loadingIcon {
   user-select: none;
+  width: 15vw;
+  height: auto;
   animation: loader 1000ms;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -141,5 +143,8 @@
   }
   .alternateLink {
     font-size: 0.9rem;
+  }
+  .loadingModal {
+    display: none;
   }
 }

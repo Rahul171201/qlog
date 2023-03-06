@@ -47,7 +47,7 @@ const Question = ({ qId }) => {
     if (question.ownerId === user.userId) {
       setQuestionAsked(true);
     }
-  }, []);
+  }, [question.answers, question.ownerId, user.answered, user.userId]);
 
   const handleTagSubmit = (e) => {
     const tagData = e.target.innerHTML.substr(1, e.target.innerHTML.length);

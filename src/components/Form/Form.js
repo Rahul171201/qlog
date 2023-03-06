@@ -19,7 +19,6 @@ const Form = (props) => {
   const formReducer = (state, action) => {
     switch (action.type) {
       case "start-login": {
-        console.log("mein pata nahi start kyun nahi ho rha");
         return {
           ...state,
           status: "login-pending",
@@ -88,8 +87,6 @@ const Form = (props) => {
     }
   }, [formState.status, formState.user, formState.users, setUser, setUsers]);
 
-  console.log(formState);
-
   // submit handler
   const handleSubmit = useCallback(
     (e) => {
@@ -100,9 +97,10 @@ const Form = (props) => {
           dispatchForm({ type: "login", action: handleLogin, event: e });
         }, 3000);
       } else if (props.type === "register") {
-        console.log("mein pata nahi kyun chal rha hun");
         dispatchForm({ type: "start-registration" });
-        dispatchForm({ type: "register", action: handleRegister, event: e });
+        setTimeout(() => {
+          dispatchForm({ type: "register", action: handleRegister, event: e });
+        }, 3000);
       } else {
         throw new Error(
           `Invalid form type: Unrecognized form type ${props.type}`
