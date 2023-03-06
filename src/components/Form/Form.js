@@ -9,6 +9,7 @@ import Link from "next/link";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import ForgotPassword from "@/components/ForgotPassword/ForgotPassword";
 import handleRegister from "@/helper/handleRegister";
+import Image from "next/image";
 
 const Form = (props) => {
   let [users, setUsers] = useLocalStorage("users", new Map());
@@ -18,6 +19,7 @@ const Form = (props) => {
   const formReducer = (state, action) => {
     switch (action.type) {
       case "start-login": {
+        console.log("mein pata nahi start kyun nahi ho rha");
         return {
           ...state,
           status: "login-pending",
@@ -38,7 +40,6 @@ const Form = (props) => {
         };
       }
       case "register": {
-        console.log("phir chal rha hun mein");
         const finalUsers = action.action(action.event, users);
         return {
           ...state,
@@ -73,7 +74,6 @@ const Form = (props) => {
     } else if (formState.status === "login-failed") {
       alert("Wrong username or password");
     } else if (formState.status === "successful-registration") {
-      console.log("yaar kya karun");
       if (formState.users)
         setUsers(() => new Map(Array.from(formState.users.entries())));
       Router.push("/login");
@@ -88,17 +88,20 @@ const Form = (props) => {
     }
   }, [formState.status, formState.user, formState.users, setUser, setUsers]);
 
-  // console.log(formState);
+  console.log(formState);
 
   // submit handler
   const handleSubmit = useCallback(
     (e) => {
+      e.preventDefault();
       if (props.type === "login") {
         dispatchForm({ type: "start-login" });
-        dispatchForm({ type: "login", action: handleLogin, event: e });
+        setTimeout(() => {
+          dispatchForm({ type: "login", action: handleLogin, event: e });
+        }, 3000);
       } else if (props.type === "register") {
         console.log("mein pata nahi kyun chal rha hun");
-        // dispatchForm({ type: "start-registration" });
+        dispatchForm({ type: "start-registration" });
         dispatchForm({ type: "register", action: handleRegister, event: e });
       } else {
         throw new Error(
@@ -138,6 +141,21 @@ const Form = (props) => {
           <span className={styles.alternateLink}>{props.alternateButton}</span>
         </Link>
       </form>
+
+      {formState.status === "login-pending" ||
+      formState.status === "registration-pending" ? (
+        <div className={styles.loadingModal}>
+          <Image
+            src="/images/loading1.png"
+            alt="loading-icon"
+            width={200}
+            height={200}
+            className={styles.loadingIcon}
+          ></Image>
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };

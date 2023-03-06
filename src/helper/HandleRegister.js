@@ -34,6 +34,12 @@ const handleRegister = (e, registeredUsers) => {
       userName,
       email,
       password,
+      asked: [],
+      answered: [],
+      hasRated: [],
+      hasUpvoted: [],
+      hasDownvoted: [],
+      profileImage: "/profiles/unknown-user.png",
     });
     return finalRegisteredUsers;
   }

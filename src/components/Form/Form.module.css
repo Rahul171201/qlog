@@ -9,6 +9,15 @@
   }
 }
 
+@keyframes loader {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+
 .formWrapper {
   width: 50%;
   min-height: 70vh;
@@ -89,6 +98,26 @@
 }
 .alternateLink:hover {
   color: blueviolet;
+}
+
+.loadingModal {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(179, 172, 172);
+  opacity: 0.7;
+  position: absolute;
+  top: -19.5vh;
+  left: -46.7vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loadingIcon {
+  user-select: none;
+  animation: loader 1000ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
 @media (max-width: 1000px) {
