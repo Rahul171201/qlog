@@ -13,8 +13,22 @@ const handleRegister = (e, registeredUsers) => {
   const confirmPassword = e.target[3].value;
   let total_users = registeredUsers.size;
 
+  // check if same email already exists
+  let sameEmail = false;
+  for (let obj of registeredUsers) {
+    const user = registeredUsers.get(obj[0]);
+    if (user.email === email) {
+      sameEmail = true;
+      break;
+    }
+  }
+
+  if (sameEmail) {
+    return registeredUsers;
+  }
+
   if (password === confirmPassword) {
-    let finalRegisteredUsers = registeredUsers;
+    const finalRegisteredUsers = registeredUsers;
     finalRegisteredUsers.set((total_users + 1) * (total_users + 1), {
       userId: (total_users + 1) * (total_users + 1),
       userName,
@@ -22,9 +36,12 @@ const handleRegister = (e, registeredUsers) => {
       password,
     });
     return finalRegisteredUsers;
-  } else {
-    alert("Confirm password must match password field");
   }
+  //  else {
+  //   alert("Confirm password must match password field");
+  //   return null;
+  // }
+  return null;
 };
 
 export default handleRegister;

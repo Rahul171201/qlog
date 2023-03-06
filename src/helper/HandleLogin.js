@@ -13,9 +13,9 @@ const handleLogin = (e, users) => {
   let finalUser =
     users.has(userId) && users.get(userId).password === password
       ? users.get(userId)
-      : undefined;
+      : null;
 
-  if (!finalUser) alert("Wrong username or password");
+  // if (!finalUser) alert("Wrong username or password");
 
   return finalUser;
 };
