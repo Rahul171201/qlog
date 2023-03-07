@@ -16,7 +16,6 @@ const Feed = () => {
   const skeletonLoader = [
     <SkeletonCard key={1}></SkeletonCard>,
     <SkeletonCard key={2}></SkeletonCard>,
-    <SkeletonCard key={3}></SkeletonCard>,
   ];
 
   const [displayFeed, setDisplayFeed] = useState(false);
