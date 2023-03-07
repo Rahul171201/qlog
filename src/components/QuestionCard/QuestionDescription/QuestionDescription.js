@@ -3,7 +3,14 @@ import ImageComponent from "@/components/ImageComponent/ImageComponent";
 
 const QuestionDescription = (props) => {
   return (
-    <div id={`description` + props.id} className={styles.questionDescription}>
+    <div
+      id={`description` + props.id}
+      className={
+        props.fullDisplay
+          ? styles.questionDescriptionFull
+          : styles.questionDescription
+      }
+    >
       {props.q.description}
       {props.q.attachments.map((attachment, index) => {
         return <ImageComponent src={attachment} key={index}></ImageComponent>;

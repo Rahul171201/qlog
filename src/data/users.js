@@ -63,6 +63,7 @@ let u6 = {
   userName: "Dhairya Rachchh",
   email: "mentorDhairya@gmail.com",
   password: "rahul@123",
+  profileImage: "/profiles/unknown-user.png",
   asked: [],
   answered: [],
   hasRated: [],
