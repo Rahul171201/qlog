@@ -99,8 +99,8 @@ const AddAnswer = ({ qId }) => {
                 attachments
               );
               answers.set(new_answer.id, new_answer);
-              question.answers.push(new_answer);
-              user.answered.push(new_answer);
+              question.answers.push(new_answer.id);
+              user.answered.push(new_answer.id);
               setAnswers(new Map(Array.from(answers.entries())));
               setQuestions(new Map(Array.from(questions.entries())));
               setUser(user);
