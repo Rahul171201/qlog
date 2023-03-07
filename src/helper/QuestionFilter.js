@@ -7,7 +7,9 @@ import nonKeyWords from "@/data/nonKeywords";
  * @param {Array} search_words
  * @returns
  */
-const QuestionFilter = (questions, search_words) => {
+const questionFilter = (questions, search_words) => {
+  if (!questions) return null;
+
   if (search_words === undefined) return Array.from(questions.values());
 
   // final array of questions
@@ -48,4 +50,4 @@ const QuestionFilter = (questions, search_words) => {
   return result;
 };
 
-export default QuestionFilter;
+export default questionFilter;
