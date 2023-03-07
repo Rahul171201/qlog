@@ -1,0 +1,117 @@
+.formWrapper {
+  width: 90%;
+  min-height: 500px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  margin-bottom: 30px;
+}
+
+.questionForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.label {
+  margin-bottom: 10px;
+}
+
+.descriptionWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.titleInput {
+  min-height: 50px;
+  padding: 20px;
+}
+
+.hiddenTextArea {
+  display: none;
+}
+
+.descriptionArea {
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.descriptionInput {
+  width: 90%;
+  min-height: 200px;
+  height: calc();
+  padding: 10px;
+  border: none;
+  outline-style: none;
+  resize: none;
+}
+
+.submitButtonWrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.addTagButton {
+  width: 200px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: green;
+  cursor: pointer;
+}
+.addTagButton:hover {
+  background-color: rgb(33, 188, 33);
+}
+
+.submitButton {
+  border: none;
+  width: 100px;
+  height: 40px;
+  color: white;
+  border-radius: 5px;
+  background-color: rgb(41, 162, 227);
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  background-color: rgb(108, 210, 242);
+}
+
+.fileInputWrapper {
+  padding: 20px 0px;
+}
+
+.fileInputButton {
+  background-color: rgb(154, 25, 25);
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.fileInputButton:hover {
+  background-color: red;
+}
+
+.fileInput {
+  display: none;
+}
+
+@media (max-width: 550px) {
+  .titleInput {
+    min-height: 30px;
+    padding: 10px;
+  }
+
+  .descriptionInput {
+    padding: 10px;
+    min-height: 200px;
+  }
+}

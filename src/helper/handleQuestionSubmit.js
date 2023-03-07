@@ -1,11 +1,12 @@
-const handleQuestionSubmit = (e, questions, user, attachments) => {
+const handleQuestionSubmit = (e, questions, user, attachments, tags) => {
   e.preventDefault();
 
   const questionTitle = e.target[0].value;
   const questionDescription = e.target[1].value;
 
   const questionTags = [];
-  for (let i = 2; i < e.target.length; i++) {
+  for (let i = 2; i < e.target.length - 2; i++) {
+    console.log(e.target[i]);
     if (e.target[i].value !== undefined && e.target[i].value !== "")
       questionTags.push(e.target[i].value);
   }

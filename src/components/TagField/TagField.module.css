@@ -1,0 +1,30 @@
+.fieldWrapper {
+  display: flex;
+  width: 200px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.inputField {
+  width: 160px;
+  height: 40px;
+  padding: 10px;
+}
+.removeButton {
+  width: 30px;
+  height: 30px;
+  background-color: #b73e3e;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.removeButton:hover {
+  background-color: "#DD5353";
+}
