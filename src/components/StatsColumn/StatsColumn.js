@@ -1,8 +1,8 @@
 import styles from "./StatsColumn.module.css";
-import StatsCard from "../StatsCard/StatsCard";
+import StatsCard from "./StatsCard/StatsCard";
 import { useContext } from "react";
 import { UserContext } from "@/contexts/UserContext";
-import BlankCard from "../BlankCard/BlankCard";
+import BlankCard from "./BlankCard/BlankCard";
 import useLocalStorage from "@/hooks/useLocalStorage";
 
 const StatsColumn = (props) => {

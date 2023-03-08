@@ -6,7 +6,7 @@ import lato from "@/data/latoFont";
 import { SearchContext } from "@/contexts/SearchContext";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import { useEffect, useState, useContext, useMemo, useCallback } from "react";
-import SkeletonCard from "@/components/SkeletonCard/SkeletonCard";
+import SkeletonCard from "@/components/FeedBox/SkeletonCard/SkeletonCard";
 
 const FeedBox = () => {
   const [displayFeed, setDisplayFeed] = useState(false);

@@ -1,7 +1,7 @@
 import styles from "./StatsCard.module.css";
 import Link from "next/link";
 import lato from "@/data/latoFont";
-import ImageComponent from "../ImageComponent/ImageComponent";
+import ImageComponent from "../../ImageComponent/ImageComponent";
 
 const StatsCard = ({ id, title, description, attachments }) => {
   return (

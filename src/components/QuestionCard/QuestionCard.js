@@ -1,6 +1,6 @@
 import styles from "./QuestionCard.module.css";
 import lato from "@/data/latoFont";
-import ContinueReading from "../ContinueReading/ContinueReading";
+import ContinueReading from "./ContinueReading/ContinueReading";
 import QuestionHeader from "./QuestionHeader/QuestionHeader";
 import QuestionDescription from "./QuestionDescription/QuestionDescription";
 import { useState } from "react";

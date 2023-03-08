@@ -6,7 +6,7 @@ import Router from "next/router";
 import handleQuestionSubmit from "@/helper/handleQuestionSubmit";
 import lato from "@/data/latoFont";
 import { useContext, useState } from "react";
-import TagField from "../TagField/TagField";
+import TagField from "./TagField/TagField";
 
 const QuestionForm = () => {
   const [questions, setQuestions] = useLocalStorage("questions", new Map());
