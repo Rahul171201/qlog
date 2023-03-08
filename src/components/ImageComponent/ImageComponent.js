@@ -1,5 +1,6 @@
 import styles from "./ImageComponent.module.css";
 import Image from "next/image";
+import { memo } from "react";
 
 const ImageComponent = (props) => {
   return (
@@ -15,4 +16,4 @@ const ImageComponent = (props) => {
   );
 };
 
-export default ImageComponent;
+export default memo(ImageComponent);

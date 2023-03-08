@@ -1,6 +1,7 @@
 import styles from "./Logo.module.css";
 import itim from "@/data/itimFont";
 import Link from "next/link";
+import { memo } from "react";
 
 // Logo Component
 const Logo = () => {
@@ -12,4 +13,4 @@ const Logo = () => {
   );
 };
 
-export default Logo;
+export default memo(Logo);

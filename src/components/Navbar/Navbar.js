@@ -3,7 +3,7 @@ import Search from "@/components/Navbar/Search/Search";
 import styles from "./Navbar.module.css";
 import lato from "@/data/latoFont";
 import Image from "next/image";
-import { useContext, useState } from "react";
+import { memo, useContext, useState } from "react";
 import { UserContext } from "@/contexts/UserContext";
 import NavItem from "./NavItem/NavItem";
 
@@ -87,4 +87,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default memo(Navbar);
