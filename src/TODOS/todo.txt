@@ -3,3 +3,7 @@
 * Font Style not updating on first render 
 
 * Making dates dynamic
+
+* Production failed in vercel ..why?
+
+* use web workers

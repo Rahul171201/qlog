@@ -1,6 +1,7 @@
 import styles from "./QuestionHeader.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import { memo } from "react";
 
 const QuestionHeader = (props) => {
   return (
@@ -21,4 +22,4 @@ const QuestionHeader = (props) => {
   );
 };
 
-export default QuestionHeader;
+export default memo(QuestionHeader);

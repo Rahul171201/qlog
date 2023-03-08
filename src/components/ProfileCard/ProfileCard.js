@@ -3,14 +3,13 @@ import Image from "next/image";
 import { UserContext } from "@/contexts/UserContext";
 import lato from "@/data/latoFont";
 import Router from "next/router";
-import ToolTip from "../ToolTip/ToolTip";
-import { useContext, useRef, useState } from "react";
+import ToolTip from "./ToolTip/ToolTip";
+import { useContext } from "react";
 
 // Profile Card Component
 const ProfileCard = () => {
   // user context
   const { user, setUser } = useContext(UserContext);
-  const [showToolTip, setShowToolTip] = useState(false);
 
   const handleRedirect = () => {
     Router.push("/profile/edit");
@@ -18,19 +17,8 @@ const ProfileCard = () => {
 
   return (
     <div className={`${styles.profileCard} ${lato.className}`}>
-      <div
-        className={styles.editProfile}
-        onMouseEnter={() => setShowToolTip(true)}
-        onMouseLeave={() => setShowToolTip(false)}
-        onClick={handleRedirect}
-      >
-        <Image
-          src="/images/editing.png"
-          alt="edit profile"
-          width={20}
-          height={20}
-        ></Image>
-        {showToolTip ? <ToolTip></ToolTip> : <></>}
+      <div className={styles.editProfile} onClick={handleRedirect}>
+        <ToolTip></ToolTip>
       </div>
       <div className={styles.profileImageContainer}>
         <Image
@@ -61,11 +49,13 @@ const ProfileCard = () => {
               const reader = new FileReader();
               reader.readAsDataURL(profileImage.files[0]);
               reader.onload = () => {
-                user.profileImage = reader.result;
-                setUser(user);
+                const newUser = {
+                  ...user,
+                  profileImage: reader.result,
+                };
+                setUser(newUser);
               };
               e.target.value = "";
-              Router.push("/profile/" + user.userId);
             }}
           ></input>
         </div>
