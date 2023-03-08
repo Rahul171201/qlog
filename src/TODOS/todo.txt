@@ -1,0 +1,5 @@
+* Implement Lazy loading while displaying feed data
+
+* Font Style not updating on first render 
+
+* Making dates dynamic
