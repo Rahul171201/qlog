@@ -5,7 +5,7 @@ import sortQuestionArray from "@/helper/sortQuestionArray";
 import lato from "@/data/latoFont";
 import { SearchContext } from "@/contexts/SearchContext";
 import useLocalStorage from "@/hooks/useLocalStorage";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext, useMemo, useCallback } from "react";
 import SkeletonCard from "@/components/SkeletonCard/SkeletonCard";
 
 const FeedBox = () => {
@@ -24,8 +24,10 @@ const FeedBox = () => {
 
   const [questions, setQuestions] = useLocalStorage("questions", new Map());
 
-  let feedQuestions = questionFilter(questions, search_words);
-  feedQuestions = sortQuestionArray(feedQuestions);
+  const feedQuestions = useMemo(
+    () => sortQuestionArray(questionFilter(questions, search_words)),
+    [questions, search_words]
+  );
 
   useEffect(() => {
     // latency introduction in displaying feed data

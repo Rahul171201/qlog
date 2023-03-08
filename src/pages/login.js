@@ -16,7 +16,7 @@ const Login = () => {
   useEffect(() => {
     setUser(undefined);
     setSearchText(undefined);
-  }, []);
+  }, [setSearchText, setUser]);
 
   return (
     <main className={styles.loginMain}>
