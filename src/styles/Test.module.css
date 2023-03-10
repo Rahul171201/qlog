@@ -1,0 +1,15 @@
+.mainWrapper {
+  width: 100%;
+  height: 800px;
+}
+
+.userWrapper {
+  background-color: red;
+  padding: 20px;
+  margin: 20px;
+}
+
+.tempWrapper {
+  height: 100vh;
+  overflow-y: scroll;
+}

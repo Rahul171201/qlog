@@ -32,7 +32,7 @@ const useFormSubmit = (formType, dispatchForm, users) => {
         );
       }
     },
-    [dispatchForm, formType]
+    [dispatchForm, formType, users]
   );
 };
 
